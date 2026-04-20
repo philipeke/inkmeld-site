@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>InkMeld | AI Powered Tattoo Preview</title>
+  <meta name="description" content="InkMeld - See before you ink. Mind-blowing AI technology to preview your next tattoo with hyper-realistic cutouts and perfect skin blend.">
+  
+  <link rel="stylesheet" href="/css/global.css">
+  
+  <!-- Web Components & Firebase -->
+  <script type="module" src="/js/firebase-client.js"></script>
+  <script src="/js/components/navbar.js" defer></script>
+  <script src="/js/components/footer.js" defer></script>
+  <script src="/js/main.js" defer></script>
+
+  <style>
+    /* Page Specific Styles */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-top: 100px;
+      overflow: hidden;
+    }
+
+    .hero-bg-glow {
+      position: absolute;
+      width: 60vw;
+      height: 60vw;
+      background: radial-gradient(circle, rgba(0, 240, 255, 0.1) 0%, rgba(138, 43, 226, 0.05) 40%, rgba(0,0,0,0) 70%);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .hero-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      z-index: 10;
+    }
+
+    .hero-content {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      align-items: flex-start;
+    }
+
+    .hero-subtitle {
+      font-size: 1.2rem;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      color: var(--neon-cyan);
+      font-weight: 600;
+    }
+
+    .hero-text {
+      font-size: 1.2rem;
+      color: var(--text-muted);
+      max-width: 500px;
+      line-height: 1.8;
+    }
+
+    .hero-mockup-wrapper {
+      position: relative;
+      perspective: 1000px;
+    }
+
+    .hero-mockup {
+      width: 100%;
+      max-width: 450px;
+      transform: rotateY(-15deg) rotateX(5deg);
+      border-radius: 40px;
+      box-shadow: 0 30px 60px rgba(0,0,0,0.8), 0 0 50px rgba(138, 43, 226, 0.3);
+      transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    
+    .hero-mockup-wrapper:hover .hero-mockup {
+      transform: rotateY(0deg) rotateX(0deg) translateY(-10px);
+      box-shadow: 0 40px 80px rgba(0,0,0,0.9), 0 0 80px rgba(0, 240, 255, 0.4);
+    }
+
+    /* Features Section */
+    .features {
+      padding: 100px 0;
+      position: relative;
+    }
+    
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 4rem;
+    }
+
+    .feature-card {
+      padding: 3rem 2rem;
+      text-align: left;
+      transition: transform 0.3s ease, border-color 0.3s ease;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-10px);
+      border-color: var(--neon-cyan);
+      box-shadow: 0 10px 30px rgba(0, 240, 255, 0.1);
+    }
+
+    .feature-icon {
+      font-size: 3rem;
+      margin-bottom: 1.5rem;
+      background: linear-gradient(135deg, var(--neon-cyan), var(--neon-violet));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .feature-title {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: #fff;
+    }
+    
+    .feature-text {
+      color: var(--text-muted);
+    }
+
+    @media (max-width: 900px) {
+      .hero-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      .hero-content {
+        align-items: center;
+      }
+      .hero-mockup {
+        transform: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Global Shared Navbar Component -->
+  <inkmeld-navbar></inkmeld-navbar>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-bg-glow"></div>
+      <div class="container hero-container">
+        <div class="hero-content fade-in-up">
+          <div class="hero-subtitle">The Future of Body Art</div>
+          <h1 class="title-massive">See it <br>before you <span class="text-gradient">ink.</span></h1>
+          <p class="hero-text">
+            Experience the world's most advanced AI tattoo engine. Instantly overlay hyper-realistic cuts, adapt seamlessly to your body contours, and tweak opacity in real-time. Unmatched precision.
+          </p>
+          <button class="btn-primary" style="margin-top: 1rem;">Download Now</button>
+        </div>
+        
+        <div class="hero-mockup-wrapper fade-in-up" style="transition-delay: 0.2s;">
+          <!-- Using the generated mock image -->
+          <img src="assets/tattoo_app_mockup.png" alt="InkMeld AI App Mockup" class="hero-mockup">
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+      <div class="container">
+        <h2 class="title-massive text-center fade-in-up" style="font-size: 3rem; text-align: center;">Mind-Blowing <span class="text-gradient">Tech.</span></h2>
+        
+        <div class="features-grid">
+          <div class="glass-panel feature-card fade-in-up" style="transition-delay: 0.1s;">
+            <div class="feature-icon">✨</div>
+            <h3 class="feature-title">AI Cutouts</h3>
+            <p class="feature-text">Our proprietary cloud models cleanly extract tattoo designs from any image, removing backgrounds flawlessly with sub-millimeter precision.</p>
+          </div>
+          
+          <div class="glass-panel feature-card fade-in-up" style="transition-delay: 0.2s;">
+            <div class="feature-icon">👁️</div>
+            <h3 class="feature-title">Realism Engine</h3>
+            <p class="feature-text">Fine-tune the realism and opacity sliders to make the ink blend perfectly with your unique skin tone and lighting conditions.</p>
+          </div>
+          
+          <div class="glass-panel feature-card fade-in-up" style="transition-delay: 0.3s;">
+            <div class="feature-icon">⚡</div>
+            <h3 class="feature-title">Real-Time Fluidity</h3>
+            <p class="feature-text">Scale, rotate, and wrap the designs onto your body dynamically. It's so smooth and fast, it feels like the ink is already there.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Global Shared Footer Component -->
+  <inkmeld-footer></inkmeld-footer>
+
+</body>
+</html>
