@@ -3,67 +3,80 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Privacy Policy | InkMeld AI</title>
+  <title>Privacy Policy | InkMeld</title>
+  <meta name="description" content="Read the InkMeld privacy policy covering personal data, uploaded images, analytics, and account security.">
   <link rel="stylesheet" href="/css/global.css">
-  
+  <link rel="icon" type="image/png" href="/assets/logo-launcher-256.png">
+
   <script type="module" src="/js/firebase-client.js"></script>
   <script src="/js/components/navbar.js" defer></script>
   <script src="/js/components/footer.js" defer></script>
   <script src="/js/main.js" defer></script>
-
-  <style>
-    .page-header {
-      text-align: center;
-      margin-bottom: 3rem;
-    }
-    .content-box {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 3rem;
-    }
-    .content-box h2 {
-      margin-top: 2rem;
-      margin-bottom: 1rem;
-    }
-  </style>
 </head>
 <body>
+  <div class="scroll-progress" aria-hidden="true"></div>
+
   <inkmeld-navbar></inkmeld-navbar>
 
-  <main class="page-wrapper">
-    <div class="container fade-in-up">
-      <div class="page-header">
-        <h1 class="title-massive" style="font-size: 3rem;">Privacy Policy</h1>
-        <p class="text-muted">Last Updated: April 2026</p>
+  <main class="page-shell">
+    <section class="page-hero">
+      <div class="container">
+        <article class="panel page-hero-inner reveal">
+          <span class="page-pill">Legal / Privacy</span>
+          <h1 class="page-title">Privacy Policy</h1>
+          <p class="page-copy">
+            Last updated: April 2026. This page explains how InkMeld and OakDev & AI AB collect, use, and safeguard data
+            connected to the website and mobile app.
+          </p>
+        </article>
       </div>
+    </section>
 
-      <div class="glass-panel content-box text-content">
-        <h2>1. Introduction</h2>
-        <p>OakDev & AI AB ("we", "our", or "us") respects your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our InkMeld AI mobile application and website.</p>
-        
-        <h2>2. Information We Collect</h2>
-        <p>We may collect information about you in a variety of ways. The information we may collect includes:</p>
-        <ul>
-          <li><strong>Personal Data:</strong> Email address, name (if provided).</li>
-          <li><strong>Image Data:</strong> Photos uploaded for tattoo previews are processed securely. We do not permanently store your photos unless explicitly saved by you within your account cloud.</li>
-          <li><strong>Usage Data:</strong> Analytical data on how you interact with the app.</li>
-        </ul>
+    <section>
+      <div class="container legal-stack">
+        <article class="panel legal-panel reveal">
+          <h2>1. Introduction</h2>
+          <p>
+            OakDev & AI AB ("we", "our", or "us") respects your privacy. This Privacy Policy explains how we collect, use,
+            disclose, and safeguard your information when you use our InkMeld website and mobile application.
+          </p>
+        </article>
 
-        <h2>3. How We Use Your Information</h2>
-        <p>Having accurate information about you permits us to provide you with a smooth, efficient, and customized experience. Specifically, we may use information collected about you via the Application to:</p>
-        <ul>
-          <li>Process AI background removals and image overlay functionality.</li>
-          <li>Manage your digital credits and purchases securely via Firebase and App Store receipts.</li>
-          <li>Improve our AI models (only using anonymized, opt-in data).</li>
-        </ul>
+        <article class="panel legal-panel reveal">
+          <h2>2. Information We Collect</h2>
+          <ul>
+            <li><strong>Personal data:</strong> email address, name, and other details you provide voluntarily.</li>
+            <li><strong>Image data:</strong> photos uploaded for tattoo previews are processed to generate previews and cutouts.</li>
+            <li><strong>Usage data:</strong> analytics and technical information about how the app and site are used.</li>
+          </ul>
+        </article>
 
-        <h2>4. Data Security</h2>
-        <p>We use administrative, technical, and physical security measures to help protect your personal information, primarily relying on Google Firebase's industry-standard infrastructure.</p>
-        
-        <h2>5. Contact Us</h2>
-        <p>If you have questions or comments about this Privacy Policy, please contact us at: support@inkmeld.ai</p>
+        <article class="panel legal-panel reveal">
+          <h2>3. How We Use Your Information</h2>
+          <ul>
+            <li>To process AI background removal and tattoo preview functionality.</li>
+            <li>To manage subscriptions, credits, and purchase verification.</li>
+            <li>To improve the app, site, and support experience.</li>
+            <li>To comply with legal obligations and prevent abuse or fraud.</li>
+          </ul>
+        </article>
+
+        <article class="panel legal-panel reveal">
+          <h2>4. Data Security</h2>
+          <p>
+            We use administrative, technical, and physical security measures intended to help protect your information,
+            including infrastructure provided by third-party platforms such as Google Firebase where relevant.
+          </p>
+        </article>
+
+        <article class="panel legal-panel reveal">
+          <h2>5. Contact</h2>
+          <p>
+            Questions about privacy can be sent to <a href="mailto:support@inkmeld.ai">support@inkmeld.ai</a>.
+          </p>
+        </article>
       </div>
-    </div>
+    </section>
   </main>
 
   <inkmeld-footer></inkmeld-footer>

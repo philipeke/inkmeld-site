@@ -3,72 +3,84 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Terms of Service | InkMeld AI</title>
+  <title>Terms of Service | InkMeld</title>
+  <meta name="description" content="Read the InkMeld terms of service for app usage, license terms, credits, and limitations.">
   <link rel="stylesheet" href="/css/global.css">
-  
+  <link rel="icon" type="image/png" href="/assets/logo-launcher-256.png">
+
   <script type="module" src="/js/firebase-client.js"></script>
   <script src="/js/components/navbar.js" defer></script>
   <script src="/js/components/footer.js" defer></script>
   <script src="/js/main.js" defer></script>
-
-  <style>
-    .page-header {
-      text-align: center;
-      margin-bottom: 3rem;
-    }
-    .content-box {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 3rem;
-    }
-    .content-box h2 {
-      margin-top: 2rem;
-      margin-bottom: 1rem;
-    }
-    ul {
-      margin-left: 2rem;
-      margin-bottom: 1rem;
-    }
-  </style>
 </head>
 <body>
+  <div class="scroll-progress" aria-hidden="true"></div>
+
   <inkmeld-navbar></inkmeld-navbar>
 
-  <main class="page-wrapper">
-    <div class="container fade-in-up">
-      <div class="page-header">
-        <h1 class="title-massive" style="font-size: 3rem;">Terms of Service</h1>
-        <p class="text-muted">Last Updated: April 2026</p>
+  <main class="page-shell">
+    <section class="page-hero">
+      <div class="container">
+        <article class="panel page-hero-inner reveal">
+          <span class="page-pill">Legal / Terms</span>
+          <h1 class="page-title">Terms of Service</h1>
+          <p class="page-copy">
+            Last updated: April 2026. These terms describe how InkMeld may be used and what rules apply to app access,
+            purchases, and service limitations.
+          </p>
+        </article>
       </div>
+    </section>
 
-      <div class="glass-panel content-box text-content">
-        <h2>1. Acceptance of Terms</h2>
-        <p>By downloading, accessing, or using InkMeld AI, you agree to be bound by these Terms of Service. If you do not agree with any part of these terms, you must not use our services.</p>
-        
-        <h2>2. Use License</h2>
-        <p>Permission is granted to temporarily download one copy of the InkMeld AI app for personal, non-commercial use. This is the grant of a license, not a transfer of title, and under this license you may not:</p>
-        <ul>
-          <li>Modify or copy the materials;</li>
-          <li>Use the materials for any commercial purpose, or for any public display;</li>
-          <li>Attempt to decompile or reverse engineer any software contained in InkMeld AI;</li>
-          <li>Remove any copyright or other proprietary notations from the materials;</li>
-        </ul>
+    <section>
+      <div class="container legal-stack">
+        <article class="panel legal-panel reveal">
+          <h2>1. Acceptance of Terms</h2>
+          <p>
+            By downloading, accessing, or using InkMeld, you agree to be bound by these Terms of Service. If you do not
+            agree, you must not use the service.
+          </p>
+        </article>
 
-        <h2>3. In-App Purchases and Credits</h2>
-        <p>InkMeld AI operates on a credit system for high-resolution AI processing.</p>
-        <ul>
-          <li>Credits purchased via the App Store or Google Play are non-refundable unless required by applicable law.</li>
-          <li>Credits do not expire as long as your account remains active.</li>
-        </ul>
+        <article class="panel legal-panel reveal">
+          <h2>2. Use License</h2>
+          <p>
+            Permission is granted to use InkMeld for personal, non-commercial previewing unless otherwise agreed in writing.
+            This is a license, not a transfer of ownership.
+          </p>
+          <ul>
+            <li>Do not attempt to reverse engineer the software or related systems.</li>
+            <li>Do not remove copyright or proprietary notices.</li>
+            <li>Do not use the service in a way that violates applicable law.</li>
+          </ul>
+        </article>
 
-        <h2>4. Disclaimer</h2>
-        <p>The materials within InkMeld AI are provided on an 'as is' basis. OakDev & AI AB makes no warranties, expressed or implied, and hereby disclaims and negates all other warranties including, without limitation, implied warranties or conditions of merchantability, fitness for a particular purpose, or non-infringement of intellectual property.</p>
+        <article class="panel legal-panel reveal">
+          <h2>3. In-App Purchases and Credits</h2>
+          <ul>
+            <li>InkMeld may use a credit-based system for AI processing.</li>
+            <li>Credits purchased through app stores are generally non-refundable unless required by law.</li>
+            <li>Purchase verification may occur before credits are granted.</li>
+          </ul>
+        </article>
 
-        <h2>5. Limitations</h2>
-        <p>In no event shall OakDev & AI AB or its suppliers be liable for any damages (including, without limitation, damages for loss of data or profit, or due to business interruption) arising out of the use or inability to use InkMeld AI.</p>
-        
+        <article class="panel legal-panel reveal">
+          <h2>4. Disclaimer</h2>
+          <p>
+            InkMeld is provided on an "as is" basis without warranties of any kind, whether express or implied, except where
+            such warranties cannot be excluded under applicable law.
+          </p>
+        </article>
+
+        <article class="panel legal-panel reveal">
+          <h2>5. Limitation of Liability</h2>
+          <p>
+            To the maximum extent permitted by law, OakDev & AI AB shall not be liable for indirect, incidental, or
+            consequential damages arising from use of or inability to use InkMeld.
+          </p>
+        </article>
       </div>
-    </div>
+    </section>
   </main>
 
   <inkmeld-footer></inkmeld-footer>

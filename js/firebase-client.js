@@ -1,30 +1,34 @@
-// Import the functions you need from the SDKs you need
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-app.js";
-import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-analytics.js";
+import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.9.0/firebase-app.js';
+import { getAnalytics, isSupported } from 'https://www.gstatic.com/firebasejs/10.9.0/firebase-analytics.js';
 
-// TODO: Replace with actual Firebase config from Firebase Console that matches inkmeld-ai
 const firebaseConfig = {
-  // Using standard placeholder structure mapped to your project
-  projectId: "inkmeld-ai",
-  // Ensure you add apiKey, appId, etc once available
-  // apiKey: "API_KEY",
-  // authDomain: "inkmeld-ai.firebaseapp.com",
-  // storageBucket: "inkmeld-ai.appspot.com",
-  // messagingSenderId: "SENDER_ID",
-  // appId: "APP_ID",
-  // measurementId: "G-MEASUREMENT_ID"
+  projectId: 'inkmeld-ai'
 };
 
-// Initialize Firebase
-let app;
-let analytics;
+const requiredKeys = ['apiKey', 'appId', 'authDomain', 'messagingSenderId'];
+const hasUsableConfig = requiredKeys.every((key) => Boolean(firebaseConfig[key]));
 
-try {
-  app = initializeApp(firebaseConfig);
-  analytics = getAnalytics(app);
-  console.log("🔥 Firebase Initialized successfully");
-} catch (error) {
-  console.error("🔥 Firebase initialization error (check config):", error);
+let app = null;
+let analytics = null;
+
+if (hasUsableConfig) {
+  try {
+    app = initializeApp(firebaseConfig);
+
+    isSupported()
+      .then((supported) => {
+        if (supported && app) {
+          analytics = getAnalytics(app);
+        }
+      })
+      .catch(() => {
+        analytics = null;
+      });
+  } catch (error) {
+    console.error('Firebase initialization failed:', error);
+  }
+} else {
+  console.info('Firebase analytics skipped: config is still placeholder-only.');
 }
 
 export { app, analytics };

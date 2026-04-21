@@ -3,71 +3,83 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Delete Account | InkMeld AI</title>
+  <title>Delete Account | InkMeld</title>
+  <meta name="description" content="Request deletion of your InkMeld account and understand the account removal process.">
   <link rel="stylesheet" href="/css/global.css">
-  
+  <link rel="icon" type="image/png" href="/assets/logo-launcher-256.png">
+
   <script type="module" src="/js/firebase-client.js"></script>
   <script src="/js/components/navbar.js" defer></script>
   <script src="/js/components/footer.js" defer></script>
   <script src="/js/main.js" defer></script>
-
-  <style>
-    .page-header {
-      text-align: center;
-      margin-bottom: 3rem;
-    }
-    .content-box {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 3rem;
-      border-color: rgba(255, 0, 60, 0.3); /* Slight red tint for deletion page */
-    }
-    
-    .danger-btn {
-      background: linear-gradient(135deg, #ff003c, #8a0000);
-      margin-top: 2rem;
-    }
-    .danger-btn:hover {
-      box-shadow: 0 0 30px rgba(255, 0, 60, 0.6);
-    }
-    .danger-btn::before {
-      background: linear-gradient(135deg, #ff003c, #ff5e00);
-    }
-  </style>
 </head>
 <body>
+  <div class="scroll-progress" aria-hidden="true"></div>
+
   <inkmeld-navbar></inkmeld-navbar>
 
-  <main class="page-wrapper">
-    <div class="container fade-in-up">
-      <div class="page-header">
-        <h1 class="title-massive" style="font-size: 3rem;">Delete <span style="color: var(--neon-magenta)">Account</span></h1>
-        <p class="text-muted">Manage your data and account presence.</p>
+  <main class="page-shell">
+    <section class="page-hero">
+      <div class="container">
+        <article class="panel page-hero-inner reveal">
+          <span class="page-pill">Account Management</span>
+          <h1 class="page-title">Delete your InkMeld account</h1>
+          <p class="page-copy">
+            If you want to permanently remove your InkMeld account and associated data, use the in-app flow or send a deletion
+            request from the email address linked to your account.
+          </p>
+        </article>
       </div>
+    </section>
 
-      <div class="glass-panel content-box">
-        <h2>We're sad to see you go</h2>
-        <p>If you'd like to completely remove your account and all associated data from InkMeld AI, you can do so directly from the mobile app or request it here.</p>
-        
-        <br>
-        <h3>How to delete via App</h3>
-        <ol style="margin-left: 2rem; margin-top: 1rem; margin-bottom: 2rem;">
-          <li>Open the InkMeld app and go to Settings.</li>
-          <li>Tap on "Account Management".</li>
-          <li>Select "Delete Account".</li>
-          <li>Confirm your choice. Your data will be deleted within 30 days.</li>
-        </ol>
+    <section>
+      <div class="container legal-stack">
+        <article class="danger-card reveal">
+          <h2 class="card-title">Important</h2>
+          <p class="card-copy">
+            Account deletion is intended to be permanent. If you simply need help accessing your account, contact support first.
+          </p>
+        </article>
 
-        <h3>Request Deletion</h3>
-        <p>If you no longer have access to the app, you can enter your email to request deletion.</p>
-        
-        <!-- Placeholder form for UI purposes -->
-        <form style="display: flex; flex-direction: column; gap: 1rem; margin-top: 2rem;">
-          <input type="email" placeholder="Your registered email address" style="padding: 1rem; border-radius: 8px; background: rgba(0,0,0,0.5); border: 1px solid var(--glass-border); color: white; width: 100%; font-family: var(--font-body);">
-          <button type="submit" class="btn-primary danger-btn" onclick="event.preventDefault(); alert('Request sent. You will receive an email confirmation shortly.')">Submit Deletion Request</button>
-        </form>
+        <article class="panel legal-panel reveal">
+          <h2>Delete from the app</h2>
+          <ol>
+            <li>Open the InkMeld app.</li>
+            <li>Go to Settings.</li>
+            <li>Open Account Management.</li>
+            <li>Select Delete Account and confirm the request.</li>
+          </ol>
+        </article>
+
+        <article class="panel legal-panel reveal">
+          <h2>Delete by email</h2>
+          <p>
+            If you cannot access the app, send your deletion request from the email address associated with the account.
+            We recommend including the subject line "Delete InkMeld account".
+          </p>
+
+          <form class="inline-form" data-delete-form>
+            <input
+              class="input-shell"
+              type="email"
+              name="email"
+              placeholder="Your registered InkMeld email"
+              data-delete-email
+              required
+            >
+            <button type="submit" class="btn-primary" data-delete-submit>Open deletion email</button>
+          </form>
+        </article>
+
+        <article class="note-card reveal">
+          <h2 class="card-title">Need help instead?</h2>
+          <p class="card-copy">
+            If the issue is billing, login, or credits rather than permanent deletion, use the <a href="/support">Support Hub</a>
+            and we will help you recover the account first.
+          </p>
+        </article>
       </div>
-    </div>
+    </section>
   </main>
 
   <inkmeld-footer></inkmeld-footer>
