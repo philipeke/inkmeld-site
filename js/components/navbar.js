@@ -21,7 +21,11 @@ class InkmeldNavbar extends HTMLElement {
           <div class="nav-panel">
             <div class="nav-links">
               <a href="/#experience" data-nav-key="experience">Experience</a>
+              <a href="/#use-cases" data-nav-key="use-cases">Use Cases</a>
+              <a href="/#gallery" data-nav-key="gallery">Visuals</a>
               <a href="/#studio" data-nav-key="studio">Studio</a>
+              <a href="/#plans" data-nav-key="plans">Plans</a>
+              <a href="/#future" data-nav-key="future">Roadmap</a>
               <a href="/#faq" data-nav-key="faq">FAQ</a>
               <a href="/support" data-nav-key="support">Support</a>
             </div>
@@ -119,7 +123,7 @@ class InkmeldNavbar extends HTMLElement {
     updateActiveLink();
 
     if (path === '/' || path === '/index.html') {
-      const observedSections = ['experience', 'studio', 'faq']
+      const observedSections = ['experience', 'use-cases', 'gallery', 'studio', 'plans', 'future', 'faq']
         .map((id) => document.getElementById(id))
         .filter(Boolean);
 

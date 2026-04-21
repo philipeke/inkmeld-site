@@ -6,6 +6,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const progressBar = document.querySelector('.scroll-progress');
   const tiltItems = document.querySelectorAll('[data-tilt]');
   const studioButtons = document.querySelectorAll('[data-studio-mode]');
+  const realitySlider = document.querySelector('[data-reality-slider]');
+  const realityValue = document.querySelector('[data-reality-value]');
+  const simulatedImage = document.querySelector('[data-simulated-image]');
   const deleteForm = document.querySelector('[data-delete-form]');
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const finePointer = window.matchMedia('(pointer: fine)').matches;
@@ -230,6 +233,19 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   applyStudioPreset('classic_black');
+
+  if (realitySlider && realityValue && simulatedImage) {
+    const updateSimulation = () => {
+      const value = Number(realitySlider.value);
+      const normalized = value / 100;
+
+      simulatedImage.style.opacity = String(Math.max(0.08, normalized));
+      realityValue.textContent = `${value}%`;
+    };
+
+    realitySlider.addEventListener('input', updateSimulation);
+    updateSimulation();
+  }
 
   if (deleteForm) {
     deleteForm.addEventListener('submit', (event) => {

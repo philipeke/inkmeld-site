@@ -32,8 +32,12 @@ class InkmeldFooter extends HTMLElement {
               <div class="footer-column">
                 <h3>Product</h3>
                 <a href="/#experience">Experience</a>
+                <a href="/#use-cases">Use Cases</a>
                 <a href="/#workflow">Workflow</a>
+                <a href="/#gallery">Visuals</a>
                 <a href="/#studio">Studio</a>
+                <a href="/#plans">Plans</a>
+                <a href="/#future">Roadmap</a>
                 <a href="/#faq">FAQ</a>
               </div>
 
