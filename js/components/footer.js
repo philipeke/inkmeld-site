@@ -15,7 +15,7 @@ class InkmeldFooter extends HTMLElement {
 
                 <a href="/" class="nav-brand" aria-label="InkMeld home">
                   <span class="nav-brand-mark">
-                    <img src="/assets/logo-launcher-256.png" alt="InkMeld logo">
+                    <img src="/assets/logo-launcher-256.png" alt="InkMeld logo" width="256" height="256" decoding="async">
                   </span>
                   <span class="nav-brand-copy">
                     <span>InkMeld</span>

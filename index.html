@@ -20,6 +20,7 @@
   <meta name="twitter:description" content="See the tattoo before the commitment with AI cutouts, skin-aware placement, and studio-grade realism controls.">
   <meta name="twitter:image" content="https://inkmeld.oakdev.app/assets/mainlogo-premium-dark.png">
 
+  <script>document.documentElement.classList.add('js');</script>
   <link rel="stylesheet" href="/css/global.css">
   <link rel="canonical" href="https://inkmeld.oakdev.app/">
   <link rel="icon" type="image/png" href="/assets/logo-launcher-256.png">
@@ -53,7 +54,7 @@
 
   <inkmeld-navbar></inkmeld-navbar>
 
-  <main>
+  <main id="main-content">
     <section class="hero-section">
       <div class="container hero-grid">
         <div class="hero-copy reveal">
@@ -102,11 +103,15 @@
               src="/assets/tattoo_app_mockup.png"
               alt="InkMeld mobile app showing a futuristic tattoo preview on an arm"
               class="hero-device"
+              width="1024"
+              height="1024"
+              fetchpriority="high"
+              decoding="async"
             >
 
             <div class="floating-tag floating-tag--left">
               <div class="floating-tag__row">
-                <img src="/assets/logo-launcher-256.png" alt="InkMeld launcher icon" class="floating-icon">
+                <img src="/assets/logo-launcher-256.png" alt="InkMeld launcher icon" class="floating-icon" width="256" height="256" decoding="async">
                 <div>
                   <strong>Skin-aware placement</strong>
                   <span>Built around real body photos</span>
@@ -292,7 +297,7 @@
 
           <div class="studio-canvas">
             <div class="studio-screen">
-              <img src="/assets/tattoo_app_mockup.png" alt="InkMeld app interface" loading="lazy">
+              <img src="/assets/tattoo_app_mockup.png" alt="InkMeld app interface" loading="lazy" width="1024" height="1024" decoding="async">
 
               <div class="screen-badge screen-badge--blend">
                 <strong data-studio-blend>Multiply</strong>
@@ -440,6 +445,9 @@
             alt="InkMeld brand artwork featuring the metallic knot mark in a neon chamber"
             class="brand-scene"
             loading="lazy"
+            width="1536"
+            height="1024"
+            decoding="async"
           >
         </article>
 

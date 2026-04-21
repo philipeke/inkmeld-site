@@ -1,10 +1,14 @@
 document.addEventListener('DOMContentLoaded', () => {
+  document.documentElement.classList.add('js-ready');
+
   const revealItems = document.querySelectorAll('.reveal');
   const countItems = document.querySelectorAll('[data-count]');
   const progressBar = document.querySelector('.scroll-progress');
   const tiltItems = document.querySelectorAll('[data-tilt]');
   const studioButtons = document.querySelectorAll('[data-studio-mode]');
   const deleteForm = document.querySelector('[data-delete-form]');
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const finePointer = window.matchMedia('(pointer: fine)').matches;
 
   const studioPresets = {
     classic_black: {
@@ -100,8 +104,17 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   );
 
-  revealItems.forEach((item) => revealObserver.observe(item));
-  countItems.forEach((item) => revealObserver.observe(item));
+  if (reduceMotion) {
+    revealItems.forEach((item) => item.classList.add('is-visible'));
+    countItems.forEach((item) => {
+      if (item.getAttribute('data-count')) {
+        item.textContent = item.getAttribute('data-count');
+      }
+    });
+  } else {
+    revealItems.forEach((item) => revealObserver.observe(item));
+    countItems.forEach((item) => revealObserver.observe(item));
+  }
 
   function animateCount(element) {
     const target = Number(element.getAttribute('data-count'));
@@ -138,25 +151,27 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('scroll', updateProgress, { passive: true });
   updateProgress();
 
-  tiltItems.forEach((item) => {
-    item.addEventListener('pointermove', (event) => {
-      const rect = item.getBoundingClientRect();
-      const percentX = (event.clientX - rect.left) / rect.width;
-      const percentY = (event.clientY - rect.top) / rect.height;
-      const rotateY = (percentX - 0.5) * 8;
-      const rotateX = (0.5 - percentY) * 8;
+  if (!reduceMotion && finePointer) {
+    tiltItems.forEach((item) => {
+      item.addEventListener('pointermove', (event) => {
+        const rect = item.getBoundingClientRect();
+        const percentX = (event.clientX - rect.left) / rect.width;
+        const percentY = (event.clientY - rect.top) / rect.height;
+        const rotateY = (percentX - 0.5) * 8;
+        const rotateX = (0.5 - percentY) * 8;
 
-      item.style.transform = `perspective(1200px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-      item.style.setProperty('--pointer-x', `${percentX * 100}%`);
-      item.style.setProperty('--pointer-y', `${percentY * 100}%`);
-    });
+        item.style.transform = `perspective(1200px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+        item.style.setProperty('--pointer-x', `${percentX * 100}%`);
+        item.style.setProperty('--pointer-y', `${percentY * 100}%`);
+      });
 
-    item.addEventListener('pointerleave', () => {
-      item.style.transform = '';
-      item.style.removeProperty('--pointer-x');
-      item.style.removeProperty('--pointer-y');
+      item.addEventListener('pointerleave', () => {
+        item.style.transform = '';
+        item.style.removeProperty('--pointer-x');
+        item.style.removeProperty('--pointer-y');
+      });
     });
-  });
+  }
 
   const studioFields = {
     preset: document.querySelector('[data-studio-preset]'),
