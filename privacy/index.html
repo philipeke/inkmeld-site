@@ -4,16 +4,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Privacy Policy | InkMeld</title>
-  <meta name="description" content="Read the InkMeld privacy policy covering personal data, uploaded images, analytics, and account security.">
+  <meta name="description" content="Read InkMeld's detailed privacy policy covering body photos, tattoo uploads, AI cutouts, anonymous accounts, cloud sync, purchases, ads, diagnostics, cookies, transfers, and your privacy rights.">
   <meta name="theme-color" content="#050816">
   <meta property="og:title" content="Privacy Policy | InkMeld">
-  <meta property="og:description" content="Read the InkMeld privacy policy covering personal data, uploaded images, analytics, and account security.">
+  <meta property="og:description" content="Read InkMeld's detailed privacy policy covering body photos, tattoo uploads, AI cutouts, anonymous accounts, cloud sync, purchases, ads, diagnostics, cookies, transfers, and your privacy rights.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://inkmeld.oakdev.app/privacy">
   <meta property="og:image" content="https://inkmeld.oakdev.app/assets/mainlogo-premium-dark.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Privacy Policy | InkMeld">
-  <meta name="twitter:description" content="Read the InkMeld privacy policy covering personal data, uploaded images, analytics, and account security.">
+  <meta name="twitter:description" content="Read InkMeld's detailed privacy policy covering body photos, tattoo uploads, AI cutouts, anonymous accounts, cloud sync, purchases, ads, diagnostics, cookies, transfers, and your privacy rights.">
   <meta name="twitter:image" content="https://inkmeld.oakdev.app/assets/mainlogo-premium-dark.png">
   <script>document.documentElement.classList.add('js');</script>
   <link rel="stylesheet" href="/css/global.css">
@@ -39,8 +39,14 @@
           <span class="page-pill">Legal / Privacy</span>
           <h1 class="page-title">Privacy Policy</h1>
           <p class="page-copy">
-            Last updated: April 2026. This page explains how InkMeld and OakDev & AI AB collect, use, and safeguard data
-            connected to the website and mobile app.
+            Last updated: April 22, 2026. This Privacy Policy explains in detail how InkMeld and OakDev &amp; AI AB collect,
+            use, store, protect, transfer, disclose, and delete personal data connected to the InkMeld website, mobile app,
+            support channels, billing flows, AI image-processing features, and related business operations.
+          </p>
+          <p class="page-copy">
+            This notice is intentionally detailed. It is designed to describe what the service does today, what may happen
+            when optional features are turned on, and what rights you may have depending on where you live. If mandatory law
+            gives you stronger rights than this policy, that law controls.
           </p>
         </article>
       </div>
@@ -48,46 +54,966 @@
 
     <section>
       <div class="container legal-stack">
-        <article class="panel legal-panel reveal">
-          <h2>1. Introduction</h2>
+        <article id="summary" class="panel legal-panel reveal">
+          <h2>1. Privacy At A Glance</h2>
           <p>
-            OakDev & AI AB ("we", "our", or "us") respects your privacy. This Privacy Policy explains how we collect, use,
-            disclose, and safeguard your information when you use our InkMeld website and mobile application.
+            InkMeld is an AI-powered tattoo preview service. It lets you import or capture body photos, import tattoo designs,
+            generate cutouts, place artwork on body images, tune realism, export previews, and optionally sync certain library
+            data between devices. Most creative content can remain on your device unless and until you choose a feature that
+            needs cloud processing, synchronization, support, diagnostics, billing validation, advertising, or analytics.
           </p>
-        </article>
-
-        <article class="panel legal-panel reveal">
-          <h2>2. Information We Collect</h2>
           <ul>
-            <li><strong>Personal data:</strong> email address, name, and other details you provide voluntarily.</li>
-            <li><strong>Image data:</strong> photos uploaded for tattoo previews are processed to generate previews and cutouts.</li>
-            <li><strong>Usage data:</strong> analytics and technical information about how the app and site are used.</li>
+            <li><strong>By default, the app creates a Firebase user session</strong> so credits, purchases, and security controls can work. That session may begin anonymously and later be linked to Google or Apple.</li>
+            <li><strong>If you use AI cutout or background removal</strong>, the image you choose is sent through the InkMeld backend and to configured AI-processing providers so the requested output can be generated.</li>
+            <li><strong>If you use cloud sync</strong>, body photos, tattoo source files, cutouts, and certain preset metadata may be uploaded to Firebase Storage and Firestore under your user account.</li>
+            <li><strong>If you make purchases</strong>, Apple or Google process the payment and InkMeld may verify receipts or purchase tokens server-side before credits or premium entitlements are granted.</li>
+            <li><strong>If you use the free tier</strong>, the app may request consent for advertising and tracking-related permissions and may show personalized or non-personalized ads where legally and technically permitted.</li>
+            <li><strong>If you use the website</strong>, you may choose to contact us by email, open a deletion request, or read legal pages. Website analytics tooling may also be enabled in some deployments, subject to applicable cookie and consent rules.</li>
           </ul>
         </article>
 
-        <article class="panel legal-panel reveal">
-          <h2>3. How We Use Your Information</h2>
+        <article id="controller" class="panel legal-panel reveal">
+          <h2>2. Data Controller And Scope</h2>
+          <p>
+            Unless a specific contract, marketplace page, app store disclosure, or jurisdiction-specific notice states
+            otherwise, OakDev &amp; AI AB ("OakDev", "InkMeld", "we", "our", or "us") is the controller responsible for the
+            personal data covered by this policy in connection with the InkMeld website, mobile applications, legal pages,
+            account and support flows, purchase verification flows, cloud sync flows, and related product operations.
+          </p>
+          <p>
+            This policy covers personal data we process when you:
+          </p>
           <ul>
-            <li>To process AI background removal and tattoo preview functionality.</li>
-            <li>To manage subscriptions, credits, and purchase verification.</li>
-            <li>To improve the app, site, and support experience.</li>
-            <li>To comply with legal obligations and prevent abuse or fraud.</li>
+            <li>visit the InkMeld website or our legal/support pages;</li>
+            <li>contact us by email, support, waitlist, or deletion request;</li>
+            <li>download, install, open, or use the InkMeld mobile app;</li>
+            <li>import images, capture body photos, create previews, export images, or use AI-assisted cutout features;</li>
+            <li>link an anonymous session to Google or Apple sign-in;</li>
+            <li>buy credits, premium access, or restore purchases;</li>
+            <li>choose to upload, restore, or delete cloud-synced content;</li>
+            <li>receive ads or interact with consent and privacy options in the free version; or</li>
+            <li>otherwise communicate with us, our processors, or the infrastructure that delivers the service.</li>
+          </ul>
+          <p>
+            This policy does not override the privacy practices of app stores, mobile operating systems, email providers,
+            ad networks, payment platforms, or third-party sites, apps, or services that you choose to use independently. Those
+            third parties may act as independent controllers for their own purposes.
+          </p>
+        </article>
+
+        <article id="implementation" class="panel legal-panel reveal">
+          <h2>3. Implementation-Specific Transparency</h2>
+          <p>
+            As part of preparing this notice, we reviewed the current InkMeld website project and the current local InkMeld app
+            codebase on April 22, 2026. That review indicated, among other things, that:
+          </p>
+          <ul>
+            <li>the mobile app signs users in with Firebase Authentication at startup and may begin with anonymous authentication;</li>
+            <li>the app can later link that user session to Google or Apple sign-in;</li>
+            <li>the app uses Firebase App Check, Firebase Crashlytics, Firebase Performance, Firestore, and Firebase Storage in connection with app functionality;</li>
+            <li>the AI cutout feature sends selected image bytes to an InkMeld backend endpoint protected by Firebase authentication and App Check;</li>
+            <li>the backend for AI cutout is configured in the app stack to run in <strong>europe-north1</strong> and uses Replicate-based background removal before returning processed PNG output;</li>
+            <li>the app requests camera, photo/media library, and photo-library-save permissions, and on iOS may request tracking authorization for ad personalization in the free version;</li>
+            <li>the app includes Google Mobile Ads consent handling and privacy options, and premium users are intended to be ad-free;</li>
+            <li>the app supports manual cloud upload/download of tattoo library items, body photos, and editor presets;</li>
+            <li>purchase verification is designed to call Google Play or Apple receipt-verification endpoints before granting entitlements; and</li>
+            <li>the website contains Firebase Analytics scaffolding, but in the website code reviewed here analytics initialization is skipped unless full Firebase configuration values are supplied.</li>
+          </ul>
+          <p>
+            Product behavior may evolve over time. If we materially change what data we collect or how we process it, we may
+            update this policy, publish additional notices, request new permissions, or seek additional consent where required.
+          </p>
+        </article>
+
+        <article id="categories" class="panel legal-panel reveal">
+          <h2>4. Categories Of Personal Data We May Collect</h2>
+
+          <h3>4.1 Account, session, and identity data</h3>
+          <p>
+            We may process account and identity-related data such as a Firebase user identifier, anonymous session identifier,
+            linked account identifiers, email address, display name, Apple relay email, sign-in provider, authentication events,
+            and status information showing whether your account is anonymous or linked.
+          </p>
+
+          <h3>4.2 Images and user-submitted creative content</h3>
+          <p>
+            We may process body photos, tattoo reference images, sketches, logos, screenshots, traced masks, cropped selections,
+            AI input images, generated cutouts, edited previews, exports, saved presets, and files you choose to share with us
+            for support or troubleshooting.
+          </p>
+
+          <h3>4.3 Purchase, subscription, entitlement, and credit data</h3>
+          <p>
+            We may process product identifiers, platform information, purchase identifiers, order IDs, original transaction IDs,
+            server verification data, receipt status, credits granted, credits balance, monthly quota, monthly usage, premium plan
+            status, restore events, billing event type, and related anti-fraud or reconciliation records.
+          </p>
+
+          <h3>4.4 Diagnostics, device, technical, and security data</h3>
+          <p>
+            We may process device type, operating system, app version, platform, language, timestamps, performance traces, crash
+            reports, error logs, authentication state changes, App Check verification status, HTTP headers, content type, bytes
+            uploaded and downloaded, request metadata, usage logs, and other diagnostic or abuse-prevention signals.
+          </p>
+
+          <h3>4.5 Cloud sync and storage metadata</h3>
+          <p>
+            If you use cloud features, we may process remote storage paths, sync versions, upload and download timestamps,
+            deletion tombstones, preset metadata, content signatures, sync state, and other records necessary to merge or restore
+            content across devices and to handle conflict resolution or deletions.
+          </p>
+
+          <h3>4.6 Consent, advertising, and tracking-related data</h3>
+          <p>
+            In the free version, and depending on region, platform, and configuration, we may process ad-consent choices,
+            privacy-options choices, whether personalized ads are allowed, iOS App Tracking Transparency authorization status,
+            ad requests, and limited ad-related technical identifiers made available through the relevant SDKs and platforms.
+          </p>
+
+          <h3>4.7 Support, legal, and communication data</h3>
+          <p>
+            We may process the contents of emails, support requests, deletion requests, screenshots, attachments, billing
+            complaints, bug reports, waitlist inquiries, account-recovery messages, and any other information you decide to send
+            us directly.
+          </p>
+
+          <h3>4.8 Website and cookie data</h3>
+          <p>
+            When you use the website, we may process standard web request data such as IP address, browser type, device
+            information, referring page, approximate region, timestamps, page views, and cookie or local-storage information
+            where analytics, security, or preference tools are enabled and legally allowed.
+          </p>
+
+          <h3>4.9 Data about other people</h3>
+          <p>
+            If you upload or share images containing another person, client, customer, or model, we may incidentally process
+            that person's personal data too. You are responsible for ensuring that you have all rights, permissions, notices, and
+            consents needed before submitting third-party content.
+          </p>
+        </article>
+
+        <article id="sources" class="panel legal-panel reveal">
+          <h2>5. Where The Data Comes From</h2>
+          <p>
+            We collect personal data from several sources depending on how you use InkMeld:
+          </p>
+          <ul>
+            <li><strong>Directly from you</strong>, when you upload an image, take a photo, edit a design, contact support, email us, link an account, or request deletion.</li>
+            <li><strong>From your device and app session</strong>, when the app stores files locally, saves metadata, records settings, or logs diagnostics.</li>
+            <li><strong>From app stores and billing systems</strong>, when Apple or Google return purchase and receipt-validation data.</li>
+            <li><strong>From authentication providers</strong>, when you link Google or Apple sign-in.</li>
+            <li><strong>From our processors and infrastructure providers</strong>, such as Firebase, cloud logging and storage systems, AI processing providers, advertising or consent SDKs, and email systems.</li>
+            <li><strong>From website traffic and browser interactions</strong>, if analytics or security-related tools are enabled.</li>
           </ul>
         </article>
 
-        <article class="panel legal-panel reveal">
-          <h2>4. Data Security</h2>
+        <article id="purposes" class="panel legal-panel reveal">
+          <h2>6. Why We Use Personal Data And Our Main Legal Bases</h2>
           <p>
-            We use administrative, technical, and physical security measures intended to help protect your information,
-            including infrastructure provided by third-party platforms such as Google Firebase where relevant.
+            The exact legal basis depends on the jurisdiction, the feature you use, and the role played by the relevant third
+            party. For users in the EEA, UK, and similar regimes, our principal legal bases are typically one or more of the
+            following:
+          </p>
+
+          <h3>6.1 To provide the core service you ask for</h3>
+          <p>
+            We use personal data to create user sessions, import files, generate previews, store edits, export images, manage
+            content libraries, restore purchases, provide premium access, sync content if you ask us to, and otherwise deliver
+            the features you intentionally use. Legal basis: performance of a contract, taking steps at your request, and where
+            appropriate our legitimate interests in running and improving the service.
+          </p>
+
+          <h3>6.2 To process AI cutout requests and related image transformations</h3>
+          <p>
+            We use the image you choose, plus limited technical metadata, to perform background removal, cutout generation,
+            trimming, cropping, refinement, and related image-processing operations. Legal basis: performance of a contract,
+            your direct instruction to process the content you submit, and where relevant legitimate interests in providing the
+            requested functionality securely and efficiently.
+          </p>
+
+          <h3>6.3 To manage credits, purchases, anti-fraud, and entitlement enforcement</h3>
+          <p>
+            We use purchase and receipt data to verify transactions, prevent duplicate grants, update credit balances, enforce
+            monthly quotas, handle refunds or failed operations, investigate abuse, and comply with accounting or chargeback
+            duties. Legal basis: performance of a contract, legal obligations, and legitimate interests in fraud prevention,
+            revenue protection, bookkeeping, and service integrity.
+          </p>
+
+          <h3>6.4 To secure the service</h3>
+          <p>
+            We use authentication data, App Check tokens, request metadata, error logs, usage records, and technical signals to
+            defend the service, detect misuse, investigate incidents, prevent automated abuse, rate-limit expensive operations,
+            and protect user accounts and infrastructure. Legal basis: legitimate interests and, where applicable, legal
+            obligations.
+          </p>
+
+          <h3>6.5 To communicate with you and provide support</h3>
+          <p>
+            We use contact details, attachments, screenshots, and message content to answer questions, troubleshoot issues,
+            handle deletion requests, resolve billing or entitlement disputes, and document support history. Legal basis:
+            performance of a contract, legitimate interests, and sometimes compliance with legal obligations.
+          </p>
+
+          <h3>6.6 To measure reliability, performance, and product quality</h3>
+          <p>
+            We may use crash, diagnostic, and performance data to understand failures, measure latency, fix bugs, improve
+            reliability, and prioritize product quality work. Legal basis: legitimate interests, and consent where required by
+            law or platform rules.
+          </p>
+
+          <h3>6.7 To serve ads or manage ad privacy settings</h3>
+          <p>
+            In free tiers and supported regions, we may use consent, tracking, and advertising data to determine whether ads
+            can be requested, whether they should be personalized, and whether a privacy-options form should be shown. Legal
+            basis: consent where required, and otherwise legitimate interests in funding the free service.
+          </p>
+
+          <h3>6.8 To comply with law, enforce rights, and handle corporate events</h3>
+          <p>
+            We may use personal data to comply with court orders, valid legal requests, tax and accounting duties, law
+            enforcement obligations, sanctions requirements, insurance claims, audits, dispute resolution, or merger,
+            acquisition, financing, reorganization, bankruptcy, or asset sale activities. Legal basis: legal obligation and
+            legitimate interests.
           </p>
         </article>
 
-        <article class="panel legal-panel reveal">
-          <h2>5. Contact</h2>
+        <article id="sensitive" class="panel legal-panel reveal">
+          <h2>7. Sensitive Content, Photos, And Biometric Issues</h2>
           <p>
-            Questions about privacy can be sent to <a href="mailto:support@inkmeld.ai">support@inkmeld.ai</a>.
+            The service is built around photos of real bodies and tattoo ideas. That means user-submitted images can sometimes
+            reveal more than a standard profile picture. For example, a body photo may show scars, skin conditions, disability
+            indicators, surgery marks, religious or political symbols, ethnic or racial traits, intimate body areas, or other
+            information that could be sensitive under some laws.
           </p>
+          <p>
+            We do <strong>not</strong> describe InkMeld as a facial-recognition, identity-verification, or biometric-identification
+            service. We do not intentionally use body photos or tattoo images to uniquely identify individuals, perform facial
+            recognition, fingerprinting, remote biometric identification, or emotion recognition. Under GDPR, ordinary photos
+            are not automatically treated as special-category biometric data solely because they are photos; however, the content
+            of images can still be sensitive and deserves extra care.
+          </p>
+          <p>
+            If you choose to submit images that contain sensitive information, please only submit what is necessary for your
+            purpose. We process that content only for the limited purposes described in this policy, such as generating the
+            requested preview, syncing the content if you ask us to, or addressing support, security, compliance, and legal
+            issues connected to the service. Where applicable law requires additional consent or another specific legal condition
+            for certain sensitive content, we rely on the mechanism made available at the point of collection or the direct,
+            voluntary action by which you submit the content and request processing.
+          </p>
+          <p>
+            Please do not upload images of children, intimate content, medical conditions, or third-party body photos unless you
+            are legally entitled to do so and the upload is strictly necessary for your intended use.
+          </p>
+        </article>
+
+        <article id="permissions" class="panel legal-panel reveal">
+          <h2>8. Device Permissions And On-Device Storage</h2>
+          <p>
+            Based on the app configuration reviewed on April 22, 2026, InkMeld may request the following device permissions:
+          </p>
+          <ul>
+            <li><strong>Camera</strong>, to photograph the body area you want to preview tattoos on.</li>
+            <li><strong>Photo or media library access</strong>, to import body photos and tattoo designs.</li>
+            <li><strong>Photo library add/save access</strong>, to save generated previews or exports to your system gallery when you explicitly choose to do so.</li>
+            <li><strong>App Tracking Transparency on iOS</strong>, to determine whether personalized advertising may be used in the free version.</li>
+          </ul>
+          <p>
+            We did not identify code requesting microphone, contacts, SMS, call logs, or precise location access in the app
+            build reviewed for this notice. Future versions may request additional permissions if features change, in which case
+            we may update this policy and provide an in-app explanation or platform permission prompt.
+          </p>
+          <p>
+            The app also stores files locally on your device, including tattoo assets, body photos, exports, presets, and
+            metadata. Local content may be saved inside the app's document storage and referenced through local metadata stores
+            such as preferences or sync-state entries. Deleting items from the app library is intended to remove those local
+            files from the device. If you save exports to your device's system gallery, those copies are additionally governed
+            by your device and gallery provider.
+          </p>
+        </article>
+
+        <article id="ai" class="panel legal-panel reveal">
+          <h2>9. AI Image Processing And Background Removal</h2>
+          <p>
+            InkMeld includes AI-assisted cutout functionality. When you intentionally trigger that feature, the image file you
+            selected is sent to an InkMeld backend endpoint together with security credentials such as an authenticated user
+            token and, where supported, a Firebase App Check token. The backend may record limited usage metadata, such as the
+            request timestamp, status, month key, byte counts, and the charging source used for that operation.
+          </p>
+          <p>
+            Based on the current code reviewed for this policy, the AI cutout path works broadly as follows:
+          </p>
+          <ul>
+            <li>the app sends the selected image bytes to an InkMeld backend endpoint;</li>
+            <li>the backend verifies authorization and App Check;</li>
+            <li>the backend logs or updates your remaining quota or purchased credits;</li>
+            <li>the backend passes the submitted image to a configured AI-processing provider for background removal;</li>
+            <li>the returned output is post-processed, which may include trimming, tattoo-ink extraction, cropping, or related image refinement; and</li>
+            <li>the resulting PNG output is returned to the app.</li>
+          </ul>
+          <p>
+            The code reviewed for the current app stack uses <strong>Replicate</strong> as an AI-processing provider for
+            background removal. Replicate's public documentation states that API prediction input parameters, output values,
+            output files, and logs are automatically removed after about one hour by default, but third-party retention and
+            internal infrastructure logs may still vary. We do not control the independent privacy practices of outside
+            providers and may change providers over time. For that reason, please avoid sending unnecessary personal or highly
+            sensitive data through AI features.
+          </p>
+          <p>
+            If an AI request fails after charging logic has started, the backend may attempt to refund the relevant quota or
+            purchased credit. Operational records about failed or refunded requests may still be retained for security, support,
+            reconciliation, or abuse-prevention reasons.
+          </p>
+        </article>
+
+        <article id="auth" class="panel legal-panel reveal">
+          <h2>10. Anonymous Sessions, Linked Accounts, And Authentication</h2>
+          <p>
+            The current InkMeld app is designed to sign users into Firebase at startup. If you have not created or linked a
+            named account, the app may create an <strong>anonymous</strong> Firebase-authenticated session so that credits,
+            quotas, purchases, and cloud controls can still function. That means we may still hold a stable backend user ID even
+            if you never create a password-based account.
+          </p>
+          <p>
+            If you later choose to link your session with Google or Apple, we may receive or create additional identity data
+            such as an email address, provider identifier, and account-linking events. If Apple provides a private relay email,
+            that relay address may become the contact point associated with the linked account. Depending on the authentication
+            provider and platform, names or display information may also be shared.
+          </p>
+          <p>
+            Linking a session can help preserve access to entitlements across devices or re-installs. If you remain anonymous
+            and then lose the session, replace the device, or uninstall the app before linking, recovery may be limited because
+            the entitlements may still be associated with the old Firebase user ID rather than a named account.
+          </p>
+        </article>
+
+        <article id="sync" class="panel legal-panel reveal">
+          <h2>11. Cloud Sync, Firestore, And Firebase Storage</h2>
+          <p>
+            InkMeld includes optional cloud sync flows. Based on the current app settings screen reviewed for this policy, cloud
+            sync is user-triggered rather than automatic by default: users can choose to upload or restore tattoo library items,
+            body photos, and editor presets.
+          </p>
+          <p>
+            If you use cloud sync, the app may upload the following categories of content to Firebase services associated with
+            your account:
+          </p>
+          <ul>
+            <li>original tattoo source files;</li>
+            <li>generated cutout files;</li>
+            <li>body photos;</li>
+            <li>editor preset metadata;</li>
+            <li>remote storage paths and sync version data;</li>
+            <li>timestamps showing creation, update, sync, deletion, and restore events; and</li>
+            <li>tombstone or conflict-resolution records used to propagate deletions or resolve cross-device differences.</li>
+          </ul>
+          <p>
+            Cloud sync is intended to help you move content across devices while keeping local libraries usable offline. Because
+            sync is an optional feature, you can generally avoid this category of upload by not using cloud upload or restore
+            features. If you delete local content but do not sync that deletion, a remote copy may remain available until the
+            deletion has been propagated or another cleanup process occurs.
+          </p>
+          <p>
+            Where cloud data is restored to a device, the app may recreate local files from Firebase Storage into app-local
+            folders. This means copies can exist locally, remotely, or both, depending on your actions.
+          </p>
+        </article>
+
+        <article id="payments" class="panel legal-panel reveal">
+          <h2>12. Purchases, Credits, Premium Access, And Store Notifications</h2>
+          <p>
+            Apple and Google are responsible for the actual payment transaction in their respective app stores. InkMeld does
+            not process your full payment card number inside the app. However, to grant credits or premium entitlements, the app
+            may send store-provided verification data to an InkMeld backend endpoint, which then communicates with Google Play
+            or Apple's receipt-verification services.
+          </p>
+          <p>
+            Based on the current backend code reviewed for this policy, purchase processing may involve:
+          </p>
+          <ul>
+            <li>product IDs and platform type;</li>
+            <li>purchase IDs, order IDs, original transaction IDs, or transaction timestamps;</li>
+            <li>server verification data or receipt blobs;</li>
+            <li>records showing whether credits were granted or premium was activated;</li>
+            <li>idempotency documents to prevent duplicate grants;</li>
+            <li>credit balances, quota changes, plan changes, and purchase-source labels; and</li>
+            <li>store notification ingestion logs that may include platform, event type, payload, user agent, and content type.</li>
+          </ul>
+          <p>
+            We use this data to verify legitimacy, prevent abuse, honor purchases, investigate billing issues, reconcile
+            entitlements, comply with tax and bookkeeping duties, defend chargebacks or disputes, and maintain the integrity of
+            the credit system.
+          </p>
+        </article>
+
+        <article id="ads" class="panel legal-panel reveal">
+          <h2>13. Ads, Consent Management, And Tracking Controls</h2>
+          <p>
+            InkMeld may offer a free version supported in part by advertising. The current app code includes Google Mobile Ads
+            tooling and consent-management logic. Depending on the build, the region, the platform, your product tier, and your
+            consent choices, ads shown in the app may be personalized, non-personalized, or not shown at all.
+          </p>
+          <p>
+            The app code reviewed for this policy includes:
+          </p>
+          <ul>
+            <li>a consent flow for ad privacy choices;</li>
+            <li>an iOS App Tracking Transparency prompt when relevant;</li>
+            <li>logic to determine whether personalized ads are allowed; and</li>
+            <li>a privacy-options form if required by the ad-consent framework in use.</li>
+          </ul>
+          <p>
+            If you deny permission for personalized ads, the app may still request non-personalized ads where legally allowed.
+            Premium access is intended to remove ads from the premium experience. Advertising providers may act as independent
+            controllers for some data they receive and may use their own privacy policies, cookies, SDK identifiers, and
+            compliance notices.
+          </p>
+        </article>
+
+        <article id="website" class="panel legal-panel reveal">
+          <h2>14. Website Cookies, Analytics, And Email-Based Forms</h2>
+          <p>
+            The InkMeld website may use cookies, similar technologies, and analytics or logging tools to keep pages working,
+            understand usage, measure performance, and improve content. A separate <a href="/cookies">Cookie Policy</a> also
+            applies where relevant.
+          </p>
+          <p>
+            The current website code reviewed on April 22, 2026 contains Firebase Analytics scaffolding, but analytics is
+            skipped unless complete Firebase configuration values are present. That means a particular site deployment may
+            collect less analytics than a fully configured deployment. If we later enable analytics in a live environment, the
+            categories of data may include browser identifiers, page views, referral paths, approximate location, device
+            information, and other analytics signals permitted by the tool and your consent settings.
+          </p>
+          <p>
+            Some website forms in this project use <strong>mailto</strong> links or open your email client rather than posting
+            directly to a website database. In those cases, the message you send is processed by your email provider before it
+            reaches us, and we receive the contents only if you actually send the email.
+          </p>
+          <p>
+            You can usually manage website cookies through browser settings, consent banners when shown, and the controls
+            described in our Cookie Policy.
+          </p>
+        </article>
+
+        <article id="sharing" class="panel legal-panel reveal">
+          <h2>15. When We Share Personal Data</h2>
+          <p>
+            We do not share personal data casually. We may disclose it only where needed for product delivery, security,
+            billing, compliance, support, or other legitimate and lawful reasons. Depending on the context, recipients may act
+            as processors, service providers, or independent controllers.
+          </p>
+          <p>
+            Categories of recipients may include:
+          </p>
+          <ul>
+            <li><strong>Cloud and infrastructure providers</strong>, including providers of authentication, storage, databases, crash reporting, performance monitoring, content delivery, and hosting.</li>
+            <li><strong>AI-processing providers</strong>, when you trigger the AI cutout or similar features.</li>
+            <li><strong>App stores and payment ecosystems</strong>, including Apple and Google, in connection with billing, verification, refunds, restores, fraud controls, and store notifications.</li>
+            <li><strong>Advertising and consent-management providers</strong>, if free-tier ads or privacy-choice systems are enabled.</li>
+            <li><strong>Email, support, and communication tools</strong>, when you contact us.</li>
+            <li><strong>Professional advisors</strong>, such as lawyers, auditors, insurers, bankers, or accountants, where necessary.</li>
+            <li><strong>Authorities, courts, regulators, and law enforcement</strong>, where disclosure is legally required or reasonably necessary to protect rights, safety, or property.</li>
+            <li><strong>Corporate transaction counterparties</strong>, in the event of investment, merger, sale, insolvency, financing, or restructuring.</li>
+            <li><strong>Recipients you choose</strong>, when you export or share an image through your operating system, messages, email, a tattoo artist, a client, or another third party.</li>
+          </ul>
+          <p>
+            We may also share aggregated or de-identified information that no longer reasonably identifies you, subject to
+            applicable law.
+          </p>
+        </article>
+
+        <article id="transfers" class="panel legal-panel reveal">
+          <h2>16. International Data Transfers</h2>
+          <p>
+            InkMeld uses globally distributed technology providers. As a result, your personal data may be processed in Sweden,
+            the wider EEA, the United States, or other countries where we, our processors, or relevant service providers
+            operate. Some providers may also mirror, route, cache, support, or secure data across borders.
+          </p>
+          <p>
+            Where applicable law requires safeguards for international transfers, we may rely on one or more of the following:
+          </p>
+          <ul>
+            <li>adequacy decisions issued by competent authorities;</li>
+            <li>standard contractual clauses or similar approved transfer mechanisms;</li>
+            <li>the UK International Data Transfer Addendum or equivalent UK mechanism;</li>
+            <li>Swiss transfer supplements where relevant; or</li>
+            <li>other lawful derogations or mechanisms available under applicable privacy law.</li>
+          </ul>
+          <p>
+            Because some providers also act as independent businesses under their own legal obligations, you should review their
+            own privacy materials as well when you use their ecosystems.
+          </p>
+        </article>
+
+        <article id="security" class="panel legal-panel reveal">
+          <h2>17. Security And Abuse Prevention</h2>
+          <p>
+            We use administrative, organizational, and technical measures intended to reduce unauthorized access, loss, misuse,
+            or alteration of personal data. Depending on the system involved, these measures may include authentication,
+            token-based authorization, Firebase App Check, server-side verification of purchases, managed cloud security
+            controls, environment-variable based secrets, logging, access restrictions, storage separation, and deletion flows.
+          </p>
+          <p>
+            We also try to limit direct client-side modification of sensitive entitlement records and to use backend logic for
+            credit grants, purchase verification, and quota enforcement. We may review logs, diagnostics, and other signals to
+            investigate suspicious activity or to prevent abuse of expensive compute features.
+          </p>
+          <p>
+            No system is perfectly secure. We therefore cannot guarantee absolute security, uninterrupted service, or that data
+            will never be accessed, altered, disclosed, or destroyed through a breach, exploit, human error, or events outside
+            our reasonable control. You are responsible for securing your device, your accounts, and any copies you export or
+            share outside InkMeld.
+          </p>
+        </article>
+
+        <article id="retention" class="panel legal-panel reveal">
+          <h2>18. How Long We Keep Personal Data</h2>
+          <p>
+            We keep personal data for no longer than necessary for the purposes for which it was collected, unless a longer
+            retention period is required or permitted by law for compliance, accounting, fraud prevention, backup integrity,
+            dispute resolution, or the establishment, exercise, or defense of legal claims.
+          </p>
+
+          <h3>18.1 Local device files</h3>
+          <p>
+            Body photos, tattoo files, cutouts, exports, presets, and related local metadata may remain on your device until
+            you delete them, clear app storage, remove the app, or overwrite the relevant local store.
+          </p>
+
+          <h3>18.2 Cloud-synced content</h3>
+          <p>
+            Cloud copies of synced library items and body photos may remain until you delete the relevant content and the
+            deletion is propagated, until account deletion is processed, or until retention or backup cycles expire. Temporary
+            residual copies may persist in logs, caches, or backups for a limited period.
+          </p>
+
+          <h3>18.3 Account, quota, and usage records</h3>
+          <p>
+            User-account, quota, credit, and usage-log records may be kept for as long as needed to provide the service,
+            protect against abuse, diagnose issues, investigate complaints, and handle entitlements or deletion requests.
+          </p>
+
+          <h3>18.4 Purchase and accounting records</h3>
+          <p>
+            Purchase-verification records, anti-fraud records, tax records, invoices, receipts, store notifications, and other
+            financial documentation may be kept for as long as required by applicable accounting, tax, audit, chargeback, and
+            record-retention rules. In Sweden, bookkeeping and supporting documentation may need to be retained for at least
+            seven years.
+          </p>
+
+          <h3>18.5 Support and legal records</h3>
+          <p>
+            Support requests and legal communications may be kept for as long as needed to resolve the matter and for a
+            reasonable period thereafter to document what happened, improve support quality, or handle claims and compliance.
+          </p>
+
+          <h3>18.6 Diagnostics and analytics</h3>
+          <p>
+            Crash, performance, analytics, consent, and ad-related records may be retained according to provider settings,
+            technical needs, and applicable law. We may shorten or extend retention where necessary to preserve evidence of
+            abuse, investigate incidents, or satisfy legal requirements.
+          </p>
+        </article>
+
+        <article id="deletion" class="panel legal-panel reveal">
+          <h2>19. Deletion, Uninstall, And Account Closure</h2>
+          <p>
+            You have several different deletion paths, and they do not all do the same thing:
+          </p>
+          <ul>
+            <li><strong>Delete a tattoo or body photo inside the app:</strong> this is intended to remove the local file and related local metadata, and may also be marked for cloud deletion if you later sync.</li>
+            <li><strong>Clear app storage or uninstall the app:</strong> this typically removes local on-device content, but it may not automatically remove server-side records, cloud-synced copies, purchase records, or backups.</li>
+            <li><strong>Use the delete-account flow:</strong> this is intended for removal of your account-level records subject to legal and operational exceptions. See <a href="/delete-account">Delete Account</a>.</li>
+            <li><strong>Delete exported or shared copies:</strong> once you save to your system gallery, email an image, or send it to a third party, you may need to delete those copies with the relevant device, app, or recipient separately.</li>
+          </ul>
+          <p>
+            We may retain some information even after a deletion request if we must do so for security, fraud prevention,
+            purchase reconciliation, legal compliance, tax and bookkeeping obligations, exercise or defense of claims, or to
+            complete deletion safely and consistently across systems and backups.
+          </p>
+        </article>
+
+        <article id="rights" class="panel legal-panel reveal">
+          <h2>20. Your Privacy Rights</h2>
+          <p>
+            Depending on where you live, you may have rights regarding the personal data we hold about you. These may include
+            the right to:
+          </p>
+          <ul>
+            <li>know whether we process your personal data;</li>
+            <li>request access to the personal data we hold about you;</li>
+            <li>request correction of inaccurate or incomplete data;</li>
+            <li>request deletion or anonymization of personal data in certain circumstances;</li>
+            <li>request restriction of processing in certain cases;</li>
+            <li>object to processing based on legitimate interests;</li>
+            <li>withdraw consent where processing is based on consent;</li>
+            <li>request data portability where the law provides it;</li>
+            <li>opt out of certain advertising or profiling uses where required by law; and</li>
+            <li>complain to a supervisory authority if you believe your rights have been violated.</li>
+          </ul>
+          <p>
+            To protect users and prevent fraud, we may ask you to verify your identity before fulfilling certain requests. We
+            may also refuse or limit a request where an exemption applies, where the request is manifestly unfounded or
+            excessive, where we cannot verify identity, or where the data must be retained for lawful reasons.
+          </p>
+        </article>
+
+        <article id="jurisdictions" class="panel legal-panel reveal">
+          <h2>21. Additional Notes For EEA, UK, Switzerland, And Certain U.S. States</h2>
+
+          <h3>21.1 EEA, UK, and Switzerland</h3>
+          <p>
+            If you are in the EEA, UK, or Switzerland, you may have the rights listed above under GDPR, UK GDPR, the Swiss
+            FADP, and related national laws. You may also contact the supervisory authority in your country of habitual
+            residence, place of work, or place of the alleged infringement. If our main establishment for your use of the
+            service is in Sweden, the relevant authority may include the Swedish Authority for Privacy Protection
+            (Integritetsskyddsmyndigheten, IMY).
+          </p>
+
+          <h3>21.2 Certain U.S. state laws</h3>
+          <p>
+            Residents of certain U.S. states may have rights to know, access, correct, delete, and obtain a portable copy of
+            certain personal information, as well as rights to opt out of targeted advertising, certain profiling, or certain
+            sales or sharing definitions under state law. InkMeld does not intentionally sell personal data for money. However,
+            some analytics or advertising configurations can be treated as "sharing" or targeted advertising under certain laws.
+            If those features are enabled, we will try to provide notices and opt-out mechanisms required by applicable law.
+          </p>
+
+          <h3>21.3 Non-discrimination</h3>
+          <p>
+            We will not unlawfully discriminate against you for exercising a privacy right, although some features may not work
+            without certain data, permissions, authentication, or cloud processing.
+          </p>
+        </article>
+
+        <article id="children" class="panel legal-panel reveal">
+          <h2>22. Children And Age Limits</h2>
+          <p>
+            InkMeld is not directed to young children. Tattoo planning and body-image editing are adult or older-teen oriented
+            activities in most markets. If you are under the age at which you can validly consent to the processing involved in
+            your jurisdiction, you should not use the service except with any parental or guardian permission required by law.
+          </p>
+          <p>
+            If we learn that we have collected personal data from a child in a way that violates applicable law, we may delete
+            the information and disable associated features or accounts.
+          </p>
+        </article>
+
+        <article id="automated" class="panel legal-panel reveal">
+          <h2>23. Automated Processing, Profiling, And What We Do Not Use Images For</h2>
+          <p>
+            InkMeld uses automated image processing to remove backgrounds, isolate motifs, crop or refine output, manage cloud
+            content, and personalize certain product experiences such as ranking, restoring, or syncing content. However, we do
+            not currently describe the service as making solely automated decisions that produce legal effects or similarly
+            significant effects about you in the sense used by GDPR-style laws.
+          </p>
+          <p>
+            We do not intentionally use your body photos or tattoo previews for:
+          </p>
+          <ul>
+            <li>remote biometric identification;</li>
+            <li>facial recognition or face matching for identity verification;</li>
+            <li>emotion recognition;</li>
+            <li>medical diagnosis;</li>
+            <li>employment, credit, housing, education, insurance, or law-enforcement scoring; or</li>
+            <li>any hidden surveillance purpose.</li>
+          </ul>
+          <p>
+            If we ever materially expand into such uses, we would expect to publish a separate or updated notice and implement
+            any additional legal controls required.
+          </p>
+        </article>
+
+        <article id="training" class="panel legal-panel reveal">
+          <h2>24. Model Training, Product Improvement, And De-Identified Data</h2>
+          <p>
+            We may analyze operational, diagnostic, and aggregate service information to improve reliability, security, product
+            quality, cost control, abuse detection, and general business planning. Where feasible and lawful, we may use
+            aggregated, statistical, or otherwise de-identified information for these purposes.
+          </p>
+          <p>
+            We do not state in this policy that your photos or tattoo uploads are used to train our own general-purpose AI
+            models by default. If we later decide to use user content for model training, benchmarking, or similar secondary
+            purposes in a way that materially changes this expectation, we may provide a separate notice and seek any consent or
+            permission required by law.
+          </p>
+        </article>
+
+        <article id="incidents" class="panel legal-panel reveal">
+          <h2>25. Security Incidents And Breach Response</h2>
+          <p>
+            If we become aware of a personal-data breach, security incident, or unauthorized disclosure affecting personal data,
+            we may investigate the event, contain it, document it, restore service, cooperate with infrastructure providers,
+            notify regulators, and inform affected users where required by law and where the threshold for notification is met.
+          </p>
+          <p>
+            Our ability to notify can depend on what contact information we actually have. Anonymous sessions may limit our
+            ability to reach you directly.
+          </p>
+        </article>
+
+        <article id="changes" class="panel legal-panel reveal">
+          <h2>26. Changes To This Policy</h2>
+          <p>
+            We may update this Privacy Policy from time to time to reflect new product features, legal requirements, security
+            practices, provider changes, organizational changes, or clarifications in how the service works. When we make
+            changes, we may revise the "Last updated" date above and, where required, provide an in-app notice, website notice,
+            or another form of notification.
+          </p>
+          <p>
+            Your continued use of InkMeld after an updated policy becomes effective may indicate your acknowledgment of the
+            revised notice to the extent permitted by law, but it does not limit any non-waivable statutory rights.
+          </p>
+        </article>
+
+        <article id="business-use" class="panel legal-panel reveal">
+          <h2>27. Professional, Studio, And Client-Facing Use</h2>
+          <p>
+            InkMeld is often used by individual consumers for personal tattoo planning, but some users may also use the app in
+            a semi-professional or professional context, such as tattoo artists, apprentices, studios, agencies, designers, or
+            people helping friends or clients evaluate visual ideas. If you use InkMeld in a business, studio, or client-facing
+            workflow, you remain responsible for your own relationship with the people whose data you upload, store, show, or
+            export through the service.
+          </p>
+          <p>
+            That means, among other things, that you should make sure you have an appropriate legal basis, permission,
+            contractual right, model release, or other lawful authority before uploading body photos, reference images, or
+            personal information relating to someone else. You are also responsible for any notices you need to provide to your
+            own customers, clients, or collaborators under privacy, consumer, marketing, health, professional, or image-rights
+            laws that apply to your activities.
+          </p>
+          <p>
+            Unless we explicitly agree otherwise in writing, this public-facing Privacy Policy is designed primarily as a
+            controller-facing notice for normal end-user use of the service. It is not a standalone data-processing agreement,
+            professional-services agreement, or processor addendum for studio customers. If you require enterprise,
+            white-label, processor, or custom retention terms, those would normally require a separate written arrangement.
+          </p>
+        </article>
+
+        <article id="shared-devices" class="panel legal-panel reveal">
+          <h2>28. Shared Devices, Team Access, And Household Environments</h2>
+          <p>
+            The service may be used on phones, tablets, or computers that are shared with partners, family members,
+            colleagues, or studio staff. If a device is shared, unlocked, mirrored to other screens, or backed up to a shared
+            account, local app data, exported images, screenshots, or account-linked information may become visible to other
+            people with access to that device or backup environment.
+          </p>
+          <p>
+            You are responsible for using device-level protections such as screen locks, passcodes, biometric locks, account
+            separation, and secure cloud-backup settings where appropriate. You should also sign out of linked accounts, remove
+            old devices from platform accounts where relevant, and avoid storing especially sensitive client or body-image
+            material on devices that multiple people can freely access.
+          </p>
+          <p>
+            Where a studio, household, or team uses one device for multiple people, we may not be able to determine which
+            person created, viewed, exported, or deleted a specific local file if the surrounding device environment is not
+            properly segregated. In that case, certain privacy or security outcomes may depend on your own internal device and
+            access-management practices.
+          </p>
+        </article>
+
+        <article id="backups" class="panel legal-panel reveal">
+          <h2>29. Backups, Temporary Files, Derivative Files, And Audit Trails</h2>
+          <p>
+            To keep the service functional, responsive, and recoverable, some information may exist not only in its primary
+            storage location but also in temporary caches, image derivatives, thumbnails, queue records, sync tombstones,
+            transaction logs, retry queues, hashed identifiers, anti-abuse records, or backup systems. These supporting copies
+            do not necessarily exist for independent business use; many of them exist to make deletion, synchronization,
+            integrity checks, recovery, or abuse prevention technically possible.
+          </p>
+          <p>
+            When you delete data or request account deletion, we generally aim to remove or de-link active production data
+            first. Supporting copies may then disappear later through scheduled cleanup, storage lifecycle rules, backup
+            rotation, overwrite cycles, or retention-expiry rules. Because of that architecture, deletion is not always
+            instantaneous across every layer at the exact same moment.
+          </p>
+          <p>
+            We may also retain limited audit-trail information showing that an action occurred, such as a purchase being
+            verified, a deletion request being submitted, or a sync event being processed. Where retained, those records are
+            typically kept to protect the integrity of our systems, support fraud prevention, document compliance activity, or
+            resolve disputes about what happened and when.
+          </p>
+        </article>
+
+        <article id="legal-requests" class="panel legal-panel reveal">
+          <h2>30. Government Requests, Legal Process, And Emergency Disclosures</h2>
+          <p>
+            We may receive requests for information from courts, law-enforcement bodies, regulators, tax authorities, consumer
+            authorities, data-protection authorities, or other public bodies. When that happens, we may review the request for
+            facial validity, scope, jurisdiction, and legal basis, and we may respond where we believe we are legally required
+            or legally permitted to do so.
+          </p>
+          <p>
+            Where we think a request is overly broad, unclear, or unsupported, we may seek clarification, narrow the request,
+            object to it, or require the requesting party to follow the proper legal process. However, we may not always be
+            permitted to challenge, delay, or disclose the existence of a request, especially where secrecy obligations,
+            emergency circumstances, or statutory restrictions apply.
+          </p>
+          <p>
+            We may also disclose information where we reasonably believe it is necessary to prevent death, serious physical
+            harm, acute fraud, major security incidents, or other emergencies, to the extent allowed by law and the facts
+            available to us at the time.
+          </p>
+        </article>
+
+        <article id="corporate-events" class="panel legal-panel reveal">
+          <h2>31. Business Transfers, Due Diligence, And Corporate Reorganization</h2>
+          <p>
+            If OakDev &amp; AI AB is involved in a merger, acquisition, financing, investment round, asset sale,
+            restructuring, insolvency process, corporate reorganization, or transfer of all or part of the InkMeld business,
+            personal data may be reviewed, disclosed, or transferred as part of due diligence, negotiation, or completion of
+            the transaction, subject to appropriate confidentiality, security, and legal safeguards.
+          </p>
+          <p>
+            A prospective or successor owner may need to understand the user base, subscriptions, legal risks, technical
+            architecture, and operational records associated with the service. That can require limited access to account,
+            support, transaction, or usage information under controlled conditions. If the transaction completes, personal data
+            may become part of the transferred business assets to the extent permitted by law.
+          </p>
+          <p>
+            If applicable law requires notice or gives you rights in connection with such a transfer, we will try to honor
+            those requirements. A corporate event does not automatically remove all data-protection obligations; the relevant
+            obligations generally continue to apply to the transferred business operations.
+          </p>
+        </article>
+
+        <article id="accuracy" class="panel legal-panel reveal">
+          <h2>32. Data Accuracy, Updates, And User Responsibilities</h2>
+          <p>
+            Many privacy outcomes depend on the accuracy of the information you provide. You should keep any linked email
+            address, login credential, platform account, and support information reasonably current so that we can authenticate
+            requests, help with support issues, and deliver notices where necessary.
+          </p>
+          <p>
+            If you provide incorrect, outdated, incomplete, or misleading information, that may affect our ability to verify
+            account ownership, process deletion requests, restore purchases, identify the correct cloud records, or respond to
+            legal rights requests. In some cases we may ask for additional information before acting on a request if the data we
+            hold is insufficient to identify the relevant person or account safely.
+          </p>
+          <p>
+            You should also avoid uploading labels, notes, filenames, or support messages that unnecessarily include sensitive
+            personal data about yourself or other people unless that information is actually needed for the feature or support
+            case you are using.
+          </p>
+        </article>
+
+        <article id="signals" class="panel legal-panel reveal">
+          <h2>33. Privacy Preference Signals, Authorized Agents, And Regional Requests</h2>
+          <p>
+            In some regions, browsers, devices, or extensions may send privacy preference signals, sometimes described as
+            global privacy controls or opt-out preference signals. Whether a signal is recognized can depend on the exact law
+            that applies, the context of the request, the technology being used, and whether our website or providers are
+            technically configured to read and act on the signal for that category of processing.
+          </p>
+          <p>
+            If a regional law allows you to use an authorized agent to submit a privacy request on your behalf, we may ask the
+            agent for proof of authorization and may also need to verify your identity directly with you before completing the
+            request. This helps reduce the risk of fraudulent access, fraudulent deletion, or disclosure to the wrong person.
+          </p>
+          <p>
+            Where a regional law uses terms such as "sale," "share," "targeted advertising," or "profiling," those words may
+            have technical legal meanings that are broader than ordinary language. Our operational practices may fall inside or
+            outside those definitions depending on the specific configuration of analytics, advertising, or cross-context
+            tracking tools in use at the time.
+          </p>
+        </article>
+
+        <article id="interpretation" class="panel legal-panel reveal">
+          <h2>34. Supplemental Notices, Product-Specific Terms, And Interpretation</h2>
+          <p>
+            From time to time, a specific feature, form, campaign, purchase screen, beta program, or platform flow may include
+            an additional notice explaining how that particular feature works. Examples could include an in-app consent screen,
+            an App Store purchase disclosure, a support-form instruction, or a prompt shown before cloud upload or AI
+            processing.
+          </p>
+          <p>
+            If a feature-specific notice conflicts with a general statement in this Privacy Policy, we may interpret the more
+            specific notice as controlling for that exact feature or workflow, unless mandatory law requires a different result.
+            The rest of this Privacy Policy continues to apply to the broader service context.
+          </p>
+          <p>
+            Section headings and examples are included for readability only. They do not limit the broader meaning of the text
+            where the surrounding language makes clear that additional similar situations may also be covered.
+          </p>
+        </article>
+
+        <article id="privacy-by-design" class="panel legal-panel reveal">
+          <h2>35. Data Minimization, Need-To-Know Access, And Privacy By Design</h2>
+          <p>
+            We aim to follow data-minimization principles by trying not to collect more personal data than is reasonably needed
+            for the function, support task, legal obligation, or security purpose at issue. In practice, that means different
+            features may collect different data sets, and not every field, permission, or upload path is required for every
+            user.
+          </p>
+          <p>
+            Internally, access to personal data should be limited on a need-to-know basis. Not every employee, contractor, or
+            service provider has the same level of access. Access may depend on role, technical necessity, security
+            responsibility, customer-support assignment, or legal/compliance duties. We may also use role separation, logging,
+            audit review, pseudonymization, or environment controls to reduce unnecessary exposure.
+          </p>
+          <p>
+            Privacy by design does not mean zero risk or zero data processing. It means we try to design features, workflows,
+            and provider choices with privacy and security in mind from the start and to revisit those choices as the product
+            evolves.
+          </p>
+        </article>
+
+        <article id="recovery-verification" class="panel legal-panel reveal">
+          <h2>36. Account Recovery, Identity Verification, And Fraud Prevention</h2>
+          <p>
+            When you contact us about account access, deletion, purchase restoration, or suspicious activity, we may need to
+            verify that you are the correct person before taking action. Verification can involve email confirmation, platform
+            account details, purchase references, device context, timestamps, prior support context, or other account-linked
+            data points reasonably necessary to reduce fraud risk.
+          </p>
+          <p>
+            We may decline or delay a request if we cannot verify identity with sufficient confidence, if we suspect coercion,
+            impersonation, account takeover, refund abuse, or other fraud, or if the request conflicts with a legal retention
+            duty, security investigation, or dispute-resolution need.
+          </p>
+          <p>
+            Identity verification itself is also a form of personal-data processing. We therefore try to ask only for
+            information proportionate to the sensitivity of the request and the risk involved.
+          </p>
+        </article>
+
+        <article id="testing-environments" class="panel legal-panel reveal">
+          <h2>37. Testing, Debugging, And Non-Production Environments</h2>
+          <p>
+            Operating a software service can require testing, debugging, monitoring, staging, and quality-assurance workflows.
+            Where possible, we try to avoid using real production personal data in non-production environments unless there is a
+            justified operational reason and suitable safeguards are in place.
+          </p>
+          <p>
+            In some cases, limited production-derived information may still appear in logs, tickets, error traces, or
+            troubleshooting records when investigating a bug, sync failure, payment issue, or abuse incident. When that
+            happens, we try to keep access controlled and retention proportionate to the technical need.
+          </p>
+          <p>
+            Third-party infrastructure providers may also maintain their own operational logs, debugging traces, or support
+            records under their own retention schedules and contractual obligations.
+          </p>
+        </article>
+
+        <article id="contact" class="panel legal-panel reveal">
+          <h2>38. Contact, Complaints, And Related Legal Pages</h2>
+          <p>
+            Questions, privacy requests, deletion requests, or complaints about this policy can be sent to
+            <a href="mailto:support@inkmeld.ai">support@inkmeld.ai</a>.
+          </p>
+          <p>
+            If you are contacting us about a specific account, purchase, or deletion request, please include enough information
+            for us to identify the relevant records safely, such as the email linked to your account, the platform you used, a
+            purchase reference, or the Firebase user ID where available. Please do not send unnecessary sensitive data.
+          </p>
+          <p>
+            Additional related pages:
+          </p>
+          <ul>
+            <li><a href="/cookies">Cookie Policy</a></li>
+            <li><a href="/terms">Terms of Service</a></li>
+            <li><a href="/delete-account">Delete Account</a></li>
+            <li><a href="/support">Support Hub</a></li>
+          </ul>
         </article>
       </div>
     </section>
