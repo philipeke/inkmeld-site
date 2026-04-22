@@ -20,6 +20,247 @@
   <meta name="twitter:image" content="https://inkmeld.oakdev.app/assets/mainlogo-premium-dark.png">
   <script>document.documentElement.classList.add('js');</script>
   <link rel="stylesheet" href="/css/global.css">
+  <link rel="stylesheet" href="/css/cookie-consent.css">
+  <style>
+    .support-contact-shell {
+      align-items: start;
+    }
+
+    .support-composer,
+    .support-side-card {
+      padding: clamp(24px, 4vw, 36px);
+    }
+
+    .support-composer {
+      position: relative;
+      isolation: isolate;
+      gap: 22px;
+      border-color: rgba(0, 245, 212, 0.18);
+      background:
+        radial-gradient(circle at top right, rgba(0, 245, 212, 0.16), transparent 34%),
+        radial-gradient(circle at bottom left, rgba(160, 32, 240, 0.18), transparent 30%),
+        linear-gradient(160deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02) 60%),
+        rgba(8, 12, 24, 0.94);
+    }
+
+    .support-composer > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .support-composer-glow {
+      position: absolute;
+      right: -120px;
+      bottom: -170px;
+      width: 360px;
+      height: 360px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(0, 245, 212, 0.18), rgba(56, 182, 255, 0.06) 46%, transparent 72%);
+      filter: blur(14px);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .support-composer-head {
+      display: grid;
+      gap: 18px;
+    }
+
+    .support-composer-head .contact-copy {
+      max-width: 60ch;
+    }
+
+    .support-composer .meta-topline,
+    .support-side-card .meta-topline {
+      flex-wrap: wrap;
+    }
+
+    .support-trust-strip,
+    .support-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .support-trust-pill,
+    .support-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--text-soft);
+      font-size: 0.84rem;
+      line-height: 1.2;
+    }
+
+    .support-trust-pill::before,
+    .support-badge::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--neon-cyan), var(--neon-blue));
+      box-shadow: 0 0 10px rgba(0, 245, 212, 0.42);
+      flex-shrink: 0;
+    }
+
+    .support-mail-form {
+      display: grid;
+      gap: 18px;
+    }
+
+    .support-form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .support-field {
+      display: grid;
+      gap: 8px;
+    }
+
+    .support-field--full {
+      grid-column: 1 / -1;
+    }
+
+    .support-label {
+      color: var(--text-soft);
+      font-size: 0.76rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .support-input,
+    .support-select,
+    .support-textarea {
+      width: 100%;
+      min-height: 56px;
+      padding: 0 18px;
+      border-radius: 18px;
+      border: 1px solid rgba(255, 255, 255, 0.13);
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--text-main);
+      transition: border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+    }
+
+    .support-textarea {
+      min-height: 220px;
+      padding: 16px 18px;
+      resize: vertical;
+    }
+
+    .support-input::placeholder,
+    .support-textarea::placeholder {
+      color: rgba(238, 246, 255, 0.38);
+    }
+
+    .support-input:focus,
+    .support-select:focus,
+    .support-textarea:focus {
+      outline: none;
+      border-color: rgba(0, 245, 212, 0.38);
+      background: rgba(0, 245, 212, 0.06);
+      box-shadow: 0 0 0 4px rgba(0, 245, 212, 0.08);
+      transform: translateY(-1px);
+    }
+
+    .support-form-footer {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      padding-top: 8px;
+      border-top: 1px solid rgba(255, 255, 255, 0.09);
+    }
+
+    .support-form-note {
+      max-width: 56ch;
+      color: var(--text-muted);
+      font-size: 0.92rem;
+      line-height: 1.7;
+    }
+
+    .support-submit[disabled] {
+      cursor: wait;
+      opacity: 0.88;
+    }
+
+    .support-form-status {
+      min-height: 1.5em;
+      color: var(--text-soft);
+      font-size: 0.94rem;
+    }
+
+    .support-form-status[data-state="sending"] {
+      color: var(--neon-blue);
+    }
+
+    .support-form-status[data-state="success"] {
+      color: var(--neon-cyan);
+    }
+
+    .support-form-status[data-state="fallback"] {
+      color: var(--neon-gold);
+    }
+
+    .support-form-status[data-state="error"] {
+      color: #ffd0d8;
+    }
+
+    .support-side-stack {
+      display: grid;
+      gap: 20px;
+    }
+
+    .support-side-card {
+      gap: 18px;
+    }
+
+    .support-side-card .list-clean {
+      gap: 12px;
+    }
+
+    .support-side-link {
+      color: var(--neon-cyan);
+      text-decoration: underline;
+      text-decoration-color: rgba(0, 245, 212, 0.32);
+      text-underline-offset: 4px;
+    }
+
+    .support-side-link:hover {
+      text-decoration-color: rgba(0, 245, 212, 0.7);
+    }
+
+    .support-honeypot {
+      position: absolute;
+      left: -9999px;
+      width: 1px;
+      height: 1px;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    @media (max-width: 860px) {
+      .support-form-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .support-form-footer {
+        align-items: stretch;
+      }
+
+      .support-form-footer .support-actions,
+      .support-form-footer .support-actions > * {
+        width: 100%;
+      }
+    }
+  </style>
   <link rel="canonical" href="https://inkmeld.oakdev.app/support">
   <link rel="icon" type="image/png" href="/assets/logo-launcher-256.png">
   <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
@@ -29,6 +270,7 @@
   <script src="/js/components/navbar.js" defer></script>
   <script src="/js/components/footer.js" defer></script>
   <script src="/js/main.js" defer></script>
+  <script src="/js/cookie-consent.js" defer></script>
 </head>
 <body>
   <div class="scroll-progress" aria-hidden="true"></div>
@@ -43,11 +285,11 @@
           <h1 class="page-title">Support for the people shaping tattoos before they commit to them.</h1>
           <p class="page-copy">
             Need help with AI cutouts, credits, imports, editor behavior, or account access? This is the signal room.
-            Use the contact path below and we will get you unstuck.
+            Write your message directly on the page, hit send, and it will be routed to our inbox at hello@oakdev.app.
           </p>
 
           <div class="support-actions">
-            <a class="btn-primary" href="mailto:support@inkmeld.ai?subject=InkMeld%20Support%20Request">Email Support</a>
+            <a class="btn-primary" href="#contact-composer">Write Your Message</a>
             <a class="btn-secondary" href="/">Back To Home</a>
           </div>
         </article>
@@ -55,47 +297,158 @@
     </section>
 
     <section>
-      <div class="container contact-grid">
-        <article class="panel contact-card reveal">
+      <div class="container contact-grid support-contact-shell">
+        <article id="contact-composer" class="panel contact-card reveal support-composer">
+          <div class="support-composer-glow" aria-hidden="true"></div>
           <div class="meta-topline">
             <span>Direct channel</span>
-            <span>Human + product support</span>
+            <span>Messages land in hello@oakdev.app</span>
           </div>
-          <h2 class="contact-title">Contact InkMeld</h2>
-          <p class="contact-copy">
-            The fastest path is email. Include screenshots when relevant, tell us what device you are on, and mention whether
-            the issue happens during import, cutout, editing, or credits.
-          </p>
-          <div class="contact-stack">
-            <div class="mini-stat">
-              <span>Email</span>
-              <strong>support@inkmeld.ai</strong>
+          <div class="support-composer-head">
+            <div>
+              <h2 class="contact-title">Compose the email without leaving the page.</h2>
+              <p class="contact-copy">
+                No copy-paste. No detour. Tell us what happened, what device you are on, and what you need help with. We will
+                route the message straight to OakDev support and reply to the email you enter below.
+              </p>
             </div>
-            <div class="mini-stat">
-              <span>Target response time</span>
-              <strong>Within 24 hours</strong>
+            <div class="support-trust-strip" aria-label="Support form highlights">
+              <span class="support-trust-pill">No email app required</span>
+              <span class="support-trust-pill">Built for bug reports + account help</span>
+              <span class="support-trust-pill">Fallback opens a ready-to-send email</span>
             </div>
-            <div class="mini-stat">
-              <span>Best for</span>
-              <strong>Bug reports, account help, feedback</strong>
+            <div class="support-badges" aria-label="Common support topics">
+              <span class="support-badge">AI cutouts</span>
+              <span class="support-badge">Credits</span>
+              <span class="support-badge">Billing</span>
+              <span class="support-badge">Editor issues</span>
+              <span class="support-badge">Account access</span>
             </div>
           </div>
+
+          <form
+            class="support-mail-form"
+            action="https://formsubmit.co/hello@oakdev.app"
+            method="POST"
+            data-support-form
+          >
+            <input type="hidden" name="_subject" value="InkMeld Support Request" data-support-subject>
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_captcha" value="false">
+            <input class="support-honeypot" type="text" name="_honey" tabindex="-1" autocomplete="off">
+
+            <div class="support-form-grid">
+              <label class="support-field">
+                <span class="support-label">Full Name</span>
+                <input
+                  class="support-input"
+                  type="text"
+                  name="name"
+                  placeholder="Your name"
+                  autocomplete="name"
+                >
+              </label>
+
+              <label class="support-field">
+                <span class="support-label">Reply Email</span>
+                <input
+                  class="support-input"
+                  type="email"
+                  name="email"
+                  placeholder="you@example.com"
+                  autocomplete="email"
+                  required
+                >
+              </label>
+
+              <label class="support-field">
+                <span class="support-label">Support Topic</span>
+                <select class="support-select" name="topic" required>
+                  <option value="Bug report">Bug report</option>
+                  <option value="Account access">Account access</option>
+                  <option value="Credits or billing">Credits or billing</option>
+                  <option value="Feature feedback">Feature feedback</option>
+                  <option value="General support">General support</option>
+                </select>
+              </label>
+
+              <label class="support-field">
+                <span class="support-label">Device / Platform</span>
+                <input
+                  class="support-input"
+                  type="text"
+                  name="device"
+                  placeholder="iPhone 15 Pro, Android, iPad, desktop..."
+                >
+              </label>
+
+              <label class="support-field support-field--full">
+                <span class="support-label">What Is Happening?</span>
+                <textarea
+                  class="support-textarea"
+                  name="message"
+                  placeholder="Tell us what happened, what you expected, and where in the flow it broke."
+                  required
+                ></textarea>
+              </label>
+            </div>
+
+            <div class="support-form-footer">
+              <p class="support-form-note">
+                If screenshots or a screen recording would help, mention that in the message and we will follow up in the same
+                thread.
+              </p>
+              <div class="support-actions">
+                <button class="btn-primary support-submit" type="submit" data-support-submit>Send</button>
+              </div>
+            </div>
+
+            <p class="support-form-status" data-support-status role="status" aria-live="polite"></p>
+          </form>
         </article>
 
-        <article class="panel contact-card reveal">
-          <div class="meta-topline">
-            <span>Before you send</span>
-            <span>High-signal reports help</span>
-          </div>
-          <h2 class="contact-title">What to include</h2>
-          <ul class="list-clean">
-            <li>Your device and operating system version.</li>
-            <li>Whether the issue happened during import, cutout, editing, or payment.</li>
-            <li>What you expected to happen and what happened instead.</li>
-            <li>Screenshots or a short screen recording if available.</li>
-            <li>Your registered account email for account-specific issues.</li>
-          </ul>
-        </article>
+        <div class="support-side-stack">
+          <article class="panel contact-card reveal support-side-card">
+            <div class="meta-topline">
+              <span>Inbox details</span>
+              <span>Human + product support</span>
+            </div>
+            <h2 class="contact-title">Where this goes</h2>
+            <div class="contact-stack">
+              <div class="mini-stat">
+                <span>Destination</span>
+                <strong>hello@oakdev.app</strong>
+              </div>
+              <div class="mini-stat">
+                <span>Typical response time</span>
+                <strong>Usually within 24 hours</strong>
+              </div>
+              <div class="mini-stat">
+                <span>Best for</span>
+                <strong>Bugs, billing, account recovery, feedback</strong>
+              </div>
+            </div>
+            <p class="card-copy">
+              Prefer your own mail app? You can still write us directly at
+              <a class="support-side-link" href="mailto:hello@oakdev.app?subject=InkMeld%20Support%20Request">hello@oakdev.app</a>.
+            </p>
+          </article>
+
+          <article class="panel contact-card reveal support-side-card">
+            <div class="meta-topline">
+              <span>Before you send</span>
+              <span>High-signal reports win</span>
+            </div>
+            <h2 class="contact-title">What to include</h2>
+            <ul class="list-clean">
+              <li>Your device and operating system version.</li>
+              <li>Whether the issue happened during import, cutout, editing, login, or payment.</li>
+              <li>What you expected to happen and what happened instead.</li>
+              <li>Any error text you saw on screen.</li>
+              <li>Your account email for account-specific issues.</li>
+            </ul>
+          </article>
+        </div>
       </div>
     </section>
 
@@ -144,5 +497,90 @@
   </main>
 
   <inkmeld-footer></inkmeld-footer>
+  <script>
+    (() => {
+      const supportForm = document.querySelector('[data-support-form]');
+      if (!supportForm) return;
+
+      const statusEl = supportForm.querySelector('[data-support-status]');
+      const submitButton = supportForm.querySelector('[data-support-submit]');
+      const subjectField = supportForm.querySelector('[data-support-subject]');
+      const relayEndpoint = 'https://formsubmit.co/ajax/hello@oakdev.app';
+
+      const setStatus = (message, state = '') => {
+        if (!statusEl) return;
+        statusEl.textContent = message;
+        if (state) {
+          statusEl.dataset.state = state;
+        } else {
+          delete statusEl.dataset.state;
+        }
+      };
+
+      const buildMailtoHref = () => {
+        const formData = new FormData(supportForm);
+        const name = (formData.get('name') || '').toString().trim();
+        const email = (formData.get('email') || '').toString().trim();
+        const topic = (formData.get('topic') || 'General support').toString().trim();
+        const device = (formData.get('device') || '').toString().trim();
+        const message = (formData.get('message') || '').toString().trim();
+
+        const subject = encodeURIComponent(`InkMeld Support | ${topic}`);
+        const body = encodeURIComponent(
+          `Name: ${name || '-'}\nReply email: ${email || '-'}\nTopic: ${topic || '-'}\nDevice / platform: ${device || '-'}\n\nMessage:\n${message || '-'}`
+        );
+
+        return `mailto:hello@oakdev.app?subject=${subject}&body=${body}`;
+      };
+
+      supportForm.addEventListener('submit', async (event) => {
+        event.preventDefault();
+
+        if (!supportForm.reportValidity()) return;
+
+        const formData = new FormData(supportForm);
+        const honey = (formData.get('_honey') || '').toString().trim();
+        if (honey) {
+          supportForm.reset();
+          setStatus('Message sent.', 'success');
+          return;
+        }
+
+        const topic = (formData.get('topic') || 'General support').toString().trim();
+        if (subjectField) {
+          subjectField.value = `InkMeld Support | ${topic}`;
+          formData.set('_subject', subjectField.value);
+        }
+
+        submitButton.disabled = true;
+        submitButton.textContent = 'Sending...';
+        setStatus('Sending your message to hello@oakdev.app...', 'sending');
+
+        try {
+          const response = await fetch(relayEndpoint, {
+            method: 'POST',
+            headers: {
+              Accept: 'application/json'
+            },
+            body: formData
+          });
+
+          const result = await response.json().catch(() => ({}));
+          if (!response.ok) {
+            throw new Error(result.message || 'Support relay failed.');
+          }
+
+          supportForm.reset();
+          setStatus('Message sent. We will reply to the email address you entered.', 'success');
+        } catch (error) {
+          setStatus('Automatic sending was unavailable, so we opened a ready-to-send email instead.', 'fallback');
+          window.location.href = buildMailtoHref();
+        } finally {
+          submitButton.disabled = false;
+          submitButton.textContent = 'Send';
+        }
+      });
+    })();
+  </script>
 </body>
 </html>
