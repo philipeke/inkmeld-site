@@ -21,17 +21,18 @@ class InkmeldNavbar extends HTMLElement {
           <div class="nav-panel">
             <div class="nav-links">
               <a href="/#experience" data-nav-key="experience">Experience</a>
-              <a href="/#use-cases" data-nav-key="use-cases">Use Cases</a>
               <a href="/#showcase" data-nav-key="showcase">The App</a>
               <a href="/#studio" data-nav-key="studio">Studio</a>
               <a href="/#plans" data-nav-key="plans">Plans</a>
-              <a href="/#future" data-nav-key="future">Roadmap</a>
               <a href="/#faq" data-nav-key="faq">FAQ</a>
               <a href="/support" data-nav-key="support">Support</a>
             </div>
 
             <div class="nav-actions">
-              <a class="btn-ghost" href="mailto:support@inkmeld.ai?subject=InkMeld%20Access">Get Access</a>
+              <a class="nav-cta" href="/#get-app">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v14"/><path d="m6 11 6 6 6-6"/><path d="M5 21h14"/></svg>
+                <span>Get the app</span>
+              </a>
             </div>
           </div>
         </nav>
@@ -123,7 +124,7 @@ class InkmeldNavbar extends HTMLElement {
     updateActiveLink();
 
     if (path === '/' || path === '/index.html') {
-      const observedSections = ['experience', 'showcase', 'use-cases', 'studio', 'plans', 'future', 'faq']
+      const observedSections = ['experience', 'showcase', 'studio', 'plans', 'faq']
         .map((id) => document.getElementById(id))
         .filter(Boolean);
 
