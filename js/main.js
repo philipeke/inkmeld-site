@@ -1,18 +1,178 @@
 document.addEventListener('DOMContentLoaded', () => {
   document.documentElement.classList.add('js-ready');
 
-  const revealItems = document.querySelectorAll('.reveal');
-  const countItems = document.querySelectorAll('[data-count]');
-  const progressBar = document.querySelector('.scroll-progress');
-  const tiltItems = document.querySelectorAll('[data-tilt]');
-  const studioButtons = document.querySelectorAll('[data-studio-mode]');
-  const realitySlider = document.querySelector('[data-reality-slider]');
-  const realityValue = document.querySelector('[data-reality-value]');
-  const simulatedImage = document.querySelector('[data-simulated-image]');
-  const deleteForm = document.querySelector('[data-delete-form]');
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const finePointer = window.matchMedia('(pointer: fine)').matches;
 
+  // ─── Canvas Ink Particles ─────────────────────────────────
+  const canvas = document.getElementById('ink-canvas');
+  if (canvas && !reduceMotion) {
+    const ctx = canvas.getContext('2d');
+    let particles = [];
+    let raf;
+
+    const resize = () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    };
+    resize();
+    window.addEventListener('resize', resize, { passive: true });
+
+    const COLORS = [
+      '0, 245, 212',
+      '160, 32, 240',
+      '56, 182, 255',
+      '255, 45, 184',
+    ];
+
+    class Particle {
+      constructor() { this.reset(true); }
+
+      reset(init) {
+        this.x = Math.random() * canvas.width;
+        this.y = init ? Math.random() * canvas.height : (Math.random() > 0.5 ? -20 : canvas.height + 20);
+        this.size = Math.random() * 1.8 + 0.3;
+        this.baseOpacity = Math.random() * 0.28 + 0.04;
+        this.opacity = 0;
+        this.targetOpacity = this.baseOpacity;
+        this.color = COLORS[Math.floor(Math.random() * COLORS.length)];
+        this.vx = (Math.random() - 0.5) * 0.22;
+        this.vy = (Math.random() - 0.5) * 0.22;
+        this.life = Math.random() * 500 + 200;
+        this.maxLife = this.life;
+        this.pulse = Math.random() * Math.PI * 2;
+        this.pulseSpeed = 0.008 + Math.random() * 0.012;
+      }
+
+      update() {
+        this.x += this.vx;
+        this.y += this.vy;
+        this.life--;
+        this.pulse += this.pulseSpeed;
+
+        const lifeRatio = this.life / this.maxLife;
+        const fade = lifeRatio < 0.15 ? lifeRatio / 0.15 : lifeRatio > 0.85 ? 1 : 1;
+        const pulseAmt = Math.sin(this.pulse) * 0.3 + 0.7;
+        this.opacity = this.baseOpacity * fade * pulseAmt;
+
+        if (this.life <= 0) this.reset(false);
+      }
+
+      draw() {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(${this.color}, ${this.opacity})`;
+        ctx.fill();
+      }
+    }
+
+    const PARTICLE_COUNT = 28;
+    for (let i = 0; i < PARTICLE_COUNT; i++) {
+      particles.push(new Particle());
+    }
+
+    let frameSkip = 0;
+    const animate = () => {
+      raf = requestAnimationFrame(animate);
+      frameSkip++;
+      if (frameSkip % 2 !== 0) return; // ~30fps instead of 60fps
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      particles.forEach(p => { p.update(); p.draw(); });
+    };
+
+    animate();
+
+    // Pause when tab not visible
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) {
+        cancelAnimationFrame(raf);
+      } else {
+        animate();
+      }
+    });
+  }
+
+  // ─── Scroll Progress Bar ──────────────────────────────────
+  const progressBar = document.querySelector('.scroll-progress');
+  const updateProgress = () => {
+    if (!progressBar) return;
+    const scrollTop = window.scrollY;
+    const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+    const pct = maxScroll <= 0 ? 0 : (scrollTop / maxScroll) * 100;
+    progressBar.style.width = `${pct}%`;
+  };
+  window.addEventListener('scroll', updateProgress, { passive: true });
+  updateProgress();
+
+  // ─── Reveal on Scroll ────────────────────────────────────
+  const revealItems = document.querySelectorAll('.reveal');
+  const countItems = document.querySelectorAll('[data-count]');
+
+  const revealObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('is-visible');
+        if (entry.target.hasAttribute('data-count')) animateCount(entry.target);
+        revealObserver.unobserve(entry.target);
+      });
+    },
+    { threshold: 0.14, rootMargin: '0px 0px -8% 0px' }
+  );
+
+  if (reduceMotion) {
+    revealItems.forEach(item => item.classList.add('is-visible'));
+    countItems.forEach(item => {
+      const val = item.getAttribute('data-count');
+      if (val) item.textContent = val;
+    });
+  } else {
+    revealItems.forEach(item => revealObserver.observe(item));
+    countItems.forEach(item => revealObserver.observe(item));
+  }
+
+  // ─── Count Animation ─────────────────────────────────────
+  function animateCount(el) {
+    const target = Number(el.getAttribute('data-count'));
+    if (!target || el.dataset.counted === 'true') return;
+    el.dataset.counted = 'true';
+    const startTime = performance.now();
+    const duration = 1200;
+
+    const tick = (now) => {
+      const progress = Math.min((now - startTime) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 4);
+      el.textContent = String(Math.round(target * eased));
+      if (progress < 1) requestAnimationFrame(tick);
+      else el.textContent = String(target);
+    };
+
+    requestAnimationFrame(tick);
+  }
+
+  // ─── 3D Tilt Effect ──────────────────────────────────────
+  if (!reduceMotion && finePointer) {
+    document.querySelectorAll('[data-tilt]').forEach(item => {
+      item.addEventListener('pointermove', (e) => {
+        const rect = item.getBoundingClientRect();
+        const px = (e.clientX - rect.left) / rect.width;
+        const py = (e.clientY - rect.top) / rect.height;
+        const ry = (px - 0.5) * 9;
+        const rx = (0.5 - py) * 9;
+        item.style.transform = `perspective(1100px) rotateX(${rx}deg) rotateY(${ry}deg)`;
+        item.style.setProperty('--pointer-x', `${px * 100}%`);
+        item.style.setProperty('--pointer-y', `${py * 100}%`);
+      });
+
+      item.addEventListener('pointerleave', () => {
+        item.style.transform = '';
+        item.style.removeProperty('--pointer-x');
+        item.style.removeProperty('--pointer-y');
+      });
+    });
+  }
+
+  // ─── Ink Studio Presets ───────────────────────────────────
   const studioPresets = {
     classic_black: {
       preset: 'Classic Black',
@@ -23,8 +183,7 @@ document.addEventListener('DOMContentLoaded', () => {
       blur: '0.3',
       highlight: '10%',
       reality: '58%',
-      description:
-        'Strong multiply blend, near-maximum opacity, slight softness, and controlled shadow for a convincing black ink look with enough depth to feel settled into skin.',
+      description: 'Strong multiply blend, near-maximum opacity, slight softness, and controlled shadow for a convincing black ink look with enough depth to feel settled into skin.',
       meters: {
         contrast: { width: '64%', text: '115%' },
         skinBlend: { width: '58%', text: '58%' },
@@ -41,8 +200,7 @@ document.addEventListener('DOMContentLoaded', () => {
       blur: '0.6',
       highlight: '14%',
       reality: '70%',
-      description:
-        'More diffused edges, lighter density, and a higher skin blend let the artwork feel older, softer, and more naturally fused into the body.',
+      description: 'More diffused edges, lighter density, and a higher skin blend let the artwork feel older, softer, and more naturally fused into the body.',
       meters: {
         contrast: { width: '52%', text: '102%' },
         skinBlend: { width: '70%', text: '70%' },
@@ -59,8 +217,7 @@ document.addEventListener('DOMContentLoaded', () => {
       blur: '0.35',
       highlight: '28%',
       reality: '45%',
-      description:
-        'High saturation, luminous tint behavior, and stronger highlight response push the preview toward a cybernetic ink aesthetic without losing structure.',
+      description: 'High saturation, luminous tint behavior, and stronger highlight response push the preview toward a cybernetic ink aesthetic without losing structure.',
       meters: {
         contrast: { width: '68%', text: '120%' },
         skinBlend: { width: '45%', text: '45%' },
@@ -77,8 +234,7 @@ document.addEventListener('DOMContentLoaded', () => {
       blur: '0.15',
       highlight: '22%',
       reality: '42%',
-      description:
-        'Hard light blending with tighter edges and a cooler tint makes the preview feel cut, polished, and almost metallic while still hugging the underlying form.',
+      description: 'Hard light blending with tighter edges and a cooler tint makes the preview feel cut, polished, and almost metallic while still hugging the underlying form.',
       meters: {
         contrast: { width: '72%', text: '128%' },
         skinBlend: { width: '42%', text: '42%' },
@@ -88,94 +244,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
-  const revealObserver = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting) return;
-        entry.target.classList.add('is-visible');
-
-        if (entry.target.hasAttribute('data-count')) {
-          animateCount(entry.target);
-        }
-
-        revealObserver.unobserve(entry.target);
-      });
-    },
-    {
-      threshold: 0.16,
-      rootMargin: '0px 0px -8% 0px'
-    }
-  );
-
-  if (reduceMotion) {
-    revealItems.forEach((item) => item.classList.add('is-visible'));
-    countItems.forEach((item) => {
-      if (item.getAttribute('data-count')) {
-        item.textContent = item.getAttribute('data-count');
-      }
-    });
-  } else {
-    revealItems.forEach((item) => revealObserver.observe(item));
-    countItems.forEach((item) => revealObserver.observe(item));
-  }
-
-  function animateCount(element) {
-    const target = Number(element.getAttribute('data-count'));
-    if (!target || element.dataset.counted === 'true') return;
-
-    element.dataset.counted = 'true';
-    const startTime = performance.now();
-    const duration = 1100;
-
-    const tick = (now) => {
-      const progress = Math.min((now - startTime) / duration, 1);
-      const eased = 1 - Math.pow(1 - progress, 3);
-      element.textContent = String(Math.round(target * eased));
-
-      if (progress < 1) {
-        requestAnimationFrame(tick);
-      } else {
-        element.textContent = String(target);
-      }
-    };
-
-    requestAnimationFrame(tick);
-  }
-
-  const updateProgress = () => {
-    if (!progressBar) return;
-
-    const scrollTop = window.scrollY;
-    const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
-    const progress = maxScroll <= 0 ? 0 : (scrollTop / maxScroll) * 100;
-    progressBar.style.width = `${progress}%`;
-  };
-
-  window.addEventListener('scroll', updateProgress, { passive: true });
-  updateProgress();
-
-  if (!reduceMotion && finePointer) {
-    tiltItems.forEach((item) => {
-      item.addEventListener('pointermove', (event) => {
-        const rect = item.getBoundingClientRect();
-        const percentX = (event.clientX - rect.left) / rect.width;
-        const percentY = (event.clientY - rect.top) / rect.height;
-        const rotateY = (percentX - 0.5) * 8;
-        const rotateX = (0.5 - percentY) * 8;
-
-        item.style.transform = `perspective(1200px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-        item.style.setProperty('--pointer-x', `${percentX * 100}%`);
-        item.style.setProperty('--pointer-y', `${percentY * 100}%`);
-      });
-
-      item.addEventListener('pointerleave', () => {
-        item.style.transform = '';
-        item.style.removeProperty('--pointer-x');
-        item.style.removeProperty('--pointer-y');
-      });
-    });
-  }
-
+  const studioButtons = document.querySelectorAll('[data-studio-mode]');
   const studioFields = {
     preset: document.querySelector('[data-studio-preset]'),
     tone: document.querySelector('[data-studio-tone]'),
@@ -206,8 +275,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const preset = studioPresets[key];
     if (!preset) return;
 
-    studioButtons.forEach((button) => {
-      button.classList.toggle('is-active', button.dataset.studioMode === key);
+    studioButtons.forEach(btn => {
+      btn.classList.toggle('is-active', btn.dataset.studioMode === key);
     });
 
     studioFields.preset && (studioFields.preset.textContent = preset.preset);
@@ -226,45 +295,38 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   };
 
-  studioButtons.forEach((button) => {
-    button.addEventListener('click', () => {
-      applyStudioPreset(button.dataset.studioMode);
-    });
+  studioButtons.forEach(btn => {
+    btn.addEventListener('click', () => applyStudioPreset(btn.dataset.studioMode));
   });
 
   applyStudioPreset('classic_black');
 
+  // ─── Reality Slider ───────────────────────────────────────
+  const realitySlider = document.querySelector('[data-reality-slider]');
+  const realityValue = document.querySelector('[data-reality-value]');
+  const simulatedImage = document.querySelector('[data-simulated-image]');
+
   if (realitySlider && realityValue && simulatedImage) {
-    const updateSimulation = () => {
-      const value = Number(realitySlider.value);
-      const normalized = value / 100;
-
-      simulatedImage.style.opacity = String(Math.max(0.08, normalized));
-      realityValue.textContent = `${value}%`;
+    const updateSim = () => {
+      const v = Number(realitySlider.value);
+      simulatedImage.style.opacity = String(Math.max(0.06, v / 100));
+      realityValue.textContent = `${v}%`;
     };
-
-    realitySlider.addEventListener('input', updateSimulation);
-    updateSimulation();
+    realitySlider.addEventListener('input', updateSim);
+    updateSim();
   }
 
+  // ─── Delete Account Form ──────────────────────────────────
+  const deleteForm = document.querySelector('[data-delete-form]');
   if (deleteForm) {
-    deleteForm.addEventListener('submit', (event) => {
-      event.preventDefault();
-
+    deleteForm.addEventListener('submit', (e) => {
+      e.preventDefault();
       const emailInput = deleteForm.querySelector('[data-delete-email]');
       const email = emailInput?.value?.trim();
-
-      if (!email) {
-        emailInput?.focus();
-        return;
-      }
-
+      if (!email) { emailInput?.focus(); return; }
       const subject = encodeURIComponent('Delete InkMeld account');
-      const body = encodeURIComponent(
-        `Please delete my InkMeld account.\n\nRegistered email: ${email}\n\nThank you.`
-      );
-
-      window.location.href = `mailto:support@inkmeld.ai?subject=${subject}&body=${body}`;
+      const body = encodeURIComponent(`Please permanently delete my InkMeld account.\n\nRegistered email: ${email}\n\nThank you.`);
+      window.location.href = `mailto:hello@oakdev.app?subject=${subject}&body=${body}`;
     });
   }
 });

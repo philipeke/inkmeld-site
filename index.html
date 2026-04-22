@@ -4,11 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>InkMeld | AI Tattoo Preview From The Future</title>
-  <meta
-    name="description"
-    content="InkMeld turns any image into a believable tattoo preview. Import artwork from anywhere, isolate it with AI, place it on your body photo, and refine realism with studio-grade controls."
-  >
-  <meta name="theme-color" content="#050816">
+  <meta name="description" content="InkMeld turns any image into a believable tattoo preview. Import artwork from anywhere, isolate it with AI, place it on your body photo, and refine realism with studio-grade controls.">
+  <meta name="theme-color" content="#05080f">
   <meta property="og:site_name" content="InkMeld">
   <meta property="og:title" content="InkMeld | AI Tattoo Preview From The Future">
   <meta property="og:description" content="Import artwork from anywhere, isolate it with AI, place it on your body photo, and refine realism with studio-grade controls.">
@@ -17,91 +14,84 @@
   <meta property="og:image" content="https://inkmeld.oakdev.app/assets/mainlogo-premium-dark.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="InkMeld | AI Tattoo Preview From The Future">
-  <meta name="twitter:description" content="See the tattoo before the commitment with AI cutouts, skin-aware placement, and studio-grade realism controls.">
+  <meta name="twitter:description" content="See the tattoo before the commitment. AI cutouts, skin-aware placement, studio-grade realism.">
   <meta name="twitter:image" content="https://inkmeld.oakdev.app/assets/mainlogo-premium-dark.png">
-
   <script>document.documentElement.classList.add('js');</script>
   <link rel="stylesheet" href="/css/global.css">
+  <link rel="stylesheet" href="/css/cookie-consent.css">
   <link rel="canonical" href="https://inkmeld.oakdev.app/">
   <link rel="icon" type="image/png" href="/assets/logo-launcher-256.png">
   <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
   <link rel="manifest" href="/site.webmanifest">
-
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "MobileApplication",
-      "name": "InkMeld",
-      "url": "https://inkmeld.oakdev.app/",
-      "applicationCategory": "LifestyleApplication",
-      "operatingSystem": "iOS, Android",
-      "description": "AI-powered tattoo preview app for importing artwork from anywhere, isolating it with AI, placing it on real body photos, and refining realism with studio-grade controls.",
-      "publisher": {
-        "@type": "Organization",
-        "name": "OakDev & AI AB"
-      },
-      "image": "https://inkmeld.oakdev.app/assets/mainlogo-premium-dark.png"
-    }
-  </script>
-
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"MobileApplication","name":"InkMeld","url":"https://inkmeld.oakdev.app/","applicationCategory":"LifestyleApplication","operatingSystem":"iOS, Android","description":"AI-powered tattoo preview app.","publisher":{"@type":"Organization","name":"OakDev & AI AB"},"image":"https://inkmeld.oakdev.app/assets/mainlogo-premium-dark.png"}</script>
   <script type="module" src="/js/firebase-client.js"></script>
   <script src="/js/components/navbar.js" defer></script>
   <script src="/js/components/footer.js" defer></script>
   <script src="/js/main.js" defer></script>
+  <script src="/js/cookie-consent.js" defer></script>
 </head>
 <body>
+  <canvas id="ink-canvas" aria-hidden="true"></canvas>
   <div class="scroll-progress" aria-hidden="true"></div>
-
   <inkmeld-navbar></inkmeld-navbar>
 
   <main id="main-content">
+
+    <!-- ═══════════════════════ HERO ═══════════════════════ -->
     <section class="hero-section">
+      <div class="hero-orb hero-orb--1" aria-hidden="true"></div>
+      <div class="hero-orb hero-orb--2" aria-hidden="true"></div>
+      <div class="hero-orb hero-orb--3" aria-hidden="true"></div>
+
       <div class="container hero-grid">
         <div class="hero-copy reveal">
           <span class="eyebrow">Neural Ink Preview System</span>
           <h1 class="display-title">
-            Preview the impossible.
-            <span class="text-gradient">Ink the future first.</span>
+            See the ink<br>
+            <span class="text-gradient">before the needle.</span>
           </h1>
           <p class="lead-copy">
-            InkMeld turns raw internet inspiration into a realistic tattoo simulation ritual. Import any image, isolate
-            exactly what matters with AI, project it on your own body photo, then sculpt color, softness, blend,
-            shadow, and texture until the result feels unnervingly believable.
+            InkMeld turns any image — from the internet, your camera, or a sketch — into a hyper-realistic tattoo simulation on your own body photo. AI cutout, skin-aware placement, and 12 live controls. Your idea, pressure-tested before it becomes permanent.
           </p>
 
           <div class="hero-actions">
-            <a class="btn-primary" href="mailto:support@inkmeld.ai?subject=InkMeld%20Beta%20Access">Request Early Access</a>
+            <a class="btn-primary" href="mailto:support@inkmeld.ai?subject=InkMeld%20Beta%20Access">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+              Request Early Access
+            </a>
             <a class="btn-secondary" href="#studio">Enter Ink Studio</a>
           </div>
 
           <div class="hero-chip-row">
-            <span class="chip">Import from web, gallery, camera, or sketch</span>
-            <span class="chip">Neural object isolation tuned for tattoo motifs</span>
-            <span class="chip">Body-aware placement and live realism controls</span>
-            <span class="chip">Save, compare, and share session-ready previews</span>
+            <span class="chip">Import from web, gallery, camera</span>
+            <span class="chip">Neural AI object isolation</span>
+            <span class="chip">Skin-aware placement engine</span>
+            <span class="chip">Studio-grade realism controls</span>
           </div>
 
           <div class="hero-stats">
             <article class="hero-stat">
+              <strong data-count="12">12</strong>
+              <span>live adjustment axes</span>
+            </article>
+            <article class="hero-stat">
               <strong data-count="5">5</strong>
-              <span>blend modes for believable ink behavior</span>
+              <span>blend modes</span>
             </article>
             <article class="hero-stat">
               <strong data-count="4">4</strong>
-              <span>material presets built into the editor</span>
-            </article>
-            <article class="hero-stat">
-              <strong data-count="12">12</strong>
-              <span>live adjustment axes across color and realism</span>
+              <span>material presets</span>
             </article>
           </div>
         </div>
 
-        <div class="hero-visual reveal holo-card" data-tilt>
+        <div class="hero-visual reveal" data-tilt>
+          <div class="hero-ring" aria-hidden="true"></div>
+          <div class="hero-ring hero-ring--outer" aria-hidden="true"></div>
           <div class="hero-device-shell">
             <img
               src="/assets/hero-phone-cutout.png"
-              alt="InkMeld phone preview floating with a neon tattoo simulation glow"
+              alt="InkMeld app showing a tattoo preview placed on a real body photo"
               class="hero-device"
               width="973"
               height="1024"
@@ -111,23 +101,23 @@
 
             <div class="floating-tag floating-tag--left">
               <div class="floating-tag__row">
-                <img src="/assets/logo-launcher-256.png" alt="InkMeld launcher icon" class="floating-icon" width="256" height="256" decoding="async">
+                <img src="/assets/logo-launcher-256.png" alt="InkMeld icon" class="floating-icon" width="46" height="46" decoding="async">
                 <div>
-                  <strong>Skin-aware placement</strong>
-                  <span>Built around real body photos</span>
+                  <strong>Skin-aware blend</strong>
+                  <span>Settles into real anatomy</span>
                 </div>
               </div>
             </div>
 
             <div class="floating-tag floating-tag--right">
               <strong>Realtime editor</strong>
-              <span>Scale, rotate, tint, blend, soften, glow</span>
+              <span>Scale · Rotate · Tint · Blend</span>
             </div>
 
-            <aside class="signal-panel">
+            <aside class="signal-panel holo-card">
               <div class="signal-topline">
-                <span>Live preview telemetry</span>
-                <span>Studio online</span>
+                <span>Live telemetry</span>
+                <span class="signal-online">Studio online</span>
               </div>
               <div class="signal-grid">
                 <div class="signal-row">
@@ -157,205 +147,183 @@
           <span>AI cutout from any image</span>
           <span>Body-photo tattoo placement</span>
           <span>Blend modes that mimic real ink</span>
-          <span>Material presets for instant mood shifts</span>
-          <span>Brightness contrast saturation hue</span>
-          <span>Edge softness micro blur grain</span>
+          <span>Material presets for instant mood</span>
+          <span>Brightness · Contrast · Saturation · Hue</span>
+          <span>Edge softness · Micro blur · Grain</span>
           <span>Monthly quota and purchased credits</span>
           <span>Server-side receipt verification</span>
-          <span>Export save share</span>
+          <span>Export · Save · Share</span>
+          <span>English and Swedish localization</span>
+          <span>AI cutout from any image</span>
+          <span>Body-photo tattoo placement</span>
+          <span>Blend modes that mimic real ink</span>
+          <span>Material presets for instant mood</span>
+          <span>Brightness · Contrast · Saturation · Hue</span>
+          <span>Edge softness · Micro blur · Grain</span>
+          <span>Monthly quota and purchased credits</span>
+          <span>Server-side receipt verification</span>
+          <span>Export · Save · Share</span>
           <span>English and Swedish localization</span>
         </div>
       </div>
     </section>
 
+    <!-- ═══════════════════════ WHY ═══════════════════════ -->
     <section id="experience">
       <div class="container">
         <div class="section-heading is-centered reveal">
           <span class="eyebrow">Why It Feels Different</span>
-          <h2 class="section-title">This is not a static mockup. It is an <span class="text-gradient">ink rehearsal engine.</span></h2>
-          <p class="section-copy">
-            Most tattoo preview tools stop at drag and drop. InkMeld keeps going until the image behaves like material:
-            placed on skin, bent by your choices, and tuned with enough control to satisfy both the cautious first-timer
-            and the brutally particular tattoo obsessive.
-          </p>
+          <h2 class="section-title">Not a filter. Not a sticker.<br><span class="text-gradient">An ink rehearsal engine.</span></h2>
+          <p class="section-copy">Most preview tools stop at drag and drop. InkMeld keeps going until the image behaves like material — placed on skin, bent by your choices, tuned with enough control to satisfy both the cautious first-timer and the brutally particular collector.</p>
         </div>
 
         <div class="story-grid">
           <article class="panel story-card reveal holo-card">
+            <div class="story-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="8" height="8" rx="2"/><rect x="14" y="2" width="8" height="8" rx="2"/><rect x="2" y="14" width="8" height="8" rx="2"/><path d="M14 17h8M18 14v6"/></svg>
+            </div>
             <span class="story-number">01</span>
             <h3 class="card-title">Source from absolutely anywhere</h3>
-            <p class="card-copy">
-              Pull a motif from the internet, import a logo, photograph a sketch, or use existing artwork from your own
-              library. InkMeld is designed around the chaotic way real inspiration actually happens.
-            </p>
+            <p class="card-copy">Pull a motif from the internet, import a logo, photograph a sketch, or use existing artwork from your library. InkMeld is designed around the chaotic way real inspiration actually happens.</p>
           </article>
 
           <article class="panel story-card reveal holo-card">
+            <div class="story-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22C6.48 22 2 17.52 2 12S6.48 2 12 2s10 4.48 10 10-4.48 10-10 10z"/><path d="M12 8v4l3 3"/><path d="M16.24 7.76A7 7 0 0 0 7.76 16.24"/></svg>
+            </div>
             <span class="story-number">02</span>
-            <h3 class="card-title">Extract the exact object with AI</h3>
-            <p class="card-copy">
-              The cutout flow isolates the visual you care about so you are not previewing a screenshot or a poster. You
-              are previewing the exact symbol, shape, creature, or graphic that triggered the idea in the first place.
-            </p>
+            <h3 class="card-title">AI extracts the exact object</h3>
+            <p class="card-copy">The cutout flow isolates the visual you care about — not a screenshot, not a poster. The exact symbol, shape, creature, or graphic that triggered the idea in the first place, clean and ready.</p>
           </article>
 
           <article class="panel story-card reveal holo-card">
+            <div class="story-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M2 12h3M19 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12"/></svg>
+            </div>
             <span class="story-number">03</span>
-            <h3 class="card-title">Refine until the preview feels inevitable</h3>
-            <p class="card-copy">
-              Once the design is on your body photo, the editor lets you push placement, intensity, softness, skin blend,
-              shadow, highlights, and finish. That is where "maybe" turns into "that is the one".
-            </p>
+            <h3 class="card-title">Refine until it feels inevitable</h3>
+            <p class="card-copy">Once the design is on your body photo, the editor lets you push placement, softness, skin blend, shadow, highlights, and finish. That is where "maybe" turns into "that is the one".</p>
           </article>
         </div>
       </div>
     </section>
 
+    <!-- ═══════════════════════ APP SHOWCASE ═══════════════════════ -->
+    <section class="showcase-section" id="showcase">
+      <div class="showcase-glow" aria-hidden="true"></div>
+      <div class="container showcase-grid">
+        <div class="showcase-copy reveal">
+          <span class="eyebrow">The Editor</span>
+          <h2 class="section-title">Every tool you need to<br><span class="text-gradient">make it look real.</span></h2>
+          <p class="section-copy">A full control deck built for serious tattoo decision-making. Not a toy slider set — a precision instrument that makes the difference between guessing and knowing.</p>
+
+          <ul class="showcase-list">
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              Scale, rotate, and position on your exact anatomy
+            </li>
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              Tint, brightness, contrast, saturation, and hue
+            </li>
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              Edge softness, micro blur, grain, and skin blend
+            </li>
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              5 blend modes: Multiply, Soft Light, Overlay, Screen, Hard Light
+            </li>
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              4 material presets for instant mood shifts
+            </li>
+          </ul>
+
+          <div class="hero-actions" style="margin-top: 8px;">
+            <a class="btn-primary" href="#studio">Open Ink Studio</a>
+          </div>
+        </div>
+
+        <div class="showcase-device reveal">
+          <div class="showcase-device-frame">
+            <img
+              src="/assets/tattoo_app_mockup.png"
+              alt="InkMeld editor interface showing tattoo placement controls and blend mode settings"
+              class="showcase-img"
+              loading="lazy"
+              width="1024"
+              height="1024"
+              decoding="async"
+            >
+            <div class="showcase-badge showcase-badge--top">
+              <span class="badge-dot"></span>
+              <strong>Realtime preview</strong>
+            </div>
+            <div class="showcase-badge showcase-badge--bottom">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+              <strong>AI cutout active</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════ SIGNAL DECK ═══════════════════════ -->
     <section id="signal">
       <div class="container">
-        <div class="section-heading reveal is-centered">
-          <span class="eyebrow">InkMeld Signal Deck</span>
-          <h2 class="section-title">Not a demo shell. A complete <span class="text-gradient">decision engine.</span></h2>
-          <p class="section-copy">
-            This site is rebuilt to match what InkMeld actually does in the app: import chaos, isolate intent, place on
-            real anatomy, then refine until an idea becomes concrete enough for a real session conversation.
-          </p>
+        <div class="section-heading is-centered reveal">
+          <span class="eyebrow">InkMeld Modes</span>
+          <h2 class="section-title">Built for every person<br>in the <span class="text-gradient">tattoo decision chain.</span></h2>
+          <p class="section-copy">One app, three distinct use cases — from the person exploring an idea for the first time, to the tattoo artist who needs to align with a client fast.</p>
         </div>
 
         <div class="signal-deck-grid">
           <article class="panel signal-deck-card reveal holo-card">
-            <span class="feature-icon">A1</span>
+            <div class="deck-icon deck-icon--cyan">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+            </div>
             <h3 class="card-title">Creator mode</h3>
-            <p class="card-copy">
-              Save multiple versions of one motif, iterate on placement, and build a clean visual shortlist before
-              speaking with an artist.
-            </p>
+            <p class="card-copy">Save multiple versions of one motif, iterate on placement, and build a clean visual shortlist before speaking with an artist. Turn "I think I want something like this" into a precise brief.</p>
+            <span class="deck-tag">For collectors &amp; enthusiasts</span>
           </article>
+
           <article class="panel signal-deck-card reveal holo-card">
-            <span class="feature-icon">A2</span>
+            <div class="deck-icon deck-icon--violet">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+            </div>
             <h3 class="card-title">Artist mode</h3>
-            <p class="card-copy">
-              Pressure-test custom sketches on client anatomy quickly so communication becomes visual and precise from
-              minute one.
-            </p>
+            <p class="card-copy">Pressure-test custom sketches directly on client anatomy. Communication becomes visual and precise from minute one. Cut revision loops. Spend the session making — not explaining.</p>
+            <span class="deck-tag">For tattoo artists</span>
           </article>
+
           <article class="panel signal-deck-card reveal holo-card">
-            <span class="feature-icon">A3</span>
-            <h3 class="card-title">Reality mode</h3>
-            <p class="card-copy">
-              Move past "looks cool on paper" and evaluate the tattoo in a realistic skin context before any permanent
-              decision is made.
-            </p>
+            <div class="deck-icon deck-icon--gold">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            </div>
+            <h3 class="card-title">Studio mode</h3>
+            <p class="card-copy">Make the consultation a premium visual experience. Standardize preview quality, improve close rates, and make your studio feel like it operates 10 years ahead of the competition.</p>
+            <span class="deck-tag">For studio owners</span>
           </article>
         </div>
       </div>
     </section>
 
-    <section id="workflow">
-      <div class="container">
-        <div class="section-heading reveal">
-          <span class="eyebrow">Neural Workflow</span>
-          <h2 class="section-title">From random internet image to body-ready preview in four moves.</h2>
-          <p class="section-copy">
-            The core InkMeld loop is simple enough to feel immediate and deep enough to feel powerful. That balance is the
-            whole point.
-          </p>
-        </div>
-
-        <div class="workflow-grid">
-          <article class="panel workflow-card reveal">
-            <span class="workflow-number">01</span>
-            <h3 class="workflow-title">Import or photograph</h3>
-            <p class="workflow-copy">
-              Start with a body photo you shot yourself, then bring in the tattoo source from a screenshot, design, symbol,
-              sketch, or reference image.
-            </p>
-          </article>
-
-          <article class="panel workflow-card reveal">
-            <span class="workflow-number">02</span>
-            <h3 class="workflow-title">Run the cutout</h3>
-            <p class="workflow-copy">
-              InkMeld pushes the artwork through its AI removal flow so the object becomes clean, focused, and ready for
-              preview instead of trapped inside a full background image.
-            </p>
-          </article>
-
-          <article class="panel workflow-card reveal">
-            <span class="workflow-number">03</span>
-            <h3 class="workflow-title">Place and sculpt</h3>
-            <p class="workflow-copy">
-              Move, rotate, scale, tint, blend, soften, blur, and tune how the ink sits against skin until the illusion
-              feels locked in.
-            </p>
-          </article>
-
-          <article class="panel workflow-card reveal">
-            <span class="workflow-number">04</span>
-            <h3 class="workflow-title">Save, export, share</h3>
-            <p class="workflow-copy">
-              When the preview hits, keep it. Save to your account, export it, share it with your artist, or use it to
-              compare multiple directions before you ever book the session.
-            </p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="gallery" class="visual-section">
-      <div class="container">
-        <div class="section-heading reveal">
-          <span class="eyebrow">Visual System</span>
-          <h2 class="section-title">A launch surface with actual <span class="text-gradient">future energy.</span></h2>
-          <p class="section-copy">
-            The website now has a stronger visual rhythm: cinematic product imagery, layered cards, and intentional
-            depth so every section feels part of one premium product universe.
-          </p>
-        </div>
-
-        <div class="visual-grid">
-          <article class="panel visual-card reveal">
-            <img src="/assets/mainlogo-premium-dark.png" alt="InkMeld premium neon visual identity scene" loading="lazy" width="1536" height="1024" decoding="async">
-            <div class="visual-copy">
-              <h3 class="card-title">Brand chamber</h3>
-              <p class="card-copy">High-contrast neon environment establishes the futuristic core identity.</p>
-            </div>
-          </article>
-          <article class="panel visual-card reveal">
-            <img src="/assets/tattoo_app_mockup.png" alt="InkMeld app interface preview on futuristic dark background" loading="lazy" width="1024" height="1024" decoding="async">
-            <div class="visual-copy">
-              <h3 class="card-title">Studio interface</h3>
-              <p class="card-copy">Shows the real control deck where tattoo realism gets dialed in.</p>
-            </div>
-          </article>
-          <article class="panel visual-card reveal">
-            <img src="/assets/mainlogo-transparant.png" alt="InkMeld logo mark with glowing metallic texture" loading="lazy" width="1536" height="1024" decoding="async">
-            <div class="visual-copy">
-              <h3 class="card-title">Future signature</h3>
-              <p class="card-copy">A distinct visual fingerprint that separates InkMeld from generic app pages.</p>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
+    <!-- ═══════════════════════ INK STUDIO ═══════════════════════ -->
     <section id="studio" class="studio-section">
+      <div class="studio-bg-glow" aria-hidden="true"></div>
       <div class="container studio-grid">
         <div class="studio-overview reveal">
           <span class="eyebrow">Ink Studio</span>
-          <h2 class="section-title">The editor is where the app stops being cool and starts being dangerous.</h2>
-          <p class="section-copy">
-            InkMeld already ships with placement controls, color and contrast tuning, multiple blend modes, and realism
-            adjustments such as edge softness, micro blur, skin blend, shadow, highlight, and grain. This is not a toy
-            slider set. It is a control deck.
-          </p>
+          <h2 class="section-title">The editor is where the app stops being <span class="text-gradient">cool and starts being dangerous.</span></h2>
+          <p class="section-copy">Four built-in material presets. Each one encodes a complete personality: opacity, blend mode, edge behavior, shadow, highlight, grain. Switch instantly. The preview transforms in under a second.</p>
 
           <ul class="list-clean">
-            <li>Transform controls for scale, rotation, and exact position on the body photo.</li>
-            <li>Color controls for tint, brightness, contrast, saturation, and hue.</li>
-            <li>Realism controls that let the tattoo melt into skin instead of floating above it.</li>
-            <li>Reusable material presets that jump the preview into a new personality instantly.</li>
-            <li>Export, save, and share actions once the preview is dialed in.</li>
+            <li>Transform controls: scale, rotation, exact position on body photo.</li>
+            <li>Color controls: tint, brightness, contrast, saturation, hue.</li>
+            <li>Realism controls: edge softness, micro blur, skin blend, shadow, grain.</li>
+            <li>Material presets that jump the preview into a new personality instantly.</li>
+            <li>Export, save, and share when the preview is dialed in.</li>
           </ul>
         </div>
 
@@ -380,12 +348,10 @@
                 <strong data-studio-blend>Multiply</strong>
                 <span>Blend mode</span>
               </div>
-
               <div class="screen-badge screen-badge--reality">
                 <strong data-studio-reality>58%</strong>
                 <span>Skin blend</span>
               </div>
-
               <div class="screen-badge screen-badge--stack">
                 <strong data-studio-preset>Classic Black</strong>
                 <span>Dense blackwork behavior</span>
@@ -399,10 +365,7 @@
                   <span data-studio-tone>Dense / grounded</span>
                 </div>
                 <h3 class="meta-title">Preset personality</h3>
-                <p class="meta-copy" data-studio-description>
-                  Strong multiply blend, near-maximum opacity, slight softness, and controlled shadow for a convincing
-                  black ink look with enough depth to feel settled into skin.
-                </p>
+                <p class="meta-copy" data-studio-description>Strong multiply blend, near-maximum opacity, slight softness, and controlled shadow for a convincing black ink look with enough depth to feel settled into skin.</p>
               </div>
 
               <div class="mini-stat-grid">
@@ -448,21 +411,19 @@
       </div>
     </section>
 
+    <!-- ═══════════════════════ SIMULATOR ═══════════════════════ -->
     <section id="simulator">
       <div class="container">
         <div class="section-heading reveal">
           <span class="eyebrow">Live Simulator</span>
-          <h2 class="section-title">Drag intensity. Watch the tattoo <span class="text-gradient">lock into skin.</span></h2>
-          <p class="section-copy">
-            A tiny interactive demo to show the core feeling: the same motif can go from soft concept to grounded
-            realism in seconds. Move the slider to see how dramatically finish and blending changes perception.
-          </p>
+          <h2 class="section-title">Drag the intensity. Watch the tattoo<br><span class="text-gradient">lock into skin.</span></h2>
+          <p class="section-copy">The same motif can go from soft concept to grounded realism in seconds. Move the slider to see how dramatically finish and blending changes perception.</p>
         </div>
 
         <article class="panel simulator-panel reveal">
           <div class="simulator-stage">
-            <img src="/assets/tattoo_app_mockup.png" alt="Tattoo preview simulation base layer" class="simulator-image simulator-image--base" loading="lazy" width="1024" height="1024" decoding="async">
-            <img src="/assets/tattoo_app_mockup.png" alt="Tattoo preview simulation enhanced layer" class="simulator-image simulator-image--enhanced" loading="lazy" width="1024" height="1024" decoding="async" data-simulated-image>
+            <img src="/assets/tattoo_app_mockup.png" alt="Tattoo preview base layer" class="simulator-image simulator-image--base" loading="lazy" width="1024" height="1024" decoding="async">
+            <img src="/assets/tattoo_app_mockup.png" alt="Tattoo preview enhanced layer" class="simulator-image simulator-image--enhanced" loading="lazy" width="1024" height="1024" decoding="async" data-simulated-image>
             <div class="simulator-label simulator-label--left">Concept</div>
             <div class="simulator-label simulator-label--right">InkMeld Realism</div>
           </div>
@@ -480,119 +441,275 @@
       </div>
     </section>
 
-    <section id="future">
+    <!-- ═══════════════════════ BRAND CINEMA ═══════════════════════ -->
+    <section class="brand-cinema-section" aria-label="InkMeld brand visual">
+      <div class="brand-cinema-wrap">
+        <img
+          src="/assets/mainlogo-premium-dark.png"
+          alt="InkMeld brand scene — neon metallic mark in a cinematic dark chamber"
+          class="brand-cinema-img"
+          loading="lazy"
+          width="1536"
+          height="1024"
+          decoding="async"
+        >
+        <div class="brand-cinema-overlay">
+          <div class="container brand-cinema-content reveal">
+            <p class="brand-cinema-pre eyebrow">The InkMeld Identity</p>
+            <h2 class="brand-cinema-headline">
+              Designed for the year 2100.<br>
+              <span class="text-gradient">Available right now.</span>
+            </h2>
+            <p class="brand-cinema-sub">A product built for people who take their decisions seriously — whether that decision is their first tattoo or their thirtieth.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════ WORKFLOW ═══════════════════════ -->
+    <section id="workflow">
       <div class="container">
-        <div class="section-heading reveal">
-          <span class="eyebrow">Roadmap Horizon</span>
-          <h2 class="section-title">Built for now. Designed for <span class="text-gradient">the year 2100 mindset.</span></h2>
-          <p class="section-copy">
-            The roadmap philosophy is simple: each new layer should make ideas clearer, sessions smarter, and outcomes
-            more intentional for both tattoo clients and professionals.
-          </p>
+        <div class="section-heading is-centered reveal">
+          <span class="eyebrow">Neural Workflow</span>
+          <h2 class="section-title">From random internet image<br>to body-ready preview<br><span class="text-gradient">in four moves.</span></h2>
+          <p class="section-copy">The core InkMeld loop is simple enough to feel immediate and deep enough to feel powerful. That balance is the whole point.</p>
         </div>
 
-        <div class="future-grid">
-          <article class="panel future-card reveal">
-            <span class="workflow-number">Q2</span>
-            <h3 class="workflow-title">Session boards</h3>
-            <p class="workflow-copy">Collect variants, notes, and placements into one exportable board for artist review.</p>
+        <div class="workflow-timeline">
+          <div class="workflow-line" aria-hidden="true"></div>
+
+          <div class="workflow-grid">
+            <article class="panel workflow-card reveal">
+              <div class="workflow-step-number">01</div>
+              <h3 class="workflow-title">Import or photograph</h3>
+              <p class="workflow-copy">Start with a body photo you shot yourself, then bring in the tattoo source from a screenshot, design, symbol, sketch, or reference image. Any source. No restrictions.</p>
+            </article>
+
+            <article class="panel workflow-card reveal">
+              <div class="workflow-step-number">02</div>
+              <h3 class="workflow-title">Run the AI cutout</h3>
+              <p class="workflow-copy">InkMeld pushes the artwork through its neural removal flow so the object becomes clean, focused, and ready for preview instead of trapped inside a background.</p>
+            </article>
+
+            <article class="panel workflow-card reveal">
+              <div class="workflow-step-number">03</div>
+              <h3 class="workflow-title">Place and sculpt</h3>
+              <p class="workflow-copy">Move, rotate, scale, tint, blend, soften, blur, and tune how the ink sits against skin until the illusion feels locked in. Twelve axes of control at your fingertips.</p>
+            </article>
+
+            <article class="panel workflow-card reveal">
+              <div class="workflow-step-number">04</div>
+              <h3 class="workflow-title">Save, export, share</h3>
+              <p class="workflow-copy">When the preview hits, keep it. Save to your account, export it, share it with your artist, or compare multiple directions before you ever book the session.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════ FEATURES ═══════════════════════ -->
+    <section>
+      <div class="container">
+        <div class="section-heading is-centered reveal">
+          <span class="eyebrow">Feature Constellation</span>
+          <h2 class="section-title">Everything that makes the<br>preview feel <span class="text-gradient">eerily real.</span></h2>
+          <p class="section-copy">The power is not one single trick. It is the stack: import, isolate, place, blend, refine, export.</p>
+        </div>
+
+        <div class="feature-grid">
+          <article class="panel feature-card reveal holo-card">
+            <div class="feature-icon-wrap">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><circle cx="12" cy="12" r="9" stroke-dasharray="3 3"/><line x1="12" y1="3" x2="12" y2="6"/><line x1="12" y1="18" x2="12" y2="21"/><line x1="3" y1="12" x2="6" y2="12"/><line x1="18" y1="12" x2="21" y2="12"/></svg>
+            </div>
+            <h3 class="feature-title">Placement controls</h3>
+            <p class="feature-copy">Scale, rotate, and move the artwork over your body photo until the composition hits the exact anatomy and flow you want.</p>
           </article>
-          <article class="panel future-card reveal">
-            <span class="workflow-number">Q3</span>
-            <h3 class="workflow-title">Style transfer presets</h3>
-            <p class="workflow-copy">Instantly reinterpret motifs toward blackwork, fine line, neo-traditional, or abstract tone.</p>
+
+          <article class="panel feature-card reveal holo-card">
+            <div class="feature-icon-wrap">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="12" height="12" rx="2"/><rect x="10" y="10" width="12" height="12" rx="2"/></svg>
+            </div>
+            <h3 class="feature-title">Blend modes</h3>
+            <p class="feature-copy">Multiply, soft light, overlay, screen, and hard light let the same artwork behave like completely different material realities on skin.</p>
           </article>
-          <article class="panel future-card reveal">
-            <span class="workflow-number">Q4</span>
-            <h3 class="workflow-title">Multi-angle body maps</h3>
-            <p class="workflow-copy">Preview one design on multiple body angles to compare flow before booking.</p>
+
+          <article class="panel feature-card reveal holo-card">
+            <div class="feature-icon-wrap">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M2 12h3M19 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12"/></svg>
+            </div>
+            <h3 class="feature-title">Realism engine</h3>
+            <p class="feature-copy">Edge softness, micro blur, grain, shadow, highlight, and skin blend turn a flat graphic into something bodily and settled — not floating above skin.</p>
           </article>
-          <article class="panel future-card reveal">
-            <span class="workflow-number">X</span>
-            <h3 class="workflow-title">Collaborative artist links</h3>
-            <p class="workflow-copy">Share live, editable previews with artists and iterate together in real time.</p>
+
+          <article class="panel feature-card reveal holo-card">
+            <div class="feature-icon-wrap">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+            </div>
+            <h3 class="feature-title">Material presets</h3>
+            <p class="feature-copy">Switch between Classic Black, Soft Ink, Neon Future, and Etched Metal to jump between complete moods without rebuilding settings from zero.</p>
+          </article>
+
+          <article class="panel feature-card reveal holo-card">
+            <div class="feature-icon-wrap">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+            </div>
+            <h3 class="feature-title">Credits &amp; commerce</h3>
+            <p class="feature-copy">Monthly quota plus purchased AI credits, with server-side verification before grants. Commerce logic built for serious release, not prototype shortcuts.</p>
+          </article>
+
+          <article class="panel feature-card reveal holo-card">
+            <div class="feature-icon-wrap">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
+            </div>
+            <h3 class="feature-title">Exportable results</h3>
+            <p class="feature-copy">Save and share previews once refined so they can actually be used in artist conversations, comparison rounds, and final booking decisions.</p>
           </article>
         </div>
       </div>
     </section>
 
+    <!-- ═══════════════════════ STATS ═══════════════════════ -->
+    <section class="stats-section">
+      <div class="stats-glow" aria-hidden="true"></div>
+      <div class="container">
+        <div class="stats-grid">
+          <article class="stat-item reveal">
+            <strong class="stat-value" data-count="12">12</strong>
+            <span class="stat-label">Live adjustment axes</span>
+          </article>
+          <article class="stat-item reveal">
+            <strong class="stat-value" data-count="5">5</strong>
+            <span class="stat-label">Blend modes for ink behavior</span>
+          </article>
+          <article class="stat-item reveal">
+            <strong class="stat-value" data-count="4">4</strong>
+            <span class="stat-label">Built-in material presets</span>
+          </article>
+          <article class="stat-item reveal">
+            <strong class="stat-value">∞</strong>
+            <span class="stat-label">Image sources supported</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════ USE CASES ═══════════════════════ -->
     <section id="use-cases">
       <div class="container">
         <div class="section-heading reveal">
           <span class="eyebrow">Use Cases</span>
-          <h2 class="section-title">Built for every person in the <span class="text-gradient">tattoo decision chain.</span></h2>
-          <p class="section-copy">
-            InkMeld is not only for one type of user. It is designed to create clarity for clients, speed for artists,
-            and better consultation flow for studios.
-          </p>
+          <h2 class="section-title">The right tool for<br>everyone in the room.</h2>
+          <p class="section-copy">InkMeld creates clarity for clients, speed for artists, and a better consultation flow for studios. One app, three distinct value propositions.</p>
         </div>
 
         <div class="use-case-grid">
           <article class="panel use-case-card reveal holo-card">
-            <span class="workflow-number">01</span>
-            <h3 class="workflow-title">For clients / collectors</h3>
-            <p class="workflow-copy">
-              Explore ideas safely before you commit. Compare placements, styles, and intensity levels on your own body
-              photos so your final choice feels intentional.
-            </p>
+            <div class="use-case-number">01</div>
+            <h3 class="workflow-title">Collectors &amp; first-timers</h3>
+            <p class="workflow-copy">Explore ideas safely before you commit. Compare placements, styles, and intensity levels on your own body photos so your final choice feels intentional — not impulsive.</p>
             <ul class="list-clean">
               <li>Compare multiple motifs side-by-side before booking.</li>
-              <li>Share polished previews with friends or your artist for feedback.</li>
+              <li>Share polished previews with friends or your artist.</li>
               <li>Walk into consultation with confidence instead of uncertainty.</li>
             </ul>
           </article>
 
           <article class="panel use-case-card reveal holo-card">
-            <span class="workflow-number">02</span>
-            <h3 class="workflow-title">For tattoo artists</h3>
-            <p class="workflow-copy">
-              Reduce back-and-forth and align faster with client vision. Test rough ideas quickly and convert vague
-              references into precise visual direction.
-            </p>
+            <div class="use-case-number">02</div>
+            <h3 class="workflow-title">Tattoo artists</h3>
+            <p class="workflow-copy">Reduce back-and-forth and align faster with client vision. Test rough ideas quickly and convert vague references into precise visual direction before a single line is drawn.</p>
             <ul class="list-clean">
               <li>Prototype placement directly on client body references.</li>
               <li>Validate style direction before final linework starts.</li>
-              <li>Save time by cutting revision loops early.</li>
+              <li>Save time by cutting revision loops early in the process.</li>
             </ul>
           </article>
 
           <article class="panel use-case-card reveal holo-card">
-            <span class="workflow-number">03</span>
-            <h3 class="workflow-title">For studio owners</h3>
-            <p class="workflow-copy">
-              Turn consultations into a premium experience. Standardize preview quality, improve close rates, and make
-              the studio feel modern from first contact.
-            </p>
+            <div class="use-case-number">03</div>
+            <h3 class="workflow-title">Studio owners</h3>
+            <p class="workflow-copy">Turn consultations into a premium experience. Standardize preview quality, improve close rates, and make the studio feel modern from first contact to final decision.</p>
             <ul class="list-clean">
-              <li>Create a more premium, visual first consultation flow.</li>
+              <li>Create a more premium, visual-first consultation flow.</li>
               <li>Improve customer trust with realistic pre-session previews.</li>
-              <li>Build a stronger studio reputation for innovation.</li>
+              <li>Build a stronger reputation for technical innovation.</li>
             </ul>
           </article>
         </div>
       </div>
     </section>
 
+    <!-- ═══════════════════════ MANIFESTO ═══════════════════════ -->
+    <section class="manifesto-section">
+      <div class="manifesto-orb" aria-hidden="true"></div>
+      <div class="container">
+        <article class="panel manifesto reveal">
+          <div class="manifesto-inner">
+            <div class="manifesto-mark" aria-hidden="true">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/><path d="M12 8v4l3 3"/><circle cx="12" cy="12" r="2"/></svg>
+            </div>
+            <h2 class="manifesto-quote">
+              InkMeld exists for the moment when a tattoo idea is too good to ignore, too permanent to guess on, and too personal to leave to chance.
+            </h2>
+            <p class="manifesto-copy">Less blind commitment. More intentional ink. A tool that respects the weight of what you are about to do to your body — and helps you arrive at that decision with the clarity it deserves.</p>
+            <div class="manifesto-divider" aria-hidden="true"></div>
+            <p class="manifesto-attribution">— The InkMeld philosophy</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════ ROADMAP ═══════════════════════ -->
+    <section id="future">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="eyebrow">Roadmap Horizon</span>
+          <h2 class="section-title">Built for now.<br><span class="text-gradient">Designed for the year 2100 mindset.</span></h2>
+          <p class="section-copy">Each new layer should make ideas clearer, sessions smarter, and outcomes more intentional for both tattoo clients and professionals.</p>
+        </div>
+
+        <div class="future-grid">
+          <article class="panel future-card reveal">
+            <div class="future-quarter">Q2</div>
+            <h3 class="workflow-title">Session boards</h3>
+            <p class="workflow-copy">Collect variants, notes, and placements into one exportable board for artist review. Arrive at the session with everything organized.</p>
+          </article>
+          <article class="panel future-card reveal">
+            <div class="future-quarter">Q3</div>
+            <h3 class="workflow-title">Style transfer presets</h3>
+            <p class="workflow-copy">Instantly reinterpret motifs toward blackwork, fine line, neo-traditional, or abstract tone. One image, multiple tattoo personalities.</p>
+          </article>
+          <article class="panel future-card reveal">
+            <div class="future-quarter">Q4</div>
+            <h3 class="workflow-title">Multi-angle body maps</h3>
+            <p class="workflow-copy">Preview one design on multiple body angles to compare how the flow changes — before booking, not after the first session.</p>
+          </article>
+          <article class="panel future-card reveal">
+            <div class="future-quarter future-quarter--special">∞</div>
+            <h3 class="workflow-title">Collaborative artist links</h3>
+            <p class="workflow-copy">Share live, editable previews directly with your artist and iterate together in real time. The consultation room, anywhere.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════ PRICING ═══════════════════════ -->
     <section id="plans">
       <div class="container">
         <article class="panel plans-panel reveal">
           <div class="plans-copy">
             <span class="eyebrow">Access Model</span>
-            <h2 class="section-title">One premium core: <span class="text-gradient">Inkfinity.</span></h2>
-            <p class="section-copy">
-              Inkfinity is the premium purchase tier for users who want maximum creative freedom. When extra AI
-              operations are needed, users can top up with Ink Credits in clear bundles.
-            </p>
+            <h2 class="section-title">One premium core.<br><span class="text-gradient">Inkfinity.</span></h2>
+            <p class="section-copy">Inkfinity is the premium purchase for users who want maximum creative freedom. When extra AI operations are needed, top up with Ink Credits in clear bundles.</p>
           </div>
 
           <div class="plans-grid">
-            <article class="plan-card">
-              <h3 class="card-title">Inkfinity</h3>
-              <p class="card-copy">
-                Premium unlock for power users. Built for deep experimentation, serious iteration, and high-volume tattoo
-                preview workflows.
-              </p>
-              <span class="plan-tag">Premium purchase</span>
+            <article class="plan-card plan-card--featured">
+              <div class="plan-card-header">
+                <h3 class="card-title">Inkfinity</h3>
+                <span class="plan-tag">Premium unlock</span>
+              </div>
+              <p class="card-copy">Premium unlock for power users. Built for deep experimentation, serious iteration, and high-volume tattoo preview workflows.</p>
               <ul class="list-clean plan-list">
                 <li>Advanced preview workflow with full studio-style controls.</li>
                 <li>Priority access to premium experience and future capability drops.</li>
@@ -601,20 +718,19 @@
             </article>
 
             <article class="plan-card">
-              <h3 class="card-title">Ink Credits Top Ups</h3>
-              <p class="card-copy">
-                Flexible credit bundles for additional AI actions when needed. Scale usage without friction during active
-                creation sessions.
-              </p>
+              <div class="plan-card-header">
+                <h3 class="card-title">Ink Credits Top-Ups</h3>
+              </div>
+              <p class="card-copy">Flexible credit bundles for additional AI actions when needed. Scale usage without friction during active creation sessions.</p>
               <div class="credit-pill-row">
-                <span class="credit-pill">10 Ink Credits</span>
-                <span class="credit-pill">50 Ink Credits</span>
-                <span class="credit-pill">120 Ink Credits</span>
+                <span class="credit-pill">10 Credits</span>
+                <span class="credit-pill">50 Credits</span>
+                <span class="credit-pill">120 Credits</span>
               </div>
               <ul class="list-clean plan-list">
-                <li>Use top ups when your active creation sessions need extra AI operations.</li>
+                <li>Use top-ups when your active sessions need extra AI operations.</li>
                 <li>Keep momentum during busy periods without changing your core setup.</li>
-                <li>Simple bundles designed for light, medium, or heavy usage spikes.</li>
+                <li>Simple bundles for light, medium, or heavy usage spikes.</li>
               </ul>
             </article>
           </div>
@@ -624,14 +740,14 @@
               <span class="workflow-number">1</span>
               <div>
                 <h3 class="workflow-title">Start with Inkfinity</h3>
-                <p class="workflow-copy">Unlock the premium core experience and build your baseline workflow.</p>
+                <p class="workflow-copy">Unlock the premium core and build your baseline workflow.</p>
               </div>
             </div>
             <div class="plan-flow-step">
               <span class="workflow-number">2</span>
               <div>
                 <h3 class="workflow-title">Scale with Ink Credits</h3>
-                <p class="workflow-copy">Top up 10, 50, or 120 Ink Credits when extra AI actions are needed.</p>
+                <p class="workflow-copy">Top up 10, 50, or 120 credits when extra AI actions are needed.</p>
               </div>
             </div>
             <div class="plan-flow-step">
@@ -651,196 +767,59 @@
       </div>
     </section>
 
-    <section>
-      <div class="container">
-        <div class="section-heading reveal">
-          <span class="eyebrow">Feature Constellation</span>
-          <h2 class="section-title">Everything that makes the preview feel eerily real.</h2>
-          <p class="section-copy">
-            The power is not one single trick. It is the stack: import, isolate, place, blend, refine, export.
-          </p>
-        </div>
-
-        <div class="feature-grid">
-          <article class="panel feature-card reveal holo-card">
-            <span class="feature-icon">01</span>
-            <h3 class="feature-title">Placement controls</h3>
-            <p class="feature-copy">
-              Scale, rotate, and move the artwork over your body photo until the composition hits the exact anatomy and flow you want.
-            </p>
-          </article>
-
-          <article class="panel feature-card reveal holo-card">
-            <span class="feature-icon">02</span>
-            <h3 class="feature-title">Blend modes</h3>
-            <p class="feature-copy">
-              Multiply, soft light, overlay, screen, and hard light let the same artwork behave like different material realities.
-            </p>
-          </article>
-
-          <article class="panel feature-card reveal holo-card">
-            <span class="feature-icon">03</span>
-            <h3 class="feature-title">Realism engine</h3>
-            <p class="feature-copy">
-              Edge softness, micro blur, grain, shadow, highlight, and skin blend turn a flat graphic into something more bodily.
-            </p>
-          </article>
-
-          <article class="panel feature-card reveal holo-card">
-            <span class="feature-icon">04</span>
-            <h3 class="feature-title">Material presets</h3>
-            <p class="feature-copy">
-              Switch between Classic Black, Soft Ink, Neon Future, and Etched Metal to jump between moods without rebuilding from zero.
-            </p>
-          </article>
-
-          <article class="panel feature-card reveal holo-card">
-            <span class="feature-icon">05</span>
-            <h3 class="feature-title">Credits with real commerce logic</h3>
-            <p class="feature-copy">
-              Monthly quota plus purchased AI credits, with server-side verification before grants, keeps the system ready for serious release.
-            </p>
-          </article>
-
-          <article class="panel feature-card reveal holo-card">
-            <span class="feature-icon">06</span>
-            <h3 class="feature-title">Exportable results</h3>
-            <p class="feature-copy">
-              Save and share previews once they are refined so they can actually be used in artist conversations, comparison rounds, and decisions.
-            </p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <div class="container system-grid">
-        <article class="panel legal-panel reveal art-panel">
-          <div class="meta-topline">
-            <span>Brand signal</span>
-            <span>InkMeld identity core</span>
-          </div>
-          <img
-            src="/assets/mainlogo-premium-dark.png"
-            alt="InkMeld brand artwork featuring the metallic knot mark in a neon chamber"
-            class="brand-scene"
-            loading="lazy"
-            width="1536"
-            height="1024"
-            decoding="async"
-          >
-        </article>
-
-        <div class="content-stack">
-          <article class="panel system-card reveal">
-            <span class="eyebrow">Product Truth</span>
-            <h3 class="card-title">Built on a real app stack, not fake landing-page vapor.</h3>
-            <p class="card-copy">
-              The site now speaks the same language as the product: AI cutout, editor presets, blend modes, realism controls,
-              export flow, localization, and purchase verification. That matters, because futuristic should still feel real.
-            </p>
-          </article>
-
-          <article class="panel system-card reveal">
-            <h3 class="card-title">For artists, collectors, and people who do not gamble with skin.</h3>
-            <p class="card-copy">
-              Use InkMeld to sanity-check a wild idea, compare placements before a session, pressure-test custom work with a client,
-              or simply stop guessing what a design will do once it lives on a real body.
-            </p>
-          </article>
-
-          <article class="panel system-card reveal">
-            <h3 class="card-title">Designed to feel like 2100 without turning into empty sci-fi noise.</h3>
-            <p class="card-copy">
-              The future vibe is there because the product earns it. Every visual choice on the site now points back to something
-              tangible in the app experience.
-            </p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <div class="container">
-        <article class="panel manifesto reveal">
-          <h2 class="manifesto-quote">
-            InkMeld exists for the moment when a tattoo idea is too good to ignore,
-            too permanent to guess on, and too personal to leave to chance.
-          </h2>
-          <p class="manifesto-copy">
-            This website is no longer just a placeholder. It is now a launch surface for a product that turns raw inspiration
-            into a controllable preview ritual. That is the promise: less blind commitment, more intentional ink.
-          </p>
-        </article>
-      </div>
-    </section>
-
+    <!-- ═══════════════════════ FAQ ═══════════════════════ -->
     <section id="faq">
       <div class="container faq-layout">
         <div class="section-heading reveal">
           <span class="eyebrow">FAQ</span>
-          <h2 class="section-title">Questions people ask before they let the future near their skin.</h2>
-          <p class="section-copy">
-            The goal is not to replace tattoo artists. The goal is to arrive at the artist with far better signal.
-          </p>
+          <h2 class="section-title">Questions before letting the future<br>near your skin.</h2>
+          <p class="section-copy">The goal is not to replace tattoo artists. The goal is to arrive at the artist with far better signal.</p>
         </div>
 
         <div class="faq-list reveal">
           <details class="faq-item" open>
-            <summary>Can I really use an image from the internet as a tattoo starting point?</summary>
-            <p>
-              Yes. InkMeld is built for reference chaos. Import a web image, isolate the object you care about with AI,
-              then move into the preview editor to see how that exact visual behaves on your own body photo.
-            </p>
+            <summary>Can I really use an image from the internet as a starting point?</summary>
+            <p>Yes. InkMeld is built for reference chaos. Import a web image, isolate the object with AI, then move into the preview editor to see how that exact visual behaves on your own body photo.</p>
           </details>
 
           <details class="faq-item">
             <summary>What can I adjust once the tattoo is placed?</summary>
-            <p>
-              Placement, scale, rotation, tint, brightness, contrast, saturation, hue, opacity, edge softness, micro blur,
-              grain, shadow, highlight, and skin blend are all part of the editing philosophy.
-            </p>
+            <p>Placement, scale, rotation, tint, brightness, contrast, saturation, hue, opacity, edge softness, micro blur, grain, shadow, highlight, and skin blend — twelve axes of control across color and realism.</p>
           </details>
 
           <details class="faq-item">
             <summary>Is the preview only for black ink?</summary>
-            <p>
-              No. InkMeld includes tint handling and multiple material presets. That means you can push the preview toward
-              dense blackwork, softer ink behavior, futuristic neon energy, or hard reflective finishes.
-            </p>
+            <p>No. InkMeld includes tint handling and multiple material presets that push the preview toward dense blackwork, softer ink behavior, futuristic neon energy, or hard reflective finishes.</p>
           </details>
 
           <details class="faq-item">
             <summary>How do credits work?</summary>
-            <p>
-              The app supports a monthly quota plus purchased AI credits. Commerce flows are designed with server-side receipt
-              verification so credit grants happen only after validation.
-            </p>
+            <p>The app supports a monthly quota plus purchased AI credits. Commerce flows use server-side receipt verification so credit grants happen only after successful validation — no shortcuts.</p>
           </details>
 
           <details class="faq-item">
             <summary>Can I save or share my result with an artist?</summary>
-            <p>
-              Yes. The product direction already includes save, export, and share behavior so your best previews can move from
-              experiment to real conversation.
-            </p>
+            <p>Yes. Save, export, and share behavior lets your best previews move from experiment to real conversation — ready to use in artist consultations or side-by-side comparison rounds.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary>Who is InkMeld for?</summary>
+            <p>Anyone in the tattoo decision chain: first-timers exploring ideas, collectors planning their next piece, professional artists streamlining client consultations, and studios that want a modern premium experience.</p>
           </details>
         </div>
       </div>
     </section>
 
+    <!-- ═══════════════════════ CTA ═══════════════════════ -->
     <section id="cta">
       <div class="container">
         <article class="panel cta-panel reveal">
-          <div>
+          <div class="cta-glow" aria-hidden="true"></div>
+          <div class="cta-copy">
             <span class="eyebrow">Ready To Bend The Timeline</span>
             <h2 class="cta-title">Bring your next tattoo idea into focus before it becomes permanent.</h2>
-            <p class="page-copy">
-              If you want a tattoo preview experience that feels less like a gimmick and more like an instrument, InkMeld is
-              where that conversation starts.
-            </p>
+            <p class="page-copy">If you want a tattoo preview experience that feels less like a gimmick and more like an instrument, InkMeld is where that conversation starts.</p>
           </div>
-
           <div class="cta-actions">
             <a class="btn-primary" href="mailto:support@inkmeld.ai?subject=InkMeld%20Launch%20Inquiry">Talk To InkMeld</a>
             <a class="btn-secondary" href="/support">Open Support Hub</a>
@@ -849,16 +828,14 @@
       </div>
     </section>
 
+    <!-- ═══════════════════════ WAITLIST ═══════════════════════ -->
     <section id="waitlist">
       <div class="container">
         <article class="panel waitlist-panel reveal">
           <div class="waitlist-copy">
             <span class="eyebrow">Founding Access</span>
-            <h2 class="section-title">Join the first wave building the future of tattoo planning.</h2>
-            <p class="section-copy">
-              Early members get priority onboarding, feature voting access, and direct feedback loops into upcoming
-              studio tools. If you are serious about intentional ink, this is where to lock your spot.
-            </p>
+            <h2 class="section-title">Join the first wave building<br>the future of tattoo planning.</h2>
+            <p class="section-copy">Early members get priority onboarding, feature voting access, and direct feedback loops into upcoming studio tools. If you are serious about intentional ink, this is where to lock your spot.</p>
           </div>
 
           <form class="inline-form waitlist-form" action="mailto:support@inkmeld.ai" method="post" enctype="text/plain">
@@ -868,6 +845,7 @@
         </article>
       </div>
     </section>
+
   </main>
 
   <inkmeld-footer></inkmeld-footer>
