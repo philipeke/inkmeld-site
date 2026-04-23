@@ -2996,82 +2996,52 @@ html.js .reveal.is-visible { opacity: 1; transform: translateY(0); }
 
   position: relative;
   display: grid;
-  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
-  align-items: stretch;
-  gap: clamp(20px, 3vw, 38px);
-  padding: clamp(22px, 3vw, 36px);
-  border-radius: 36px;
-  border: 1px solid rgba(255,255,255,0.1);
-  background:
-    linear-gradient(155deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02) 44%),
-    linear-gradient(180deg, rgba(9,13,28,0.96), rgba(3,5,14,0.98));
-  box-shadow:
-    0 50px 110px rgba(0,0,0,0.62),
-    0 0 0 1px rgba(0,245,212,0.08),
-    0 0 130px rgba(0,245,212,0.08);
-  overflow: hidden;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(20px, 3vw, 48px);
+  padding: 0;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  overflow: visible;
   isolation: isolate;
 }
 
-.live-demo-bg {
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(circle at 22% 44%, rgba(0,245,212,0.18), transparent 38%),
-    radial-gradient(circle at 82% 22%, rgba(160,32,240,0.18), transparent 32%),
-    radial-gradient(circle at 72% 86%, rgba(56,182,255,0.12), transparent 28%);
-  pointer-events: none;
-  z-index: 0;
-}
-
+.live-demo-bg,
 .live-demo-grid {
-  position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(rgba(255,255,255,0.026) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.026) 1px, transparent 1px);
-  background-size: 38px 38px;
-  mask-image: radial-gradient(circle at 50% 50%, #000 38%, transparent 88%);
-  -webkit-mask-image: radial-gradient(circle at 50% 50%, #000 38%, transparent 88%);
-  opacity: 0.85;
-  pointer-events: none;
-  z-index: 0;
+  display: none;
 }
 
-.live-demo > *:not(.live-demo-bg):not(.live-demo-grid) {
-  position: relative;
-  z-index: 1;
-}
-
-/* Phone stage — transparent, just glow + phone */
+/* Phone stage — fully transparent, phone floats with just a glow */
 .live-demo-stage {
   position: relative;
   display: grid;
   place-items: center;
-  min-height: 600px;
-  padding: clamp(20px, 3vw, 36px) clamp(8px, 1.5vw, 20px);
+  min-height: 640px;
+  padding: clamp(20px, 3vw, 36px) 0;
   background: transparent;
+  border: 0;
   overflow: visible;
 }
 
 .live-demo-glow {
   position: absolute;
-  inset: 14% 8% 12%;
+  inset: 10% 4% 8%;
   border-radius: 50%;
-  filter: blur(70px);
+  filter: blur(80px);
   pointer-events: none;
   z-index: 0;
 }
 
 .live-demo-glow--cyan {
-  background: radial-gradient(circle, rgba(0,245,212,0.45), rgba(56,182,255,0.2) 52%, transparent 74%);
+  background: radial-gradient(circle, rgba(0,245,212,0.5), rgba(56,182,255,0.22) 52%, transparent 74%);
   animation: live-glow-pulse 6s ease-in-out infinite;
 }
 
 .live-demo-glow--violet {
-  inset: 20% 4% 18%;
-  background: radial-gradient(circle, rgba(160,32,240,0.38), transparent 68%);
-  filter: blur(90px);
+  inset: 16% 0 12%;
+  background: radial-gradient(circle, rgba(160,32,240,0.42), transparent 68%);
+  filter: blur(100px);
   animation: live-glow-pulse 7.5s ease-in-out infinite reverse;
 }
 
@@ -3080,18 +3050,27 @@ html.js .reveal.is-visible { opacity: 1; transform: translateY(0); }
   50% { opacity: 1; transform: scale(1.05); }
 }
 
+/* Frame uses grid stacking: every child occupies the same cell. */
 .live-phone-frame {
   position: relative;
-  width: min(100%, 620px);
+  display: grid;
+  grid-template-columns: 1fr;
+  width: min(100%, 680px);
   z-index: 1;
-  filter: drop-shadow(0 60px 100px rgba(0,0,0,0.65)) drop-shadow(0 0 80px rgba(0,245,212,0.2));
-  transform: rotate(-6deg);
+  filter: drop-shadow(0 60px 100px rgba(0,0,0,0.65)) drop-shadow(0 0 90px rgba(0,245,212,0.22));
+  transform: rotate(-5deg);
   animation: hero-float 9s ease-in-out infinite;
   transition: transform 0.4s ease;
 }
 
+.live-phone-frame > * {
+  grid-column: 1;
+  grid-row: 1;
+  min-width: 0;
+}
+
 .live-demo:hover .live-phone-frame {
-  transform: rotate(-3deg) translateY(-6px);
+  transform: rotate(-2deg) translateY(-6px);
 }
 
 .live-phone-img {
@@ -3102,7 +3081,6 @@ html.js .reveal.is-visible { opacity: 1; transform: translateY(0); }
 
 /* Base phone — never filtered, stays sharp and stable */
 .live-phone-img--base {
-  position: relative;
   z-index: 1;
 }
 
@@ -3110,8 +3088,6 @@ html.js .reveal.is-visible { opacity: 1; transform: translateY(0); }
    filters apply ONLY here so changing sliders only affects the artwork.
    Strength acts as a saturation/contrast amplifier for a more visible push. */
 .live-phone-img--tattoo {
-  position: absolute;
-  inset: 0;
   z-index: 2;
   pointer-events: none;
   /* Soft elliptical mask over the tattoo region of the phone screen.
@@ -3129,8 +3105,6 @@ html.js .reveal.is-visible { opacity: 1; transform: translateY(0); }
 /* Opacity wash — masked to the tattoo region. Lower opacity slider value
    pushes a dark wash that visually fades the tattoo on the phone screen. */
 .live-phone-tint {
-  position: absolute;
-  inset: 0;
   z-index: 3;
   pointer-events: none;
   -webkit-mask-image: radial-gradient(ellipse 28% 26% at 49% 30%, #000 58%, rgba(0,0,0,0.55) 78%, transparent 100%);
@@ -3189,10 +3163,15 @@ html.js .reveal.is-visible { opacity: 1; transform: translateY(0); }
   display: grid;
   align-content: start;
   gap: 18px;
-  padding: clamp(18px, 2vw, 24px);
-  border-radius: 24px;
-  border: 1px solid rgba(255,255,255,0.07);
-  background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+  padding: clamp(20px, 2.2vw, 28px);
+  border-radius: 28px;
+  border: 1px solid rgba(255,255,255,0.08);
+  background:
+    linear-gradient(160deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02) 50%),
+    linear-gradient(180deg, rgba(10,14,28,0.68), rgba(6,9,20,0.78));
+  box-shadow: 0 30px 70px rgba(0,0,0,0.4);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
 }
 
 .live-demo-header {
