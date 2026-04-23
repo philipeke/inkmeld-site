@@ -3043,39 +3043,35 @@ html.js .reveal.is-visible { opacity: 1; transform: translateY(0); }
   z-index: 1;
 }
 
-/* Phone stage */
+/* Phone stage — transparent, just glow + phone */
 .live-demo-stage {
   position: relative;
   display: grid;
   place-items: center;
-  min-height: 540px;
-  padding: clamp(28px, 4vw, 56px) clamp(12px, 2vw, 28px);
-  border-radius: 28px;
-  border: 1px solid rgba(255,255,255,0.06);
-  background:
-    radial-gradient(circle at 50% 46%, rgba(0,245,212,0.12), rgba(160,32,240,0.06) 40%, transparent 76%),
-    linear-gradient(180deg, rgba(8,12,24,0.92), rgba(4,7,18,0.78));
-  overflow: hidden;
+  min-height: 600px;
+  padding: clamp(20px, 3vw, 36px) clamp(8px, 1.5vw, 20px);
+  background: transparent;
+  overflow: visible;
 }
 
 .live-demo-glow {
   position: absolute;
-  inset: 18% 14% 16%;
+  inset: 14% 8% 12%;
   border-radius: 50%;
-  filter: blur(50px);
+  filter: blur(70px);
   pointer-events: none;
   z-index: 0;
 }
 
 .live-demo-glow--cyan {
-  background: radial-gradient(circle, rgba(0,245,212,0.45), rgba(56,182,255,0.18) 52%, transparent 74%);
+  background: radial-gradient(circle, rgba(0,245,212,0.45), rgba(56,182,255,0.2) 52%, transparent 74%);
   animation: live-glow-pulse 6s ease-in-out infinite;
 }
 
 .live-demo-glow--violet {
-  inset: 22% 10% 22%;
-  background: radial-gradient(circle, rgba(160,32,240,0.32), transparent 68%);
-  filter: blur(70px);
+  inset: 20% 4% 18%;
+  background: radial-gradient(circle, rgba(160,32,240,0.38), transparent 68%);
+  filter: blur(90px);
   animation: live-glow-pulse 7.5s ease-in-out infinite reverse;
 }
 
@@ -3086,9 +3082,9 @@ html.js .reveal.is-visible { opacity: 1; transform: translateY(0); }
 
 .live-phone-frame {
   position: relative;
-  width: min(100%, 460px);
+  width: min(100%, 620px);
   z-index: 1;
-  filter: drop-shadow(0 60px 100px rgba(0,0,0,0.72)) drop-shadow(0 0 70px rgba(0,245,212,0.22));
+  filter: drop-shadow(0 60px 100px rgba(0,0,0,0.65)) drop-shadow(0 0 80px rgba(0,245,212,0.2));
   transform: rotate(-6deg);
   animation: hero-float 9s ease-in-out infinite;
   transition: transform 0.4s ease;
@@ -3102,24 +3098,44 @@ html.js .reveal.is-visible { opacity: 1; transform: translateY(0); }
   display: block;
   width: 100%;
   height: auto;
+}
+
+/* Base phone — never filtered, stays sharp and stable */
+.live-phone-img--base {
+  position: relative;
+  z-index: 1;
+}
+
+/* Tattoo overlay — masked to just the tattoo region on the phone screen,
+   filters apply ONLY here so changing sliders only affects the artwork.
+   Strength acts as a saturation/contrast amplifier for a more visible push. */
+.live-phone-img--tattoo {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  /* Soft elliptical mask over the tattoo region of the phone screen.
+     The mockup is 1254x1254 with the tattoo centered around (49%, 30%). */
+  -webkit-mask-image: radial-gradient(ellipse 28% 26% at 49% 30%, #000 58%, rgba(0,0,0,0.55) 78%, transparent 100%);
+          mask-image: radial-gradient(ellipse 28% 26% at 49% 30%, #000 58%, rgba(0,0,0,0.55) 78%, transparent 100%);
   filter:
-    saturate(calc(var(--saturation) * 1%))
+    saturate(calc(var(--saturation) * 1% + (var(--strength) - 50) * 0.6%))
     hue-rotate(calc(var(--hue) * 1deg))
     brightness(calc(var(--brightness) * 1%))
-    contrast(calc(var(--contrast) * 1%));
+    contrast(calc(var(--contrast) * 1% + (var(--strength) - 50) * 0.4%));
   transition: filter 0.18s ease;
 }
 
-/* Tint overlay sits over the phone screen area to drive opacity/strength */
+/* Opacity wash — masked to the tattoo region. Lower opacity slider value
+   pushes a dark wash that visually fades the tattoo on the phone screen. */
 .live-phone-tint {
   position: absolute;
-  /* Approximate position of the screen content within the rotated phone image */
-  inset: 5.5% 8% 12% 8%;
-  border-radius: 22px;
+  inset: 0;
+  z-index: 3;
   pointer-events: none;
-  background:
-    radial-gradient(ellipse at 50% 38%, rgba(160,32,240,0.0) 0%, rgba(8,11,22,calc((100 - var(--strength)) * 0.009)) 65%),
-    linear-gradient(180deg, rgba(4,7,18,calc((100 - var(--opacity)) * 0.0095)), rgba(4,7,18,calc((100 - var(--opacity)) * 0.0095)));
+  -webkit-mask-image: radial-gradient(ellipse 28% 26% at 49% 30%, #000 58%, rgba(0,0,0,0.55) 78%, transparent 100%);
+          mask-image: radial-gradient(ellipse 28% 26% at 49% 30%, #000 58%, rgba(0,0,0,0.55) 78%, transparent 100%);
+  background: rgba(8, 11, 22, calc((100 - var(--opacity)) * 0.0095));
   mix-blend-mode: multiply;
   transition: background 0.18s ease;
 }
@@ -3421,10 +3437,10 @@ html.js .reveal.is-visible { opacity: 1; transform: translateY(0); }
     grid-template-columns: 1fr;
   }
   .live-demo-stage {
-    min-height: 460px;
+    min-height: 520px;
   }
   .live-phone-frame {
-    width: min(100%, 380px);
+    width: min(100%, 520px);
   }
 }
 
@@ -3442,11 +3458,11 @@ html.js .reveal.is-visible { opacity: 1; transform: translateY(0); }
     grid-template-columns: 1fr;
   }
   .live-demo-stage {
-    min-height: 360px;
+    min-height: 420px;
     padding: 24px 14px;
   }
   .live-phone-frame {
-    width: min(100%, 320px);
+    width: min(100%, 380px);
   }
   .live-demo-pill--top { top: 12px; left: 12px; font-size: 0.72rem; padding: 8px 12px; }
   .live-demo-pill--bottom { bottom: 12px; right: 12px; font-size: 0.72rem; padding: 8px 12px; }
