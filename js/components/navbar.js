@@ -44,6 +44,8 @@ class InkmeldNavbar extends HTMLElement {
     const panel = this.querySelector('.nav-panel');
     const links = Array.from(this.querySelectorAll('.nav-links a'));
     const path = window.location.pathname.replace(/\/$/, '') || '/';
+    let lastScrolledState = null;
+    let scrollTicking = false;
 
     const closeMenu = () => {
       document.body.classList.remove('nav-open');
@@ -55,9 +57,21 @@ class InkmeldNavbar extends HTMLElement {
       toggle?.setAttribute('aria-expanded', 'true');
     };
 
-    const updateScrolled = () => {
+    const applyScrolled = () => {
       if (!nav) return;
-      nav.classList.toggle('is-scrolled', window.scrollY > 12);
+      const isScrolled = window.scrollY > 12;
+      if (isScrolled === lastScrolledState) return;
+      lastScrolledState = isScrolled;
+      nav.classList.toggle('is-scrolled', isScrolled);
+    };
+
+    const updateScrolled = () => {
+      if (scrollTicking) return;
+      scrollTicking = true;
+      window.requestAnimationFrame(() => {
+        scrollTicking = false;
+        applyScrolled();
+      });
     };
 
     const setActive = (key) => {
@@ -120,7 +134,7 @@ class InkmeldNavbar extends HTMLElement {
       }
     });
 
-    updateScrolled();
+    applyScrolled();
     updateActiveLink();
 
     if (path === '/' || path === '/index.html') {

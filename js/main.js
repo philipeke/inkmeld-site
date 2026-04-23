@@ -3,6 +3,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const finePointer = window.matchMedia('(pointer: fine)').matches;
+  const rafThrottle = (fn) => {
+    let scheduled = false;
+
+    return () => {
+      if (scheduled) return;
+      scheduled = true;
+      window.requestAnimationFrame(() => {
+        scheduled = false;
+        fn();
+      });
+    };
+  };
 
   // ─── Scroll Progress Bar ──────────────────────────────────
   const progressBar = document.querySelector('.scroll-progress');
@@ -10,10 +22,12 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!progressBar) return;
     const scrollTop = window.scrollY;
     const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
-    const pct = maxScroll <= 0 ? 0 : (scrollTop / maxScroll) * 100;
-    progressBar.style.width = `${pct}%`;
+    const progress = maxScroll <= 0 ? 0 : Math.min(Math.max(scrollTop / maxScroll, 0), 1);
+    progressBar.style.transform = `scaleX(${progress})`;
   };
-  window.addEventListener('scroll', updateProgress, { passive: true });
+  const syncProgress = rafThrottle(updateProgress);
+  window.addEventListener('scroll', syncProgress, { passive: true });
+  window.addEventListener('resize', syncProgress);
   updateProgress();
 
   // ─── Reveal on Scroll ────────────────────────────────────
@@ -44,6 +58,23 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ─── Count Animation ─────────────────────────────────────
+  const motionRoots = document.querySelectorAll(
+    '.hero-section, .showcase-section, #workflow, #features, .brand-cinema-section, #use-cases, #plans, #faq, #get-app'
+  );
+
+  if (!reduceMotion && motionRoots.length > 0) {
+    const motionObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          entry.target.classList.toggle('perf-paused', !entry.isIntersecting);
+        });
+      },
+      { threshold: 0.01, rootMargin: '35% 0px 35% 0px' }
+    );
+
+    motionRoots.forEach((root) => motionObserver.observe(root));
+  }
+
   function animateCount(el) {
     const target = Number(el.getAttribute('data-count'));
     if (!target || el.dataset.counted === 'true') return;
