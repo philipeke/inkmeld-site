@@ -87,7 +87,7 @@ class InkmeldFooter extends HTMLElement {
               <h4>Support</h4>
               <ul>
                 <li><a href="/support">Support Hub</a></li>
-                <li><a href="mailto:support@inkmeld.ai">support@inkmeld.ai</a></li>
+                <li><a href="mailto:hello@oakdev.app">hello@oakdev.app</a></li>
                 <li><a href="/delete-account">Delete account</a></li>
               </ul>
             </div>
@@ -106,7 +106,7 @@ class InkmeldFooter extends HTMLElement {
             <span class="footer-bar-copyright">&copy; ${year} InkMeld — a product by OakDev &amp; AI AB. All rights reserved.</span>
             <span class="footer-bar-meta">
               <span class="footer-status"><span class="footer-status-dot"></span> Studio online</span>
-              <a href="mailto:support@inkmeld.ai">support@inkmeld.ai</a>
+              <a href="mailto:hello@oakdev.app">hello@oakdev.app</a>
             </span>
           </div>
 

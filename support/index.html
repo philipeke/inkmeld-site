@@ -141,32 +141,84 @@
       width: 100%;
       min-height: 56px;
       padding: 0 18px;
-      border-radius: 18px;
+      border-radius: 16px;
       border: 1px solid rgba(255, 255, 255, 0.13);
-      background: rgba(255, 255, 255, 0.06);
+      background: rgba(255, 255, 255, 0.04);
       color: var(--text-main);
-      transition: border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+      font-family: inherit;
+      font-size: 0.98rem;
+      transition: border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
     }
 
     .support-textarea {
       min-height: 220px;
       padding: 16px 18px;
       resize: vertical;
+      line-height: 1.6;
     }
 
     .support-input::placeholder,
     .support-textarea::placeholder {
-      color: rgba(238, 246, 255, 0.38);
+      color: rgba(238, 246, 255, 0.42);
+    }
+
+    .support-input:hover,
+    .support-textarea:hover,
+    .support-select-shell:hover .support-select {
+      border-color: rgba(255, 255, 255, 0.22);
+      background: rgba(255, 255, 255, 0.055);
     }
 
     .support-input:focus,
     .support-select:focus,
     .support-textarea:focus {
       outline: none;
-      border-color: rgba(0, 245, 212, 0.38);
+      border-color: rgba(0, 245, 212, 0.45);
       background: rgba(0, 245, 212, 0.06);
-      box-shadow: 0 0 0 4px rgba(0, 245, 212, 0.08);
-      transform: translateY(-1px);
+      box-shadow: 0 0 0 4px rgba(0, 245, 212, 0.1);
+    }
+
+    /* Custom select — kills the Windows 95 default dropdown */
+    .support-select-shell {
+      position: relative;
+      isolation: isolate;
+    }
+
+    .support-select {
+      -webkit-appearance: none;
+      appearance: none;
+      padding-right: 48px;
+      cursor: pointer;
+      background-image: none;
+    }
+
+    .support-select:invalid {
+      color: rgba(238, 246, 255, 0.55);
+    }
+
+    .support-select option {
+      background: #0a0e1c;
+      color: var(--text-main);
+      padding: 10px;
+    }
+
+    .support-select option[disabled] {
+      color: rgba(238, 246, 255, 0.4);
+    }
+
+    .support-select-caret {
+      position: absolute;
+      right: 18px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--neon-cyan);
+      pointer-events: none;
+      transition: transform 0.2s ease;
+      z-index: 1;
+    }
+
+    .support-select-shell:focus-within .support-select-caret {
+      transform: translateY(-50%) rotate(180deg);
     }
 
     .support-form-footer {
@@ -363,13 +415,18 @@
 
               <label class="support-field">
                 <span class="support-label">Support Topic</span>
-                <select class="support-select" name="topic" required>
-                  <option value="Bug report">Bug report</option>
-                  <option value="Account access">Account access</option>
-                  <option value="Credits or billing">Credits or billing</option>
-                  <option value="Feature feedback">Feature feedback</option>
-                  <option value="General support">General support</option>
-                </select>
+                <div class="support-select-shell">
+                  <select class="support-select" name="topic" required>
+                    <option value="" disabled selected hidden>Choose a topic…</option>
+                    <option value="General support">General support</option>
+                    <option value="Account access">Account access</option>
+                    <option value="Credits or billing">Credits or billing</option>
+                    <option value="Bug report">Bug report</option>
+                    <option value="Feature feedback">Feature feedback</option>
+                    <option value="Studio / business inquiry">Studio / business inquiry</option>
+                  </select>
+                  <svg class="support-select-caret" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+                </div>
               </label>
 
               <label class="support-field">
