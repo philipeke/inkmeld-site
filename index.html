@@ -105,10 +105,10 @@
 
             <div class="hero-device-wrap">
               <img
-                src="/assets/tattoo_app_mockup.png"
+                src="/assets/hero-phone-cutout.png"
                 alt="InkMeld app showing a cybernetic arm tattoo preview with realism controls"
                 class="hero-device"
-                width="1024"
+                width="973"
                 height="1024"
                 fetchpriority="high"
                 decoding="async"
@@ -202,90 +202,138 @@
         </div>
 
         <div class="showcase-device reveal">
-          <div class="control-deck" data-tilt>
-            <div class="control-deck-bg" aria-hidden="true"></div>
-            <div class="control-deck-grid" aria-hidden="true"></div>
+          <div class="showcase-console" data-tilt>
+            <div class="showcase-console-bg" aria-hidden="true"></div>
+            <div class="showcase-console-grid" aria-hidden="true"></div>
 
-            <header class="deck-header">
-              <div class="deck-header-title">
-                <span class="deck-dot"></span>
-                <div>
-                  <strong>Ink Studio &middot; v1.0</strong>
-                  <span>Realtime material simulator</span>
+            <div class="showcase-phone-stage">
+              <span class="showcase-pill showcase-pill--top">Shoulder study synced</span>
+              <div class="showcase-phone-wrap">
+                <div class="showcase-phone-glow" aria-hidden="true"></div>
+                <img
+                  src="/assets/tattoo_app_control_mockup_v2.png"
+                  alt="InkMeld app showing a shoulder tattoo preview with strength, opacity, realism, and blend controls"
+                  class="showcase-phone"
+                  width="1254"
+                  height="1254"
+                  loading="lazy"
+                  decoding="async"
+                >
+              </div>
+              <span class="showcase-pill showcase-pill--bottom">Blend ring locked</span>
+            </div>
+
+            <div class="control-deck control-deck--showcase">
+              <div class="control-deck-bg" aria-hidden="true"></div>
+              <div class="control-deck-grid" aria-hidden="true"></div>
+
+              <header class="deck-header">
+                <div class="deck-header-title">
+                  <span class="deck-dot"></span>
+                  <div>
+                    <strong>Control Deck &middot; Shoulder Rig</strong>
+                    <span>Preset-linked realism stack</span>
+                  </div>
                 </div>
-              </div>
-              <span class="deck-chip">Live</span>
-            </header>
+                <span class="deck-chip">Synced</span>
+              </header>
 
-            <section class="deck-preset-row" aria-label="Material presets">
-              <article class="deck-preset is-active">
-                <span class="deck-preset-sigil deck-preset-sigil--black"></span>
-                <strong>Classic Black</strong>
-                <span>Dense blackwork</span>
-              </article>
-              <article class="deck-preset">
-                <span class="deck-preset-sigil deck-preset-sigil--soft"></span>
-                <strong>Soft Ink</strong>
-                <span>Atmospheric</span>
-              </article>
-              <article class="deck-preset">
-                <span class="deck-preset-sigil deck-preset-sigil--neon"></span>
-                <strong>Neon Future</strong>
-                <span>Synthetic glow</span>
-              </article>
-              <article class="deck-preset">
-                <span class="deck-preset-sigil deck-preset-sigil--metal"></span>
-                <strong>Etched Metal</strong>
-                <span>Reflective edge</span>
-              </article>
-            </section>
+              <section class="deck-focus" aria-label="Active session">
+                <div class="deck-focus-copy">
+                  <span>Active canvas</span>
+                  <strong>Biomech signal / upper arm</strong>
+                  <p>Every control in the deck mirrors the same strength, opacity, and blend story shown in the live preview.</p>
+                </div>
+                <div class="deck-focus-stack" aria-hidden="true">
+                  <span>Strength 88%</span>
+                  <span>Opacity 61%</span>
+                  <span>Realism 94%</span>
+                </div>
+              </section>
 
-            <section class="deck-meters" aria-label="Realism meters">
-              <div class="deck-meter">
-                <div class="deck-meter-label"><span>Opacity</span><strong>92%</strong></div>
-                <div class="deck-meter-track"><div class="deck-meter-fill" style="--w:92%"></div></div>
-              </div>
-              <div class="deck-meter">
-                <div class="deck-meter-label"><span>Skin blend</span><strong>58%</strong></div>
-                <div class="deck-meter-track"><div class="deck-meter-fill" style="--w:58%"></div></div>
-              </div>
-              <div class="deck-meter">
-                <div class="deck-meter-label"><span>Edge softness</span><strong>1.3</strong></div>
-                <div class="deck-meter-track"><div class="deck-meter-fill" style="--w:42%"></div></div>
-              </div>
-              <div class="deck-meter">
-                <div class="deck-meter-label"><span>Shadow</span><strong>24%</strong></div>
-                <div class="deck-meter-track"><div class="deck-meter-fill" style="--w:24%"></div></div>
-              </div>
-            </section>
+              <section class="deck-preset-row" aria-label="Material presets">
+                <article class="deck-preset">
+                  <span class="deck-preset-sigil deck-preset-sigil--pulse"></span>
+                  <strong>Biomech Pulse</strong>
+                  <span>Signal-mapped</span>
+                </article>
+                <article class="deck-preset is-active">
+                  <span class="deck-preset-sigil deck-preset-sigil--violet"></span>
+                  <strong>Violet Core</strong>
+                  <span>Live shoulder rig</span>
+                </article>
+                <article class="deck-preset">
+                  <span class="deck-preset-sigil deck-preset-sigil--hex"></span>
+                  <strong>Hex Bloom</strong>
+                  <span>Texture scaffold</span>
+                </article>
+              </section>
 
-            <section class="deck-blend-row" aria-label="Blend modes">
-              <span class="deck-blend deck-blend--active">Multiply</span>
-              <span class="deck-blend">Soft Light</span>
-              <span class="deck-blend">Overlay</span>
-              <span class="deck-blend">Screen</span>
-              <span class="deck-blend">Hard Light</span>
-            </section>
+              <section class="deck-meters" aria-label="Realism meters">
+                <div class="deck-meter">
+                  <div class="deck-meter-label"><span>Strength</span><strong>88%</strong></div>
+                  <div class="deck-meter-track"><div class="deck-meter-fill" style="--w:88%"></div></div>
+                </div>
+                <div class="deck-meter">
+                  <div class="deck-meter-label"><span>Opacity</span><strong>61%</strong></div>
+                  <div class="deck-meter-track"><div class="deck-meter-fill" style="--w:61%"></div></div>
+                </div>
+                <div class="deck-meter">
+                  <div class="deck-meter-label"><span>Realism</span><strong>94%</strong></div>
+                  <div class="deck-meter-track"><div class="deck-meter-fill" style="--w:94%"></div></div>
+                </div>
+                <div class="deck-meter">
+                  <div class="deck-meter-label"><span>Skin depth</span><strong>47%</strong></div>
+                  <div class="deck-meter-track"><div class="deck-meter-fill" style="--w:47%"></div></div>
+                </div>
+              </section>
 
-            <footer class="deck-footer">
-              <div class="deck-footer-item">
-                <span>Material profile</span>
-                <strong>Dense / grounded</strong>
-              </div>
-              <div class="deck-footer-item">
-                <span>Preview FPS</span>
-                <strong>60</strong>
-              </div>
-              <div class="deck-footer-item">
-                <span>AI cutout</span>
-                <strong class="deck-state-ready">Ready</strong>
-              </div>
-            </footer>
+              <section class="deck-blend-row" aria-label="Blend stack">
+                <span class="deck-blend deck-blend--active">Adaptive ring</span>
+                <span class="deck-blend">Tonal merge</span>
+                <span class="deck-blend">Skin light</span>
+                <span class="deck-blend">Edge lift</span>
+              </section>
 
-            <div class="deck-bolt deck-bolt--tl" aria-hidden="true"></div>
-            <div class="deck-bolt deck-bolt--tr" aria-hidden="true"></div>
-            <div class="deck-bolt deck-bolt--bl" aria-hidden="true"></div>
-            <div class="deck-bolt deck-bolt--br" aria-hidden="true"></div>
+              <section class="deck-signal" aria-label="Signal bridge">
+                <div class="deck-signal-copy">
+                  <span>Signal bridge</span>
+                  <strong>Realtime control sync</strong>
+                </div>
+                <div class="deck-signal-wave" aria-hidden="true">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+              </section>
+
+              <footer class="deck-footer">
+                <div class="deck-footer-item">
+                  <span>Blend mode</span>
+                  <strong>Hybrid ring</strong>
+                </div>
+                <div class="deck-footer-item">
+                  <span>Preview FPS</span>
+                  <strong>60</strong>
+                </div>
+                <div class="deck-footer-item">
+                  <span>AI cutout</span>
+                  <strong class="deck-state-ready">Armed</strong>
+                </div>
+              </footer>
+
+              <div class="deck-bolt deck-bolt--tl" aria-hidden="true"></div>
+              <div class="deck-bolt deck-bolt--tr" aria-hidden="true"></div>
+              <div class="deck-bolt deck-bolt--bl" aria-hidden="true"></div>
+              <div class="deck-bolt deck-bolt--br" aria-hidden="true"></div>
+            </div>
           </div>
         </div>
       </div>
