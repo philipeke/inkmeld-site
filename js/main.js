@@ -99,6 +99,65 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // ─── Live Demo (interactive showcase) ─────────────────────
+  const liveDemo = document.querySelector('[data-live-demo]');
+  if (liveDemo) {
+    const formatters = {
+      opacity: v => `${v}%`,
+      strength: v => `${v}%`,
+      saturation: v => `${v}%`,
+      brightness: v => `${v}%`,
+      contrast: v => `${v}%`,
+      hue: v => `${v}°`,
+    };
+
+    const sliders = liveDemo.querySelectorAll('input[type="range"][data-control]');
+    sliders.forEach(input => {
+      const key = input.dataset.control;
+      const valueEl = liveDemo.querySelector(`[data-value="${key}"]`);
+      const fmt = formatters[key] || (v => v);
+
+      const update = () => {
+        liveDemo.style.setProperty(`--${key}`, input.value);
+        if (valueEl) valueEl.textContent = fmt(input.value);
+      };
+      input.addEventListener('input', update);
+      update();
+    });
+
+    // Presets — apply a coordinated set of values across sliders
+    const presets = {
+      pulse:  { opacity: 90, strength: 95, saturation: 130, hue: -20, brightness: 105, contrast: 115 },
+      violet: { opacity: 72, strength: 88, saturation: 100, hue: 0,   brightness: 100, contrast: 100 },
+      hex:    { opacity: 55, strength: 70, saturation: 80,  hue: 30,  brightness: 110, contrast: 95 },
+    };
+
+    const presetButtons = liveDemo.querySelectorAll('[data-preset]');
+    presetButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const config = presets[btn.dataset.preset];
+        if (!config) return;
+        presetButtons.forEach(b => b.classList.toggle('is-active', b === btn));
+        Object.entries(config).forEach(([key, value]) => {
+          const input = liveDemo.querySelector(`input[data-control="${key}"]`);
+          if (!input) return;
+          input.value = value;
+          input.dispatchEvent(new Event('input', { bubbles: true }));
+        });
+      });
+    });
+
+    // Blend mode buttons
+    const blendButtons = liveDemo.querySelectorAll('[data-blend]');
+    const blendLabel = liveDemo.querySelector('[data-blend-label]');
+    blendButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        blendButtons.forEach(b => b.classList.toggle('is-active', b === btn));
+        if (blendLabel) blendLabel.textContent = btn.textContent.trim();
+      });
+    });
+  }
+
   // ─── Delete Account Form ──────────────────────────────────
   const deleteForm = document.querySelector('[data-delete-form]');
   if (deleteForm) {

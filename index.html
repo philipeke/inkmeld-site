@@ -145,38 +145,18 @@
         </div>
       </div>
 
-      <div class="container hero-marquee-wrap">
-        <div class="hero-marquee reveal">
-          <div class="hero-marquee-track">
-            <span>Import from web, gallery or camera</span>
-            <span>&bull;</span>
-            <span>Neural AI object isolation</span>
-            <span>&bull;</span>
-            <span>Skin-aware placement engine</span>
-            <span>&bull;</span>
-            <span>Studio-grade realism controls</span>
-            <span>&bull;</span>
-            <span>5 blend modes</span>
-            <span>&bull;</span>
-            <span>4 material presets</span>
-            <span>&bull;</span>
-            <span>iOS &middot; Android</span>
-            <span>&bull;</span>
-          </div>
-        </div>
-      </div>
     </section>
 
     <!-- ═══════════════════════ SHOWCASE / THE APP ═══════════════════════ -->
     <section class="showcase-section" id="showcase">
       <div class="showcase-glow" aria-hidden="true"></div>
-      <div class="container showcase-grid">
-        <div class="showcase-copy reveal">
+      <div class="container">
+        <div class="showcase-copy showcase-copy--centered reveal">
           <span class="eyebrow">The App</span>
           <h2 class="section-title">Every tool you need to<br><span class="text-gradient">make it look real.</span></h2>
           <p class="section-copy">A precision control deck for serious tattoo decisions. Not a sticker. Not a filter. A rehearsal engine that holds up to scrutiny — even from the most particular collector.</p>
 
-          <ul class="showcase-list">
+          <ul class="showcase-list showcase-list--inline">
             <li>
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
               <span>Scale, rotate, and position on your exact anatomy</span>
@@ -195,140 +175,116 @@
             </li>
           </ul>
 
-          <div class="hero-actions" style="margin-top: 8px;">
+          <div class="hero-actions" style="margin-top: 8px; justify-content: center;">
             <a class="btn-primary" href="#get-app">Download InkMeld</a>
             <a class="btn-secondary" href="#workflow">See the workflow</a>
           </div>
         </div>
 
-        <div class="showcase-device reveal">
-          <div class="control-deck control-deck--showcase" data-tilt>
-            <div class="control-deck-bg" aria-hidden="true"></div>
-            <div class="control-deck-grid" aria-hidden="true"></div>
+        <!-- Live, interactive demo: phone (left) + controls (right) -->
+        <div class="live-demo reveal" data-live-demo>
+          <div class="live-demo-bg" aria-hidden="true"></div>
+          <div class="live-demo-grid" aria-hidden="true"></div>
 
-            <div class="showcase-phone-cluster">
-              <span class="showcase-pill showcase-pill--top">Shoulder study synced</span>
-              <div class="showcase-phone-glow" aria-hidden="true"></div>
+          <div class="live-demo-stage">
+            <span class="live-demo-pill live-demo-pill--top">
+              <span class="pulse-dot" aria-hidden="true"></span>
+              Live preview
+            </span>
+            <div class="live-demo-glow live-demo-glow--cyan" aria-hidden="true"></div>
+            <div class="live-demo-glow live-demo-glow--violet" aria-hidden="true"></div>
+
+            <div class="live-phone-frame" data-live-phone>
               <img
-                src="/assets/tattoo_app_control_cutout_v3.png"
-                alt="InkMeld app showing a shoulder tattoo preview with strength, opacity, realism, and blend controls"
-                class="showcase-phone"
+                src="/assets/tattoo_app_control_mockup_v2.png"
+                alt="InkMeld app showing a shoulder tattoo preview, responding to live control adjustments"
+                class="live-phone-img"
                 width="1254"
                 height="1254"
                 loading="lazy"
                 decoding="async"
               >
-              <span class="showcase-pill showcase-pill--bottom">Adaptive ring live</span>
+              <div class="live-phone-tint" aria-hidden="true"></div>
             </div>
 
-            <div class="showcase-deck-content">
-              <header class="deck-header">
-                <div class="deck-header-title">
-                  <span class="deck-dot"></span>
-                  <div>
-                    <strong>Control Deck &middot; Shoulder Rig</strong>
-                    <span>Preset-linked realism stack</span>
-                  </div>
-                </div>
-                <span class="deck-chip">Synced</span>
-              </header>
+            <span class="live-demo-pill live-demo-pill--bottom">Adaptive ring · 60 FPS</span>
+          </div>
 
-              <section class="deck-focus" aria-label="Active session">
-                <div class="deck-focus-copy">
-                  <span>Active canvas</span>
-                  <strong>Biomech signal / upper arm</strong>
-                  <p>Every control in the deck mirrors the same strength, opacity, and blend story shown in the live preview.</p>
-                </div>
-                <div class="deck-focus-stack" aria-hidden="true">
-                  <span>Strength 88%</span>
-                  <span>Opacity 61%</span>
-                  <span>Realism 94%</span>
-                </div>
-              </section>
+          <div class="live-demo-controls">
+            <header class="live-demo-header">
+              <div>
+                <span class="live-demo-eyebrow">Control deck</span>
+                <strong>Shoulder rig · Biomech signal</strong>
+              </div>
+              <span class="live-demo-chip">Synced</span>
+            </header>
 
-              <section class="deck-preset-row" aria-label="Material presets">
-                <article class="deck-preset">
-                  <span class="deck-preset-sigil deck-preset-sigil--pulse"></span>
-                  <strong>Biomech Pulse</strong>
-                  <span>Signal-mapped</span>
-                </article>
-                <article class="deck-preset is-active">
-                  <span class="deck-preset-sigil deck-preset-sigil--violet"></span>
-                  <strong>Violet Core</strong>
-                  <span>Live shoulder rig</span>
-                </article>
-                <article class="deck-preset">
-                  <span class="deck-preset-sigil deck-preset-sigil--hex"></span>
-                  <strong>Hex Bloom</strong>
-                  <span>Texture scaffold</span>
-                </article>
-              </section>
+            <section class="live-demo-presets" aria-label="Material presets" data-preset-row>
+              <button type="button" class="live-preset" data-preset="pulse">
+                <span class="live-preset-sigil live-preset-sigil--pulse" aria-hidden="true"></span>
+                <strong>Biomech Pulse</strong>
+                <span>Signal-mapped</span>
+              </button>
+              <button type="button" class="live-preset is-active" data-preset="violet">
+                <span class="live-preset-sigil live-preset-sigil--violet" aria-hidden="true"></span>
+                <strong>Violet Core</strong>
+                <span>Live shoulder rig</span>
+              </button>
+              <button type="button" class="live-preset" data-preset="hex">
+                <span class="live-preset-sigil live-preset-sigil--hex" aria-hidden="true"></span>
+                <strong>Hex Bloom</strong>
+                <span>Texture scaffold</span>
+              </button>
+            </section>
 
-              <section class="deck-meters" aria-label="Realism meters">
-                <div class="deck-meter">
-                  <div class="deck-meter-label"><span>Strength</span><strong>88%</strong></div>
-                  <div class="deck-meter-track"><div class="deck-meter-fill" style="--w:88%"></div></div>
-                </div>
-                <div class="deck-meter">
-                  <div class="deck-meter-label"><span>Opacity</span><strong>61%</strong></div>
-                  <div class="deck-meter-track"><div class="deck-meter-fill" style="--w:61%"></div></div>
-                </div>
-                <div class="deck-meter">
-                  <div class="deck-meter-label"><span>Realism</span><strong>94%</strong></div>
-                  <div class="deck-meter-track"><div class="deck-meter-fill" style="--w:94%"></div></div>
-                </div>
-                <div class="deck-meter">
-                  <div class="deck-meter-label"><span>Skin depth</span><strong>47%</strong></div>
-                  <div class="deck-meter-track"><div class="deck-meter-fill" style="--w:47%"></div></div>
-                </div>
-              </section>
+            <section class="live-demo-sliders" aria-label="Realism controls">
+              <label class="live-slider">
+                <div class="live-slider-label"><span>Opacity</span><strong data-value="opacity">72%</strong></div>
+                <input type="range" min="0" max="100" value="72" data-control="opacity" aria-label="Opacity">
+              </label>
+              <label class="live-slider">
+                <div class="live-slider-label"><span>Strength</span><strong data-value="strength">88%</strong></div>
+                <input type="range" min="0" max="100" value="88" data-control="strength" aria-label="Strength">
+              </label>
+              <label class="live-slider">
+                <div class="live-slider-label"><span>Saturation</span><strong data-value="saturation">100%</strong></div>
+                <input type="range" min="0" max="200" value="100" data-control="saturation" aria-label="Saturation">
+              </label>
+              <label class="live-slider">
+                <div class="live-slider-label"><span>Hue</span><strong data-value="hue">0°</strong></div>
+                <input type="range" min="-180" max="180" value="0" data-control="hue" aria-label="Hue">
+              </label>
+              <label class="live-slider">
+                <div class="live-slider-label"><span>Brightness</span><strong data-value="brightness">100%</strong></div>
+                <input type="range" min="40" max="160" value="100" data-control="brightness" aria-label="Brightness">
+              </label>
+              <label class="live-slider">
+                <div class="live-slider-label"><span>Contrast</span><strong data-value="contrast">100%</strong></div>
+                <input type="range" min="40" max="160" value="100" data-control="contrast" aria-label="Contrast">
+              </label>
+            </section>
 
-              <section class="deck-blend-row" aria-label="Blend stack">
-                <span class="deck-blend deck-blend--active">Adaptive ring</span>
-                <span class="deck-blend">Tonal merge</span>
-                <span class="deck-blend">Skin light</span>
-                <span class="deck-blend">Edge lift</span>
-              </section>
+            <section class="live-demo-blends" aria-label="Blend stack" data-blend-row>
+              <button type="button" class="live-blend is-active" data-blend="adaptive">Adaptive ring</button>
+              <button type="button" class="live-blend" data-blend="tonal">Tonal merge</button>
+              <button type="button" class="live-blend" data-blend="skin">Skin light</button>
+              <button type="button" class="live-blend" data-blend="edge">Edge lift</button>
+            </section>
 
-              <section class="deck-signal" aria-label="Signal bridge">
-                <div class="deck-signal-copy">
-                  <span>Signal bridge</span>
-                  <strong>Realtime control sync</strong>
-                </div>
-                <div class="deck-signal-wave" aria-hidden="true">
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                </div>
-              </section>
-
-              <footer class="deck-footer">
-                <div class="deck-footer-item">
-                  <span>Blend mode</span>
-                  <strong>Hybrid ring</strong>
-                </div>
-                <div class="deck-footer-item">
-                  <span>Preview FPS</span>
-                  <strong>60</strong>
-                </div>
-                <div class="deck-footer-item">
-                  <span>AI cutout</span>
-                  <strong class="deck-state-ready">Armed</strong>
-                </div>
-              </footer>
-            </div>
-
-            <div class="deck-bolt deck-bolt--tl" aria-hidden="true"></div>
-            <div class="deck-bolt deck-bolt--tr" aria-hidden="true"></div>
-            <div class="deck-bolt deck-bolt--bl" aria-hidden="true"></div>
-            <div class="deck-bolt deck-bolt--br" aria-hidden="true"></div>
+            <footer class="live-demo-footer">
+              <div class="live-demo-footer-item">
+                <span>Blend mode</span>
+                <strong data-blend-label>Adaptive ring</strong>
+              </div>
+              <div class="live-demo-footer-item">
+                <span>Preview FPS</span>
+                <strong>60</strong>
+              </div>
+              <div class="live-demo-footer-item">
+                <span>AI cutout</span>
+                <strong class="live-state-ready">Armed</strong>
+              </div>
+            </footer>
           </div>
         </div>
       </div>
